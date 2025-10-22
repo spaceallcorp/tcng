@@ -276,6 +276,15 @@ select {
 
 
 
+/* Force hamburger below 1024px instead of UIKit's default 960px breakpoint */
+@media (max-width: 1200px) {
+  .uk-visible\@m {
+    display: none !important;
+  }
+  .uk-hidden\@m {
+    display: block !important;
+  }
+}
 
 
 /* Responsive Media Queries */
