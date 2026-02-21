@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { EventoService } from '../../services/evento.service';
-import { AsyncPipe, CommonModule, DatePipe, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, CommonModule, DatePipe } from '@angular/common';
 import {  TranslateService } from '@ngx-translate/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 

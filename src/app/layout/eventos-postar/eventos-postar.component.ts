@@ -7,12 +7,12 @@ import {
   serverTimestamp,
 } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { EditorModule } from '@tinymce/tinymce-angular';
 
 @Component({
   selector: 'app-eventos-postar',
-  imports: [FormsModule, CommonModule, EditorModule],
+  imports: [FormsModule, EditorModule],
   templateUrl: './eventos-postar.component.html',
   styleUrl: './eventos-postar.component.css',
 })

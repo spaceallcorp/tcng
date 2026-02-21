@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { CommonModule, DatePipe, NgIf } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { BlogService } from '../../services/blog.service';
 import { TruncatePipe } from '../../pipes/truncate.pipe';
@@ -15,7 +15,7 @@ import { TranslateService, TranslatePipe } from '@ngx-translate/core'; // Inseri
 @Component({
   selector: 'app-artigo',
   standalone: true,
-  imports: [RouterLink, DatePipe, TruncatePipe, NgIf, CommonModule, MenuComponent, RodapeComponent, TranslatePipe], // Inserido
+  imports: [RouterLink, DatePipe, TruncatePipe, CommonModule, MenuComponent, RodapeComponent, TranslatePipe], // Inserido
   templateUrl: './artigo.component.html',
   styleUrl: './artigo.component.css',
 })

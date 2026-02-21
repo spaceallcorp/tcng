@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { BlogService } from '../../services/blog.service';
-import { AsyncPipe, CommonModule, DatePipe, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, CommonModule, DatePipe } from '@angular/common';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 import { TruncatePipe } from '../../pipes/truncate.pipe';
@@ -14,11 +14,10 @@ import { RouterLink } from '@angular/router';
     AsyncPipe,
     CommonModule,
     DatePipe,
-    NgIf,
     TranslatePipe,
     TruncatePipe,
     RouterLink
-  ],
+],
   templateUrl: './artigo-lista.component.html',
   styleUrl: './artigo-lista.component.css'
 })

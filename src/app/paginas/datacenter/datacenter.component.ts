@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuComponent } from '../../layout/menu/menu.component';
 import { RodapeComponent } from '../../layout/rodape/rodape.component';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
@@ -15,10 +15,9 @@ import { Ad2Component } from '../../layout/ad2/ad2.component';
     TranslatePipe,
     MenuComponent,
     RodapeComponent,
-    CommonModule,
     ReactiveFormsModule,
     Ad2Component
-  ],
+],
   templateUrl: './datacenter.component.html',
   styleUrl: './datacenter.component.css'
 })

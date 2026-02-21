@@ -4,7 +4,7 @@ import { TranslateDirective, TranslatePipe } from '@ngx-translate/core';
 import { MenuComponent } from '../../layout/menu/menu.component';
 import { RodapeComponent } from '../../layout/rodape/rodape.component';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
-import { CommonModule } from '@angular/common';
+
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 declare var UIkit: any;
 
@@ -16,7 +16,7 @@ interface Address {
 
 @Component({
   selector: 'app-contacto',
-  imports: [TranslatePipe, ReactiveFormsModule, CommonModule, MenuComponent, RodapeComponent],
+  imports: [TranslatePipe, ReactiveFormsModule, MenuComponent, RodapeComponent],
   templateUrl: './contacto.component.html',
   styleUrl: './contacto.component.css'
 })

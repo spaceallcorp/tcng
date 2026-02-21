@@ -8,7 +8,7 @@
 
         <h4 class="" style="color:white; font-size: 1.1rem;">{{ 'contacto_titulo_pagina' | translate }}</h4>
         <h1 style="color:rgba(39, 200, 227, 1); font-weight: 800; margin-top: 20px; font-size: 2.43rem;"> {{
-          'contacto_subtitulo_pagina' | translate }}</h1>
+        'contacto_subtitulo_pagina' | translate }}</h1>
       </div>
 
     </div>
@@ -45,23 +45,23 @@
         <!-- Addresses list (unchanged) -->
         <ul class="uk-list">
           @for (address of getCountryAddresses(selectedCountry); track address.title) {
-          <li>
-            <div class="uk-grid-small uk-flex-bottom" uk-grid uk-height-match="target: > div">
-              <div>
-                <div class="rectangulo-vertical"></div>
-              </div>
-              <div style="margin-top:10px" class="uk-width-expand ">
-                <p style="color: white; font-weight: 600;font-size: 21px;" class="uk-margin-remove-bottom">
-                  {{ address.title }}
-                </p>
-                <p style="margin-top: 10px !important; color: rgb(216, 216, 216);" class="uk-margin-small-top"
+            <li>
+              <div class="uk-grid-small uk-flex-bottom" uk-grid uk-height-match="target: > div">
+                <div>
+                  <div class="rectangulo-vertical"></div>
+                </div>
+                <div style="margin-top:10px" class="uk-width-expand ">
+                  <p style="color: white; font-weight: 600;font-size: 21px;" class="uk-margin-remove-bottom">
+                    {{ address.title }}
+                  </p>
+                  <p style="margin-top: 10px !important; color: rgb(216, 216, 216);" class="uk-margin-small-top"
                   [innerHTML]="address.address"></p>
-                @if (address.phone) {
-                <p style="color: rgb(216, 216, 216);">{{ address.phone }}</p>
-                }
+                  @if (address.phone) {
+                    <p style="color: rgb(216, 216, 216);">{{ address.phone }}</p>
+                  }
+                </div>
               </div>
-            </div>
-          </li>
+            </li>
           }
         </ul>
       </aside>
@@ -80,176 +80,192 @@
             <input class="uk-input input-contacto"
               [class.uk-form-danger]="contactForm.get('firstName')?.invalid && contactForm.get('firstName')?.touched"
               formControlName="firstName" type="text" aria-label="First Name">
-            <small class="uk-text-danger"
-              *ngIf="contactForm.get('firstName')?.invalid && contactForm.get('firstName')?.touched">
-              {{ 'primeiro_nome_required' | translate }}
-            </small>
-          </div>
-
-          <div class="uk-width-1-2@s">
-            <p style="color: #1B1B1B; font-weight: 600;">{{ 'ultimo_nome_label' | translate }}</p>
-            <input class="uk-input input-contacto"
-              [class.uk-form-danger]="contactForm.get('lastName')?.invalid && contactForm.get('lastName')?.touched"
-              formControlName="lastName" type="text" aria-label="Last Name">
-            <small class="uk-text-danger"
-              *ngIf="contactForm.get('lastName')?.invalid && contactForm.get('lastName')?.touched">
-              {{ 'ultimo_nome_required' | translate }}
-            </small>
-          </div>
-          <div class="uk-width-1-2@s">
-            <p style="color: #1B1B1B; font-weight: 600;">{{ 'numero_telefone_label' | translate }}</p>
-            <input class="uk-input input-contacto"
-              [class.uk-form-danger]="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched"
-              formControlName="phone" type="text" aria-label="Phone Number" (keypress)="blockInvalidPhoneChars($event)"
-              (input)="sanitizePhoneInput()" placeholder="+1234567890">
-            <small class="uk-text-danger"
-              *ngIf="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched">
-              {{ 'numero_telefone_required' | translate }}
-            </small>
-            <small class="uk-text-danger" *ngIf="contactForm.get('phone')?.errors?.['pattern']">
-              {{ 'phone_invalid' | translate }}
-            </small>
-          </div>
-
-          <div class="uk-width-1-2@s">
-            <p style="color: #1B1B1B; font-weight: 600;">{{ 'regiao_label' | translate }}</p>
-            <div>
-              <div class="uk-form-controls">
-                <select class="uk-select input-contacto"
-                  [class.uk-form-danger]="contactForm.get('region')?.invalid && contactForm.get('region')?.touched"
-                  formControlName="region" style="background-color: rgba(240, 240, 248, 1); height: 45px;">
-
-                  <option value="" disabled>{{ 'selecionar_regiao_option' | translate }}</option>
-                  <option value="África Ocidental">{{ 'africa_ocidental_option' | translate }}</option>
-                  <option value="Outro">{{ 'outro_departamento_option' | translate }}</option>
-                </select>
+              @if (contactForm.get('firstName')?.invalid && contactForm.get('firstName')?.touched) {
                 <small class="uk-text-danger"
-                  *ngIf="contactForm.get('region')?.invalid && contactForm.get('region')?.touched">
-                  {{ 'regiao_required' | translate }}
+                  >
+                  {{ 'primeiro_nome_required' | translate }}
                 </small>
+              }
+            </div>
+
+            <div class="uk-width-1-2@s">
+              <p style="color: #1B1B1B; font-weight: 600;">{{ 'ultimo_nome_label' | translate }}</p>
+              <input class="uk-input input-contacto"
+                [class.uk-form-danger]="contactForm.get('lastName')?.invalid && contactForm.get('lastName')?.touched"
+                formControlName="lastName" type="text" aria-label="Last Name">
+                @if (contactForm.get('lastName')?.invalid && contactForm.get('lastName')?.touched) {
+                  <small class="uk-text-danger"
+                    >
+                    {{ 'ultimo_nome_required' | translate }}
+                  </small>
+                }
               </div>
+              <div class="uk-width-1-2@s">
+                <p style="color: #1B1B1B; font-weight: 600;">{{ 'numero_telefone_label' | translate }}</p>
+                <input class="uk-input input-contacto"
+                  [class.uk-form-danger]="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched"
+                  formControlName="phone" type="text" aria-label="Phone Number" (keypress)="blockInvalidPhoneChars($event)"
+                  (input)="sanitizePhoneInput()" placeholder="+1234567890">
+                  @if (contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched) {
+                    <small class="uk-text-danger"
+                      >
+                      {{ 'numero_telefone_required' | translate }}
+                    </small>
+                  }
+                  @if (contactForm.get('phone')?.errors?.['pattern']) {
+                    <small class="uk-text-danger">
+                      {{ 'phone_invalid' | translate }}
+                    </small>
+                  }
+                </div>
+
+                <div class="uk-width-1-2@s">
+                  <p style="color: #1B1B1B; font-weight: 600;">{{ 'regiao_label' | translate }}</p>
+                  <div>
+                    <div class="uk-form-controls">
+                      <select class="uk-select input-contacto"
+                        [class.uk-form-danger]="contactForm.get('region')?.invalid && contactForm.get('region')?.touched"
+                        formControlName="region" style="background-color: rgba(240, 240, 248, 1); height: 45px;">
+
+                        <option value="" disabled>{{ 'selecionar_regiao_option' | translate }}</option>
+                        <option value="África Ocidental">{{ 'africa_ocidental_option' | translate }}</option>
+                        <option value="Outro">{{ 'outro_departamento_option' | translate }}</option>
+                      </select>
+                      @if (contactForm.get('region')?.invalid && contactForm.get('region')?.touched) {
+                        <small class="uk-text-danger"
+                          >
+                          {{ 'regiao_required' | translate }}
+                        </small>
+                      }
+                    </div>
+                  </div>
+                </div>
+                <div class="uk-width-1-2@s">
+                  <p style="color: #1B1B1B; font-weight: 600;">{{ 'departamento_label' | translate }}</p>
+                  <div>
+                    <div class="uk-form-controls">
+                      <select class="uk-select input-contacto"
+                        [class.uk-form-danger]="contactForm.get('department')?.invalid && contactForm.get('department')?.touched"
+                        formControlName="department" style="background-color: rgba(240, 240, 248, 1); height: 45px;">
+                        <option value="" disabled>{{ 'selecione_departamento_option' | translate }}</option>
+                        <option value="vendas">{{ 'vendas_option' | translate }}</option>
+                        <option value="procurement">{{ 'procurement_option' | translate }}</option>
+                        <option value="recursos_humanos">{{ 'recursos_humanos_option' | translate }}</option>
+                        <option value="suporte">{{ 'suporte_option' | translate }}</option>
+
+                        <option value="outro">{{ 'outro_departamento_option' | translate }}</option>
+                      </select>
+                      @if (contactForm.get('department')?.invalid && contactForm.get('department')?.touched) {
+                        <small class="uk-text-danger"
+                          >
+                          {{ 'departamento_required' | translate }}
+                        </small>
+                      }
+                    </div>
+                  </div>
+                </div>
+
+                <div class="uk-width-1-2@s">
+                  <p style="color: #1B1B1B; font-weight: 600;">{{ 'nome_empresa_label' | translate }}</p>
+                  <input class="uk-input input-contacto" formControlName="companyName" type="text" aria-label="Company Name">
+                </div>
+
+                <div class="uk-width-1-2@s">
+                  <p style="color: #1B1B1B; font-weight: 600;">{{ 'cargo_empresa_label' | translate }}</p>
+                  <input class="uk-input input-contacto" formControlName="companyPosition" type="text"
+                    aria-label="Company Position">
+                  </div>
+
+                  <div class="uk-width-1-1">
+                    <p style="color: #1B1B1B; font-weight: 600;">{{ 'email_label' | translate }}</p>
+                    <input class="uk-input input-contacto"
+                      [class.uk-form-danger]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+                      formControlName="email" type="email" aria-label="Email">
+                      @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
+                        <small class="uk-text-danger"
+                          >
+                          {{ 'email_invalid' | translate }}
+                        </small>
+                      }
+                    </div>
+
+                    <div class="uk-width-1-1">
+                      <p style="color: #1B1B1B; font-weight: 600;">{{ 'mensagem_label' | translate }}</p>
+                      <textarea class="uk-textarea input-mensagem"
+                        [class.uk-form-danger]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
+                      formControlName="message" rows="5" aria-label="Message"></textarea>
+                      @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
+                        <small class="uk-text-danger"
+                          >
+                          {{ 'mensagem_required' | translate }}
+                        </small>
+                      }
+                    </div>
+
+                    <div class="uk-width-1-1@s uk-text-right">
+                      <button type="submit" [disabled]="contactForm.invalid" style="padding: 2px; width: 150px;"
+                        class="uk-button bt-enviar uk-button-large uk-border-pill">
+                        <b>{{ 'enviar_botao' | translate }}</b>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+
+
+              <!-- Loading Modal -->
+              <div id="loading-modal" uk-modal>
+                <div style="border-radius: 20px;" class="uk-modal-dialog uk-modal-body uk-text-center">
+                  <div uk-spinner="ratio: 2"></div>
+                  <p class="uk-margin-top">{{ 'enviando' | translate }}</p>
+                </div>
+              </div>
+
+              <!-- Success Modal -->
+              <div id="success-modal" uk-modal>
+                <div style="border-radius: 20px;" class="uk-modal-dialog uk-modal-body">
+                  <button class="uk-modal-close-default" type="button" uk-close></button>
+                  <h2 class="uk-modal-title">{{ 'success_title' | translate }}</h2>
+                  <div class="uk-text-right">
+                    <button class="uk-button uk-button-default uk-border-rounded uk-modal-close" type="button">{{ 'ok' | translate
+                    }}</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Error Modal -->
+              <div id="error-modal" uk-modal>
+                <div style="border-radius: 20px;" class="uk-modal-dialog uk-modal-body">
+                  <button class="uk-modal-close-default" type="button" uk-close></button>
+                  <h2 class="uk-modal-title">{{ 'error_title' | translate }}</h2>
+                  <p>{{ 'error_message' | translate }}</p>
+                  <div class="uk-text-right">
+                    <button class="uk-button uk-button-default uk-border-rounded uk-modal-close" type="button">{{ 'ok' | translate
+                    }}</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Validation Error Modal -->
+              <div id="validation-modal" uk-modal>
+                <div style="border-radius: 20px;" class="uk-modal-dialog uk-modal-body">
+                  <button class="uk-modal-close-default" type="button" uk-close></button>
+                  <h2 class="uk-modal-title">{{ 'form_invalid_title' | translate }}</h2>
+                  <p>{{ 'form_invalid_message' | translate }}</p>
+                  <div class="uk-text-right">
+                    <button class="uk-button uk-button-default uk-border-rounded uk-modal-close" type="button">{{ 'ok' | translate
+                    }}</button>
+                  </div>
+                </div>
+              </div>
+
+
             </div>
           </div>
-          <div class="uk-width-1-2@s">
-            <p style="color: #1B1B1B; font-weight: 600;">{{ 'departamento_label' | translate }}</p>
-            <div>
-              <div class="uk-form-controls">
-                <select class="uk-select input-contacto"
-                  [class.uk-form-danger]="contactForm.get('department')?.invalid && contactForm.get('department')?.touched"
-                  formControlName="department" style="background-color: rgba(240, 240, 248, 1); height: 45px;">
-                  <option value="" disabled>{{ 'selecione_departamento_option' | translate }}</option>
-                  <option value="vendas">{{ 'vendas_option' | translate }}</option>
-                  <option value="procurement">{{ 'procurement_option' | translate }}</option>
-                  <option value="recursos_humanos">{{ 'recursos_humanos_option' | translate }}</option>
-                  <option value="suporte">{{ 'suporte_option' | translate }}</option>
-
-                  <option value="outro">{{ 'outro_departamento_option' | translate }}</option>
-                </select>
-                <small class="uk-text-danger"
-                  *ngIf="contactForm.get('department')?.invalid && contactForm.get('department')?.touched">
-                  {{ 'departamento_required' | translate }}
-                </small>
-              </div>
-            </div>
-          </div>
-
-          <div class="uk-width-1-2@s">
-            <p style="color: #1B1B1B; font-weight: 600;">{{ 'nome_empresa_label' | translate }}</p>
-            <input class="uk-input input-contacto" formControlName="companyName" type="text" aria-label="Company Name">
-          </div>
-
-          <div class="uk-width-1-2@s">
-            <p style="color: #1B1B1B; font-weight: 600;">{{ 'cargo_empresa_label' | translate }}</p>
-            <input class="uk-input input-contacto" formControlName="companyPosition" type="text"
-              aria-label="Company Position">
-          </div>
-
-          <div class="uk-width-1-1">
-            <p style="color: #1B1B1B; font-weight: 600;">{{ 'email_label' | translate }}</p>
-            <input class="uk-input input-contacto"
-              [class.uk-form-danger]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
-              formControlName="email" type="email" aria-label="Email">
-            <small class="uk-text-danger"
-              *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
-              {{ 'email_invalid' | translate }}
-            </small>
-          </div>
-
-          <div class="uk-width-1-1">
-            <p style="color: #1B1B1B; font-weight: 600;">{{ 'mensagem_label' | translate }}</p>
-            <textarea class="uk-textarea input-mensagem"
-              [class.uk-form-danger]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
-              formControlName="message" rows="5" aria-label="Message"></textarea>
-            <small class="uk-text-danger"
-              *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
-              {{ 'mensagem_required' | translate }}
-            </small>
-          </div>
-
-          <div class="uk-width-1-1@s uk-text-right">
-            <button type="submit" [disabled]="contactForm.invalid" style="padding: 2px; width: 150px;"
-              class="uk-button bt-enviar uk-button-large uk-border-pill">
-              <b>{{ 'enviar_botao' | translate }}</b>
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-
-
-
-    <!-- Loading Modal -->
-    <div id="loading-modal" uk-modal>
-      <div style="border-radius: 20px;" class="uk-modal-dialog uk-modal-body uk-text-center">
-        <div uk-spinner="ratio: 2"></div>
-        <p class="uk-margin-top">{{ 'enviando' | translate }}</p>
-      </div>
-    </div>
-
-    <!-- Success Modal -->
-    <div id="success-modal" uk-modal>
-      <div style="border-radius: 20px;" class="uk-modal-dialog uk-modal-body">
-        <button class="uk-modal-close-default" type="button" uk-close></button>
-        <h2 class="uk-modal-title">{{ 'success_title' | translate }}</h2>
-        <div class="uk-text-right">
-          <button class="uk-button uk-button-default uk-border-rounded uk-modal-close" type="button">{{ 'ok' | translate
-            }}</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Error Modal -->
-    <div id="error-modal" uk-modal>
-      <div style="border-radius: 20px;" class="uk-modal-dialog uk-modal-body">
-        <button class="uk-modal-close-default" type="button" uk-close></button>
-        <h2 class="uk-modal-title">{{ 'error_title' | translate }}</h2>
-        <p>{{ 'error_message' | translate }}</p>
-        <div class="uk-text-right">
-          <button class="uk-button uk-button-default uk-border-rounded uk-modal-close" type="button">{{ 'ok' | translate
-            }}</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Validation Error Modal -->
-    <div id="validation-modal" uk-modal>
-      <div style="border-radius: 20px;" class="uk-modal-dialog uk-modal-body">
-        <button class="uk-modal-close-default" type="button" uk-close></button>
-        <h2 class="uk-modal-title">{{ 'form_invalid_title' | translate }}</h2>
-        <p>{{ 'form_invalid_message' | translate }}</p>
-        <div class="uk-text-right">
-          <button class="uk-button uk-button-default uk-border-rounded uk-modal-close" type="button">{{ 'ok' | translate
-            }}</button>
-        </div>
-      </div>
-    </div>
-
-
-  </div>
-</div>
 
 
 
 
 
-<app-rodape></app-rodape>
+          <app-rodape></app-rodape>

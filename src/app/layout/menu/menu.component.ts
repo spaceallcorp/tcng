@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateDirective, TranslatePipe } from '@ngx-translate/core';
 import { ChangeDetectorRef } from '@angular/core';
@@ -12,7 +12,7 @@ declare var UIkit: any; // add at the top of your component .ts file
 
 @Component({
   selector: 'app-menu',
-  imports: [RouterLink, CommonModule, TranslateModule,],
+  imports: [RouterLink, TranslateModule],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })

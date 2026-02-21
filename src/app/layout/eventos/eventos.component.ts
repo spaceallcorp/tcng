@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { EventoService } from '../../services/evento.service';
-import { AsyncPipe, CommonModule, DatePipe, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, CommonModule, DatePipe } from '@angular/common';
 import { TranslatePipe,  TranslateService } from '@ngx-translate/core';
 
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
@@ -9,13 +9,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-eventos',
-  imports: [     AsyncPipe,
-    CommonModule,
-    NgIf,
-    TranslatePipe,
-
-    RouterLink
-],
+  imports: [AsyncPipe, CommonModule, TranslatePipe, RouterLink],
   templateUrl: './eventos.component.html',
   styleUrl: './eventos.component.css'
 })

@@ -2,12 +2,12 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Firestore, addDoc, collection, serverTimestamp } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { EditorModule } from '@tinymce/tinymce-angular';
 
 @Component({
   selector: 'app-vagas-criar',
-  imports: [FormsModule, CommonModule, EditorModule],
+  imports: [FormsModule, EditorModule],
   templateUrl: './vagas-criar.component.html',
   styleUrl: './vagas-criar.component.css'
 })

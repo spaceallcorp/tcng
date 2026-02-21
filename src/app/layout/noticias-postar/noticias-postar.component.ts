@@ -2,12 +2,12 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Firestore, addDoc, collection, serverTimestamp } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { CommonModule, DatePipe, AsyncPipe, NgIf, NgFor, DecimalPipe,  } from '@angular/common';
+import { DatePipe, AsyncPipe, DecimalPipe } from '@angular/common';
 import { EditorModule } from '@tinymce/tinymce-angular';
 
 @Component({
   selector: 'app-noticias-postar',
-  imports: [FormsModule,AsyncPipe, CommonModule, EditorModule,],
+  imports: [FormsModule, AsyncPipe, EditorModule],
   templateUrl: './noticias-postar.component.html',
   styleUrl: './noticias-postar.component.css'
 })

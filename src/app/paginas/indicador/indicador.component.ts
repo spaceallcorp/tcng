@@ -1,7 +1,7 @@
 import { Component,  } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { CommonModule } from '@angular/common';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from '../../layout/menu/menu.component';
 import { RodapeComponent } from '../../layout/rodape/rodape.component';
@@ -10,7 +10,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 @Component({
   selector: 'app-indicador',
   standalone: true,
-  imports: [MenuComponent, RodapeComponent, TranslatePipe, ReactiveFormsModule, CommonModule],
+  imports: [MenuComponent, RodapeComponent, TranslatePipe, ReactiveFormsModule],
   templateUrl: './indicador.component.html',
   styleUrls: ['./indicador.component.css']
 })

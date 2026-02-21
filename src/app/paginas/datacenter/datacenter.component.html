@@ -77,7 +77,7 @@
 <div class=" bg-pattern">
   <div class="uk-container uk-margin-large-top uk-margin-large-bottom " style="">
     <p style="font-size: 1.55rem; color:#000026 " class="uk-text-center uk-container ">{{ 'datacenter.desc' | translate
-      }}</p>
+    }}</p>
   </div>
 </div>
 
@@ -91,14 +91,17 @@
 
     <form [formGroup]="visitForm" class=" uk-form-stacked uk-border-rounded uk-margin-small-top">
 
-      <div
-        *ngIf="visitForm.get('firstName')?.invalid && (visitForm.get('firstName')?.dirty || visitForm.get('firstName')?.touched)"
-        class="uk-text-danger">
-        <ng-container *ngIf="visitForm.get('firstName')?.errors?.['required']">
-          {{ 'campo_obrigatorio' | translate }} </ng-container>
-        <ng-container *ngIf="visitForm.get('firstName')?.errors?.['pattern']">
-          {{ 'formato_invalido' | translate }} </ng-container>
-      </div>
+      @if (visitForm.get('firstName')?.invalid && (visitForm.get('firstName')?.dirty || visitForm.get('firstName')?.touched)) {
+        <div
+          class="uk-text-danger">
+          @if (visitForm.get('firstName')?.errors?.['required']) {
+            {{ 'campo_obrigatorio' | translate }}
+          }
+          @if (visitForm.get('firstName')?.errors?.['pattern']) {
+            {{ 'formato_invalido' | translate }}
+          }
+        </div>
+      }
 
       <!-- Último Nome -->
       <div class="uk-margin">
@@ -117,18 +120,22 @@
         </div>
       </div>
 
-      <div *ngIf="visitForm.get('email')?.invalid && (visitForm.get('email')?.dirty || visitForm.get('email')?.touched)"
-        class="uk-text-danger">
-        <ng-container *ngIf="visitForm.get('email')?.errors?.['required']">
-          {{ 'campo_obrigatorio' | translate }} </ng-container>
-        <ng-container *ngIf="visitForm.get('email')?.errors?.['pattern']">
-          {{ 'formato_invalido_email' | translate }} </ng-container>
-      </div>
+      @if (visitForm.get('email')?.invalid && (visitForm.get('email')?.dirty || visitForm.get('email')?.touched)) {
+        <div
+          class="uk-text-danger">
+          @if (visitForm.get('email')?.errors?.['required']) {
+            {{ 'campo_obrigatorio' | translate }}
+          }
+          @if (visitForm.get('email')?.errors?.['pattern']) {
+            {{ 'formato_invalido_email' | translate }}
+          }
+        </div>
+      }
 
 
       <div class="uk-margin">
         <label style="color:#1B1B1B" class="uk-form-label" for="form-stacked-select"> {{ 'qual.datacenter' | translate
-          }} </label>
+        }} </label>
         <div class="uk-form-controls">
           <select class="uk-select uk-border-rounded" id="form-stacked-select">
             <option>AngoNAP I (Luanda, Angola)</option>
@@ -142,22 +149,22 @@
     <p class="uk-text-right">
       <button style="background-color: #28C1FD; margin: 20px;; color: #000026; font-weight: 600;"
         (click)="submitForm($event)" class="uk-button  uk-button-medium uk-border-pill" type="button">{{'comecar.visita'
-        | translate }} </button>
+      | translate }} </button>
     </p>
   </div>
 </div>
 <!--
 <div class="fundo-cabecalho">
-    <div class="gradiente-texto-cabecalho">
-        <div class="conteudo-cabecalho uk-margin-medium-top">
-            <div class="uk-container uk-margin-large-bottom">
-                <h4 style="color:white">Data Center</h4>
-                <h1 style="color:rgba(39, 200, 227, 1); font-weight: bolder;">Infraestrutura robusta para um mundo digital <br> sempre conectado.</h1>
-            </div>
-        </div>
+  <div class="gradiente-texto-cabecalho">
+    <div class="conteudo-cabecalho uk-margin-medium-top">
+      <div class="uk-container uk-margin-large-bottom">
+        <h4 style="color:white">Data Center</h4>
+        <h1 style="color:rgba(39, 200, 227, 1); font-weight: bolder;">Infraestrutura robusta para um mundo digital <br> sempre conectado.</h1>
+      </div>
     </div>
+  </div>
 </div>
- -->
+-->
 
 
 <div class="uk-container">
@@ -170,55 +177,55 @@
         <div class="">
           <img class="border-2 card-image" src="img/servicos/angonap_service.png" width="1800" height="1200" alt="">
           <h2 style="color: rgba(9, 0, 67, 1); font-weight: bolder;"><b>AngoNAP </b></h2>
-          <br> 
-          <p>{{ 'angonap_card_descricao' | translate }}</p>
-        </div>
-        <div class="uk-text-center uk-margin-auto-top">
-          <a style="font-weight: bold;" href="https://angolacables.rds.land/data-center">
-            <button class="botao-guia uk-margin-medium-top uk-button uk-border-pill uk-width-1-1">{{ 'guia_produto' |
+          <br>
+            <p>{{ 'angonap_card_descricao' | translate }}</p>
+          </div>
+          <div class="uk-text-center uk-margin-auto-top">
+            <a style="font-weight: bold;" href="https://angolacables.rds.land/data-center">
+              <button class="botao-guia uk-margin-medium-top uk-button uk-border-pill uk-width-1-1">{{ 'guia_produto' |
               translate }}</button>
-          </a>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="uk-card uk-card-default uk-card-body border-2 uk-flex uk-flex-column uk-flex-stretch">
+          <div class="">
+            <img class="border-2 card-image" src="img/servicos/managed-services.jpg" width="1800" height="1200" alt="">
+            <h2 style="color: rgba(9, 0, 67, 1); font-weight: bolder;"><b>Managed Services</b></h2> <br>
+            <p>{{ 'managed_services_card_descricao' | translate }}</p>
+          </div>
+          <div class="uk-text-center uk-margin-auto-top">
+            <a href="https://angolacables.rds.land/data-center" style="font-weight: bold;">
+              <button class="botao-guia uk-margin-medium-top uk-button uk-border-pill uk-width-1-1">{{ 'guia_produto' |
+              translate }}</button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="uk-card uk-card-default uk-card-body border-2 uk-flex uk-flex-column uk-flex-stretch">
+          <div class="">
+            <img class="border-2 card-image" src="img/servicos/gdi.jpg" width="1800" height="1200" alt="">
+            <h2 style="color: rgba(9, 0, 67, 1); font-weight: bolder;"><b>Global Data Center Interconnection</b></h2><br>
+            <p>{{ 'gdi_descricao' | translate }}</p>
+          </div>
+          <div class="uk-text-center uk-margin-auto-top">
+            <a href="https://angolacables.rds.land/data-center" style="font-weight: bold;">
+              <button class="botao-guia uk-margin-medium-top uk-button uk-border-pill uk-width-1-1">{{ 'guia_produto' |
+              translate }}</button>
+            </a>
+          </div>
         </div>
       </div>
     </div>
 
-    <div>
-      <div class="uk-card uk-card-default uk-card-body border-2 uk-flex uk-flex-column uk-flex-stretch">
-        <div class="">
-          <img class="border-2 card-image" src="img/servicos/managed-services.jpg" width="1800" height="1200" alt="">
-          <h2 style="color: rgba(9, 0, 67, 1); font-weight: bolder;"><b>Managed Services</b></h2> <br>
-          <p>{{ 'managed_services_card_descricao' | translate }}</p>
-        </div>
-        <div class="uk-text-center uk-margin-auto-top">
-          <a href="https://angolacables.rds.land/data-center" style="font-weight: bold;">
-            <button class="botao-guia uk-margin-medium-top uk-button uk-border-pill uk-width-1-1">{{ 'guia_produto' |
-              translate }}</button>
-          </a>
-        </div>
-      </div>
-    </div>
 
-    <div>
-      <div class="uk-card uk-card-default uk-card-body border-2 uk-flex uk-flex-column uk-flex-stretch">
-        <div class="">
-          <img class="border-2 card-image" src="img/servicos/gdi.jpg" width="1800" height="1200" alt="">
-          <h2 style="color: rgba(9, 0, 67, 1); font-weight: bolder;"><b>Global Data Center Interconnection</b></h2><br>
-          <p>{{ 'gdi_descricao' | translate }}</p>
-        </div>
-        <div class="uk-text-center uk-margin-auto-top">
-          <a href="https://angolacables.rds.land/data-center" style="font-weight: bold;">
-            <button class="botao-guia uk-margin-medium-top uk-button uk-border-pill uk-width-1-1">{{ 'guia_produto' |
-              translate }}</button>
-          </a>
-        </div>
-      </div>
-    </div>
+
+    <app-ad2></app-ad2>
+
   </div>
 
-
-
-<app-ad2></app-ad2>
-
-</div>
-
-<app-rodape></app-rodape>
+  <app-rodape></app-rodape>

@@ -1,88 +1,81 @@
 <app-menu></app-menu>
 
-<div *ngIf="post.imageUrl" class="hero-section" [ngStyle]="{'background-image': 'url(' + post.imageUrl + ')'}">
-  <div class="overlay">
-    <div class="uk-container">
-      <h2 class="title">
-        {{ post.title }}
-      </h2>
+@if (post.imageUrl) {
+  <div class="hero-section" [ngStyle]="{'background-image': 'url(' + post.imageUrl + ')'}">
+    <div class="overlay">
+      <div class="uk-container">
+        <h2 class="title">
+          {{ post.title }}
+        </h2>
+      </div>
     </div>
   </div>
-</div>
+}
 
 
 
 
 <div>
-  <div class="fundo-artigo" *ngIf="post; else loading">
-
-
-
-    <div class="uk-container">
-      <div class="uk-grid-large uk-margin-large-bottom" uk-grid>
-        <div class="uk-width-expand">
-          <article style="color:white" class="uk-article uk-margin-large-top">
-            <div class="">
-              <!--    
-              <p style="font-size: 0.9rem; color: #A2A2B2;">{{ 'artigo.escrito_por' | translate }}:
-                <b style="color: white;"> {{ post.author}} </b>
-              </p>
-
-           <p style="color: #A2A2B2;">{{ 'publicado_em' | translate }}: <b style="color: white;"> {{ post.createdAt?.toDate() | date:
-                  'dd/MM/yyyy' }} </b></p> -->
-
-
-            </div>
-            <div class="uk-article uk-margin-large-top " [innerHTML]="safeContent"></div>
-          </article>
-        </div>
-
-        <aside style="color:white;padding: 30px; border-radius: 8px;"
-          class="fundo-mais-artigos uk-width-1-3@m uk-margin-large-top uk-margin-left">
-          <h4 style="color:white"><span>{{ 'mais_artigos' | translate }}</span></h4>
-
-          @if (posts$ | async; as posts) {
-          <ul class="uk-list uk-list-divider">
-            @for (relatedPost of posts; track relatedPost.id) {
-            @if (relatedPost.id !== post?.id) {
-            <li>
-              <div>
-                <div class="uk-grid-small" uk-grid>
-                  <div>
-                    <img class="foto-mais-artigos uk-border-rounded" [src]="relatedPost.imageUrl"
-                      alt="Imagem de {{ relatedPost.title }}" width="60" height="60" style="object-fit: cover;" />
-                  </div>
-                  <div class="uk-width-expand">
-                    <a [routerLink]="['/artigo', relatedPost.id]" style="text-decoration: none;">
-                      <p style="color: rgba(40, 193, 253, 1)" class="uk-margin-remove-bottom">
-                        {{ relatedPost.title }}
-                      </p>
-                    </a>
-                    <p [innerHTML]="post.content | truncate:100:true" style="color: #A2A2B2;" class="uk-text-meta uk-margin-remove-top">
-                      
-                    </p>
-                  </div>
-                </div>
+  @if (post) {
+    <div class="fundo-artigo">
+      <div class="uk-container">
+        <div class="uk-grid-large uk-margin-large-bottom" uk-grid>
+          <div class="uk-width-expand">
+            <article style="color:white" class="uk-article uk-margin-large-top">
+              <div class="">
+                <!--
+                <p style="font-size: 0.9rem; color: #A2A2B2;">{{ 'artigo.escrito_por' | translate }}:
+                  <b style="color: white;"> {{ post.author}} </b>
+                </p>
+                <p style="color: #A2A2B2;">{{ 'publicado_em' | translate }}: <b style="color: white;"> {{ post.createdAt?.toDate() | date:
+                'dd/MM/yyyy' }} </b></p> -->
               </div>
-            </li>
-            }
-            }
-
-            <div class="uk-margin uk-text-center">
-              <a class="uk-margin-large-top" style="color: rgba(40, 193, 253, 1);" routerLink="/solutions">{{ 'artigo.ver_todos' | translate }}</a>
-            </div>
-          </ul>
-          }
-        </aside>
+              <div class="uk-article uk-margin-large-top " [innerHTML]="safeContent"></div>
+            </article>
+          </div>
+          <aside style="color:white;padding: 30px; border-radius: 8px;"
+            class="fundo-mais-artigos uk-width-1-3@m uk-margin-large-top uk-margin-left">
+            <h4 style="color:white"><span>{{ 'mais_artigos' | translate }}</span></h4>
+            @if (posts$ | async; as posts) {
+              <ul class="uk-list uk-list-divider">
+                @for (relatedPost of posts; track relatedPost.id) {
+                  @if (relatedPost.id !== post?.id) {
+                    <li>
+                      <div>
+                        <div class="uk-grid-small" uk-grid>
+                          <div>
+                            <img class="foto-mais-artigos uk-border-rounded" [src]="relatedPost.imageUrl"
+                              alt="Imagem de {{ relatedPost.title }}" width="60" height="60" style="object-fit: cover;" />
+                            </div>
+                            <div class="uk-width-expand">
+                              <a [routerLink]="['/artigo', relatedPost.id]" style="text-decoration: none;">
+                                <p style="color: rgba(40, 193, 253, 1)" class="uk-margin-remove-bottom">
+                                  {{ relatedPost.title }}
+                                </p>
+                              </a>
+                              <p [innerHTML]="post.content | truncate:100:true" style="color: #A2A2B2;" class="uk-text-meta uk-margin-remove-top">
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    }
+                  }
+                  <div class="uk-margin uk-text-center">
+                    <a class="uk-margin-large-top" style="color: rgba(40, 193, 253, 1);" routerLink="/solutions">{{ 'artigo.ver_todos' | translate }}</a>
+                  </div>
+                </ul>
+              }
+            </aside>
+          </div>
+        </div>
       </div>
-    </div>
+    } @else {
+      <div class="uk-flex uk-flex-center uk-margin-large-top">
+        <div uk-spinner></div>
+      </div>
+    }
+
   </div>
 
-  <ng-template #loading>
-    <div class="uk-flex uk-flex-center uk-margin-large-top">
-      <div uk-spinner></div>
-    </div>
-  </ng-template>
-</div>
-
-<app-rodape></app-rodape>
+  <app-rodape></app-rodape>

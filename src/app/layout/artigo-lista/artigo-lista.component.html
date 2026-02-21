@@ -1,40 +1,42 @@
 <div class="uk-container" style="margin-top: 70px; margin-bottom: 70px;">
   @if (posts$ | async; as posts) {
-  <div class="uk-grid uk-child-width-1-3@m uk-grid-medium" uk-grid>
-    @for (post of posts; track post.id) {
-    <div>
-      <div class="uk-card  uk-card-small uk-border-rounded">
+    <div class="uk-grid uk-child-width-1-3@m uk-grid-medium" uk-grid>
+      @for (post of posts; track post.id) {
+        <div>
+          <div class="uk-card  uk-card-small uk-border-rounded">
 
-        <!-- Featured Image -->
-        <div *ngIf="post.imageUrl" class="uk-card-media-top thumbnail">
-          <img [src]="post.imageUrl" alt="Imagem de destaque" />
+            <!-- Featured Image -->
+            @if (post.imageUrl) {
+              <div class="uk-card-media-top thumbnail">
+                <img [src]="post.imageUrl" alt="Imagem de destaque" />
+              </div>
+            }
+
+            <div class="uk-card-header">
+              <!--   <p class="uk-text-meta" style="font-size: 0.9rem; margin-bottom: 5px;">
+              {{ post.createdAt?.toDate() | date: 'dd/MM/yyyy' }}
+            </p> -->
+            <a style="color: #1A1A1A;" [routerLink]="['/solution', post.id]">
+              <p style="font-size: 1.5rem; font-weight: 600;" class="uk-card-title uk-text-left">{{ post.title }}</p>
+            </a>
+          </div>
+          <!--
+          <div class="uk-card-body">
+            <div *ngIf="post.content" [innerHTML]="post.content | truncate:150"></div>
+          </div>
+
+
+          <div class="uk-card-footer uk-flex uk-flex-between uk-flex-middle">
+            <a [routerLink]="['/artigo', post.id]" class="uk-button uk-button-text">Ler mais</a>
+          </div> -->
+
         </div>
-
-        <div class="uk-card-header">
-          <!--   <p class="uk-text-meta" style="font-size: 0.9rem; margin-bottom: 5px;">
-          {{ post.createdAt?.toDate() | date: 'dd/MM/yyyy' }}
-        </p> -->
-          <a style="color: #1A1A1A;" [routerLink]="['/solution', post.id]">
-            <p style="font-size: 1.5rem; font-weight: 600;" class="uk-card-title uk-text-left">{{ post.title }}</p>
-          </a>
-        </div>
-        <!-- 
-        <div class="uk-card-body">
-          <div *ngIf="post.content" [innerHTML]="post.content | truncate:150"></div>
-        </div>
-       
-
-        <div class="uk-card-footer uk-flex uk-flex-between uk-flex-middle">
-          <a [routerLink]="['/artigo', post.id]" class="uk-button uk-button-text">Ler mais</a>
-        </div> -->
-
       </div>
-    </div>
     }
   </div>
-  } @else {
+} @else {
   <div class="uk-flex uk-flex-center uk-margin-large-top">
     <div uk-spinner></div>
   </div>
-  }
+}
 </div>

@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
-import { CommonModule } from '@angular/common';
+
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contacto',
-  imports: [TranslatePipe, CommonModule, ReactiveFormsModule],
+  imports: [TranslatePipe, ReactiveFormsModule],
   templateUrl: './contacto.component.html',
   styleUrl: './contacto.component.css'
 })

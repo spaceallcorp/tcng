@@ -9,12 +9,12 @@ import { NoticiaService } from '../../services/noticia.service';
 
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
-import { AsyncPipe, CommonModule, DatePipe, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, CommonModule, DatePipe } from '@angular/common';
 
 
 @Component({
   selector: 'app-noticias',
-  imports: [TranslatePipe, MenuComponent, RodapeComponent, NgIf, DatePipe, AsyncPipe, CommonModule, TruncatePipe],
+  imports: [TranslatePipe, MenuComponent, RodapeComponent, DatePipe, AsyncPipe, CommonModule, TruncatePipe],
   templateUrl: './noticias.component.html',
   styleUrl: './noticias.component.css'
 })

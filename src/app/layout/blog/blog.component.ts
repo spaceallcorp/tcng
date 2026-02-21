@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { BlogService } from '../../services/blog.service';
-import { AsyncPipe, CommonModule, DatePipe, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, CommonModule, DatePipe } from '@angular/common';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
@@ -8,13 +8,12 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-blog',
   imports: [
-       AsyncPipe,
+    AsyncPipe,
     CommonModule,
     DatePipe,
-    NgIf,
     TranslatePipe,
     RouterLink
-  ],
+],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.css'
 })

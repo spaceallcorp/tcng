@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { RouterLink } from '@angular/router';
 import { Component } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';

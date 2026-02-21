@@ -12,16 +12,16 @@ import { EventosPostarComponent } from '../../layout/eventos-postar/eventos-post
 import { PaineisPostarComponent } from '../../layout/paineis-postar/paineis-postar.component';
 import { PaineisListarComponent } from '../../layout/paineis-listar/paineis-listar.component';
 import { RodapeComponent } from '../../layout/rodape/rodape.component';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-dashboard',
   imports: [
     ArtigoPostarComponent,
-    MenuComponent, 
-    ArtigoListaComponent, 
-    VagasCriarComponent, 
-    VagasListarComponent, 
+    MenuComponent,
+    ArtigoListaComponent,
+    VagasCriarComponent,
+    VagasListarComponent,
     TranslatePipe,
     NoticiasListarComponent,
     NoticiasPostarComponent,
@@ -29,9 +29,8 @@ import { CommonModule } from '@angular/common';
     EventosPostarComponent,
     PaineisPostarComponent,
     PaineisListarComponent,
-    RodapeComponent, 
-    CommonModule
-   ],
+    RodapeComponent
+],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })

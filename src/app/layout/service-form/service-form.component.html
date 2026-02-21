@@ -49,482 +49,486 @@
                     [ngClass]="{'uk-form-danger': serviceContact.get('email')?.invalid && (serviceContact.get('email')?.dirty || serviceContact.get('email')?.touched),
                          'uk-form-success': serviceContact.get('email')?.valid && (serviceContact.get('email')?.dirty || serviceContact.get('email')?.touched)}" />
 
-                  <div
-                    *ngIf="serviceContact.get('email')?.invalid && (serviceContact.get('email')?.dirty || serviceContact.get('email')?.touched)"
-                    class="uk-text-danger">
-                    <ng-container *ngIf="serviceContact.get('email')?.errors?.['required']">
-                      {{ 'campo_obrigatorio' | translate }} </ng-container>
-                    <ng-container *ngIf="serviceContact.get('email')?.errors?.['pattern']">
-                      {{ 'formato_invalido_email' | translate }} </ng-container>
+                    @if (serviceContact.get('email')?.invalid && (serviceContact.get('email')?.dirty || serviceContact.get('email')?.touched)) {
+                      <div
+                        class="uk-text-danger">
+                        @if (serviceContact.get('email')?.errors?.['required']) {
+                          {{ 'campo_obrigatorio' | translate }}
+                        }
+                        @if (serviceContact.get('email')?.errors?.['pattern']) {
+                          {{ 'formato_invalido_email' | translate }}
+                        }
+                      </div>
+                    }
                   </div>
                 </div>
-              </div>
 
-              <!-- Phone -->
-              <div class="uk-width-1-2@s">
-                <div class="uk-margin">
-                  <label for="phone" class="uk-form-label"> <b> {{'telefone' | translate}} </b> </label>
-                  <input id="phone" formControlName="phone" type="text" class="uk-input"
+                <!-- Phone -->
+                <div class="uk-width-1-2@s">
+                  <div class="uk-margin">
+                    <label for="phone" class="uk-form-label"> <b> {{'telefone' | translate}} </b> </label>
+                    <input id="phone" formControlName="phone" type="text" class="uk-input"
                     [ngClass]="{'uk-form-danger': serviceContact.get('phone')?.invalid && (serviceContact.get('phone')?.dirty || serviceContact.get('phone')?.touched),
                                 'uk-form-success': serviceContact.get('phone')?.valid && (serviceContact.get('phone')?.dirty || serviceContact.get('phone')?.touched)}" />
 
-                  <div
-                    *ngIf="serviceContact.get('phone')?.invalid && (serviceContact.get('phone')?.dirty || serviceContact.get('phone')?.touched)"
-                    class="uk-text-danger">
-                    <ng-container *ngIf="serviceContact.get('phone')?.errors?.['required']">
-                      {{ 'campo_obrigatorio' | translate }} </ng-container>
-                    <ng-container *ngIf="serviceContact.get('phone')?.errors?.['pattern']">
-                      {{ 'formato_invalido_email' | translate }} </ng-container>
-                  </div>
-                </div>
-              </div>
-
-              <!-- What are you? -->
-              <div class="uk-width-1-1">
-                <div class="uk-margin">
-                  <label class="uk-form-label uk-margin-small-top uk-margin-medium-bottom">
-                    <b>{{ 'what_you' | translate}}</b>
-                  </label>
-
-                  <div class="uk-form-controls uk-flex uk-flex-wrap">
-                    <!-- Business Lead Button -->
-                    <button type="button"
-                      class="uk-button botao-service uk-button-default uk-border-rounded uk-margin-small-right"
-                      [class.uk-button-primary]="serviceContact.get('contactType')?.value === 'businessLead'"
-                      (click)="serviceContact.get('contactType')?.setValue('businessLead')">
-                      {{ 'negocio' | translate }}
-                    </button>
-
-                    <!-- Service Provider Button -->
-                    <button type="button"
-                      class="uk-button botao-service uk-button-default uk-border-rounded uk-margin-small-right"
-                      [class.uk-button-primary]="serviceContact.get('contactType')?.value === 'serviceProvider'"
-                      (click)="serviceContact.get('contactType')?.setValue('serviceProvider')">
-                      {{ 'provedor_servico' | translate }}
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Business Indicator Details (conditional) -->
-              <div *ngIf="selectedContactType === 'businessLead'" class="uk-margin-large-top uk-width-1-1 uk-grid-small"
-                uk-grid>
-                <div class="uk-width-1-1">
-                  <h3 class="uk-heading-divider"><b> {{ 'indicador_detalhes' | translate }} </b></h3>
-                </div>
-
-                <div class="uk-width-1-2@s">
-                  <div class="uk-margin">
-                    <label for="potCliente" class="uk-form-label"><b> {{'nome_potencial_cliente' | translate }}
-                      </b></label>
-                    <input id="potCliente" formControlName="potCliente" type="text" class="uk-input" />
-                  </div>
-                </div>
-
-              
-
-                <!-- Message -->
-                <div class="uk-width-1-1">
-                  <label class="uk-form-label" style="color: #1B1B1B; border-radius: 12px; font-weight: 600;">
-                    {{ 'mensagem_label' | translate }}
-                  </label>
-                  <textarea class="uk-textarea input-mensagem"
-                    [class.uk-form-danger]="serviceContact.get('message')?.invalid && serviceContact.get('message')?.touched"
-                    formControlName="message" rows="5" aria-label="Message"></textarea>
-                  <small class="uk-text-danger"
-                    *ngIf="serviceContact.get('message')?.invalid && serviceContact.get('message')?.touched">
-                    {{ 'mensagem_required' | translate }}
-                  </small>
-                </div>
-
-                <!-- Submit Button -->
-                <div class="uk-width-1-1">
-                  <div class="uk-margin-medium-top uk-margin uk-grid-small uk-child-width-auto uk-grid">
-                  </div>
-                  <button type="submit"
-                    class="uk-button botao-service uk-button-default uk-border-rounded uk-margin-small-right"
-                    [disabled]="isSubmitting">
-                    <span *ngIf="!isSubmitting">{{'solicitar' | translate}}</span>
-                    <span *ngIf="isSubmitting" uk-spinner></span>
-                  </button>
-                </div>
-              </div>
-
-              <!-- Service Provider Details (conditional) -->
-              <div *ngIf="selectedContactType === 'serviceProvider'"
-                class="uk-margin-large-top uk-width-1-1 uk-grid-small" uk-grid>
-                <div class="uk-width-1-1">
-                  <h3 class="uk-heading-divider">
-                    <b> {{'serviceprovider_details' | translate}} </b>
-                  </h3>
-                </div>
-
-                <!-- Company Name -->
-                <div class="uk-width-1-2@s">
-                  <div class="uk-margin">
-                    <label for="nomeEmpresa" class="uk-form-label"><b> {{'nome_empresa_revendedor' | translate }}
-                      </b></label>
-                    <input id="nomeEmpresa" formControlName="nomeEmpresa" type="text" class="uk-input" />
-                  </div>
-                </div>
-
-                <!-- Country -->
-                <div class="uk-width-1-2@s">
-                  <div class="uk-margin">
-                    <label class="uk-border-rounded uk-form-label" for="paisForm">
-                      <b>{{ 'pais_sede_empresa' | translate}}</b>
-                    </label>
-                    <div class="uk-form-controls">
-                      <select class="uk-select uk-form-width-medium" id="paisForm" formControlName="paisForm">
-                        <option value=""></option>
-                        <option value="Afghanistan">Afghanistan</option>
-                        <option value="Albania">Albania</option>
-                        <option value="Germany">Germany</option>
-                        <option value="Andorra">Andorra</option>
-                        <option value="Angola">Angola</option>
-                        <option value="Anguilla">Anguilla</option>
-                        <option value="Antarctica">Antarctica</option>
-                        <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Armenia">Armenia</option>
-                        <option value="Aruba">Aruba</option>
-                        <option value="Australia">Australia</option>
-                        <option value="Austria">Austria</option>
-                        <option value="Azerbaijan">Azerbaijan</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Bahrain">Bahrain</option>
-                        <option value="Bangladesh">Bangladesh</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belgium">Belgium</option>
-                        <option value="Belize">Belize</option>
-                        <option value="Benin">Benin</option>
-                        <option value="Bermuda">Bermuda</option>
-                        <option value="Bhutan">Bhutan</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-                        <option value="Botswana">Botswana</option>
-                        <option value="Brazil">Brazil</option>
-                        <option value="Brunei">Brunei</option>
-                        <option value="Bulgaria">Bulgaria</option>
-                        <option value="Burkina Faso">Burkina Faso</option>
-                        <option value="Burundi">Burundi</option>
-                        <option value="Cambodia">Cambodia</option>
-                        <option value="Cameroon">Cameroon</option>
-                        <option value="Canada">Canada</option>
-                        <option value="Cape Verde">Cape Verde</option>
-                        <option value="Cayman Islands">Cayman Islands</option>
-                        <option value="Central African Republic">Central African Republic</option>
-                        <option value="Chad">Chad</option>
-                        <option value="Chile">Chile</option>
-                        <option value="China">China</option>
-                        <option value="Cyprus">Cyprus</option>
-                        <option value="Vatican City">Vatican City</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Comoros">Comoros</option>
-                        <option value="Congo">Congo</option>
-                        <option value="Democratic Republic of the Congo">Democratic Republic of the Congo</option>
-                        <option value="South Korea">South Korea</option>
-                        <option value="North Korea">North Korea</option>
-                        <option value="Ivory Coast">Ivory Coast</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Croatia">Croatia</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Curaçao">Curaçao</option>
-
-                        <option value="Denmark">Denmark</option>
-                        <option value="Djibouti">Djibouti</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Egypt">Egypt</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="United Arab Emirates">United Arab Emirates</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="Eritrea">Eritrea</option>
-                        <option value="Slovakia">Slovakia</option>
-                        <option value="Slovenia">Slovenia</option>
-                        <option value="Spain">Spain</option>
-                        <option value="United States">United States</option>
-                        <option value="Estonia">Estonia</option>
-                        <option value="Ethiopia">Ethiopia</option>
-                        <option value="Philippines">Philippines</option>
-                        <option value="Finland">Finland</option>
-                        <option value="Fiji">Fiji</option>
-                        <option value="France">France</option>
-                        <option value="Gabon">Gabon</option>
-                        <option value="Gambia">Gambia</option>
-                        <option value="Georgia">Georgia</option>
-                        <option value="Ghana">Ghana</option>
-                        <option value="Gibraltar">Gibraltar</option>
-                        <option value="Greece">Greece</option>
-                        <option value="Grenada">Grenada</option>
-                        <option value="Guadeloupe">Guadeloupe</option>
-                        <option value="Guam">Guam</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guernsey">Guernsey</option>
-                        <option value="Guinea">Guinea</option>
-                        <option value="Guinea-Bissau">Guinea-Bissau</option>
-                        <option value="Equatorial Guinea">Equatorial Guinea</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="French Guiana">French Guiana</option>
-                        <option value="India">India</option>
-                        <option value="Indonesia">Indonesia</option>
-                        <option value="Iran">Iran</option>
-                        <option value="Iraq">Iraq</option>
-                        <option value="Ireland">Ireland</option>
-                        <option value="Iceland">Iceland</option>
-                        <option value="Israel">Israel</option>
-                        <option value="Italy">Italy</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Japan">Japan</option>
-                        <option value="Jersey">Jersey</option>
-                        <option value="Jordan">Jordan</option>
-                        <option value="Kazakhstan">Kazakhstan</option>
-                        <option value="Kenya">Kenya</option>
-                        <option value="Kyrgyzstan">Kyrgyzstan</option>
-                        <option value="Kuwait">Kuwait</option>
-                        <option value="Laos">Laos</option>
-                        <option value="Lesotho">Lesotho</option>
-                        <option value="Latvia">Latvia</option>
-                        <option value="Lebanon">Lebanon</option>
-                        <option value="Liberia">Liberia</option>
-                        <option value="Libya">Libya</option>
-                        <option value="Liechtenstein">Liechtenstein</option>
-                        <option value="Lithuania">Lithuania</option>
-                        <option value="Luxembourg">Luxembourg</option>
-
-                        <option value="Macau">Macau</option>
-                        <option value="North Macedonia">North Macedonia</option>
-                        <option value="Madagascar">Madagascar</option>
-                        <option value="Malawi">Malawi</option>
-                        <option value="Malaysia">Malaysia</option>
-                        <option value="Maldives">Maldives</option>
-                        <option value="Mali">Mali</option>
-                        <option value="Malta">Malta</option>
-                        <option value="Morocco">Morocco</option>
-                        <option value="Marshall Islands">Marshall Islands</option>
-                        <option value="Martinique">Martinique</option>
-                        <option value="Mauritania">Mauritania</option>
-                        <option value="Mauritius">Mauritius</option>
-                        <option value="Mayotte">Mayotte</option>
-                        <option value="Mexico">Mexico</option>
-                        <option value="Micronesia">Micronesia</option>
-                        <option value="Moldova">Moldova</option>
-                        <option value="Monaco">Monaco</option>
-                        <option value="Mongolia">Mongolia</option>
-                        <option value="Montenegro">Montenegro</option>
-                        <option value="Montserrat">Montserrat</option>
-                        <option value="Mozambique">Mozambique</option>
-                        <option value="Namibia">Namibia</option>
-                        <option value="Nauru">Nauru</option>
-                        <option value="Nepal">Nepal</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Niger">Niger</option>
-                        <option value="Nigeria">Nigeria</option>
-                        <option value="Niue">Niue</option>
-                        <option value="Norfolk Island">Norfolk Island</option>
-                        <option value="Norway">Norway</option>
-                        <option value="Oman">Oman</option>
-                        <option value="Pakistan">Pakistan</option>
-                        <option value="Palau">Palau</option>
-                        <option value="Palestine">Palestine</option>
-                        <option value="Panama">Panama</option>
-                        <option value="Papua New Guinea">Papua New Guinea</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Peru</option>
-                        <option value="Pitcairn Islands">Pitcairn Islands</option>
-                        <option value="Poland">Poland</option>
-                        <option value="Portugal">Portugal</option>
-
-                        <option value="Qatar">Qatar</option>
-                        <option value="Réunion">Réunion</option>
-                        <option value="Romania">Romania</option>
-                        <option value="Russia">Russia</option>
-                        <option value="Rwanda">Rwanda</option>
-                        <option value="Saint Barthélemy">Saint Barthélemy</option>
-                        <option value="Saint Helena">Saint Helena</option>
-                        <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
-                        <option value="Saint Lucia">Saint Lucia</option>
-                        <option value="Saint Martin">Saint Martin</option>
-                        <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
-                        <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
-                        <option value="Samoa">Samoa</option>
-                        <option value="San Marino">San Marino</option>
-                        <option value="São Tomé and Príncipe">São Tomé and Príncipe</option>
-                        <option value="Saudi Arabia">Saudi Arabia</option>
-                        <option value="Senegal">Senegal</option>
-                        <option value="Serbia">Serbia</option>
-                        <option value="Seychelles">Seychelles</option>
-                        <option value="Sierra Leone">Sierra Leone</option>
-                        <option value="Singapore">Singapore</option>
-                        <option value="Sint Maarten">Sint Maarten</option>
-                        <option value="Slovakia">Slovakia</option>
-                        <option value="Slovenia">Slovenia</option>
-                        <option value="Solomon Islands">Solomon Islands</option>
-                        <option value="Somalia">Somalia</option>
-                        <option value="South Africa">South Africa</option>
-                        <option value="South Georgia and the South Sandwich Islands">South Georgia and the South
-                          Sandwich
-                          Islands</option>
-                        <option value="South Sudan">South Sudan</option>
-                        <option value="Spain">Spain</option>
-                        <option value="Sri Lanka">Sri Lanka</option>
-                        <option value="Sudan">Sudan</option>
-                        <option value="Suriname">Suriname</option>
-                        <option value="Sweden">Sweden</option>
-                        <option value="Switzerland">Switzerland</option>
-                        <option value="Syria">Syria</option>
-                        <option value="Taiwan">Taiwan</option>
-                        <option value="Tajikistan">Tajikistan</option>
-                        <option value="Tanzania">Tanzania</option>
-                        <option value="Thailand">Thailand</option>
-                        <option value="Timor-Leste">Timor-Leste</option>
-                        <option value="Togo">Togo</option>
-                        <option value="Tokelau">Tokelau</option>
-                        <option value="Tonga">Tonga</option>
-                        <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-                        <option value="Tunisia">Tunisia</option>
-                        <option value="Turkey">Turkey</option>
-                        <option value="Turkmenistan">Turkmenistan</option>
-                        <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
-                        <option value="Tuvalu">Tuvalu</option>
-                        <option value="Uganda">Uganda</option>
-                        <option value="Ukraine">Ukraine</option>
-                        <option value="United Arab Emirates">United Arab Emirates</option>
-                        <option value="United Kingdom">United Kingdom</option>
-                        <option value="United States">United States</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Uzbekistan">Uzbekistan</option>
-                        <option value="Vanuatu">Vanuatu</option>
-                        <option value="Venezuela">Venezuela</option>
-                        <option value="Vietnam">Vietnam</option>
-                        <option value="Wallis and Futuna">Wallis and Futuna</option>
-                        <option value="Western Sahara">Western Sahara</option>
-                        <option value="Yemen">Yemen</option>
-                        <option value="Zambia">Zambia</option>
-                        <option value="Zimbabwe">Zimbabwe</option>
-                        <!-- Other country options -->
-                      </select>
+                      @if (serviceContact.get('phone')?.invalid && (serviceContact.get('phone')?.dirty || serviceContact.get('phone')?.touched)) {
+                        <div
+                          class="uk-text-danger">
+                          @if (serviceContact.get('phone')?.errors?.['required']) {
+                            {{ 'campo_obrigatorio' | translate }}
+                          }
+                          @if (serviceContact.get('phone')?.errors?.['pattern']) {
+                            {{ 'formato_invalido_email' | translate }}
+                          }
+                        </div>
+                      }
                     </div>
                   </div>
-                </div>
 
-
-
-                <div class="uk-width-1-1">
-  <label for="servicoInteresse" class="uk-form-label">
-    <b>{{ 'servico_interesse_revender' | translate }}</b>
-  </label>
-  <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-    <label *ngFor="let service of servicesList">
-      <input
-        class="uk-checkbox"
-        type="checkbox"
-        [value]="service.label"
-        (change)="onCheckboxChange($event)" />
-      {{ service.label | translate }}
-    </label>
-  </div>
-</div>
-
-               
-
-                <!-- Angola Cables Customer -->
-                <div class="uk-width-1-1 uk-margin-medium-top">
-                  <div class="uk-width-1-2@s modern-radio-group">
-                    <label class="uk-form-label">
-                      <b>{{ 'cliente_angola_cables' | translate }}</b>
-                    </label>
-
-                    <div class="radio-options">
-                      <label class="modern-radio">
-                        <input class="uk-radio" type="radio" formControlName="clienteAngolaCables" value="Yes">
-                        <span>{{ 'sim' | translate }}</span>
+                  <!-- What are you? -->
+                  <div class="uk-width-1-1">
+                    <div class="uk-margin">
+                      <label class="uk-form-label uk-margin-small-top uk-margin-medium-bottom">
+                        <b>{{ 'what_you' | translate}}</b>
                       </label>
 
-                      <label class="modern-radio">
-                        <input class="uk-radio" type="radio" formControlName="clienteAngolaCables" value="No">
-                        <span>{{ 'nao' | translate }}</span>
-                      </label>
+                      <div class="uk-form-controls uk-flex uk-flex-wrap">
+                        <!-- Business Lead Button -->
+                        <button type="button"
+                          class="uk-button botao-service uk-button-default uk-border-rounded uk-margin-small-right"
+                          [class.uk-button-primary]="serviceContact.get('contactType')?.value === 'businessLead'"
+                          (click)="serviceContact.get('contactType')?.setValue('businessLead')">
+                          {{ 'negocio' | translate }}
+                        </button>
+
+                        <!-- Service Provider Button -->
+                        <button type="button"
+                          class="uk-button botao-service uk-button-default uk-border-rounded uk-margin-small-right"
+                          [class.uk-button-primary]="serviceContact.get('contactType')?.value === 'serviceProvider'"
+                          (click)="serviceContact.get('contactType')?.setValue('serviceProvider')">
+                          {{ 'provedor_servico' | translate }}
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <!-- Message -->
-                <div class="uk-width-1-1">
-                  <label class="uk-form-label" style="color: #1B1B1B; border-radius: 12px; font-weight: 600;">
-                    {{ 'mensagem_label' | translate }}
-                  </label>
-                  <textarea class="uk-textarea input-mensagem"
-                    [class.uk-form-danger]="serviceContact.get('message')?.invalid && serviceContact.get('message')?.touched"
-                    formControlName="message" rows="5" aria-label="Message"></textarea>
-                  <small class="uk-text-danger"
-                    *ngIf="serviceContact.get('message')?.invalid && serviceContact.get('message')?.touched">
-                    {{ 'mensagem_required' | translate }}
-                  </small>
-                </div>
+                  <!-- Business Indicator Details (conditional) -->
+                  @if (selectedContactType === 'businessLead') {
+                    <div class="uk-margin-large-top uk-width-1-1 uk-grid-small"
+                      uk-grid>
+                      <div class="uk-width-1-1">
+                        <h3 class="uk-heading-divider"><b> {{ 'indicador_detalhes' | translate }} </b></h3>
+                      </div>
+                      <div class="uk-width-1-2@s">
+                        <div class="uk-margin">
+                          <label for="potCliente" class="uk-form-label"><b> {{'nome_potencial_cliente' | translate }}
+                          </b></label>
+                          <input id="potCliente" formControlName="potCliente" type="text" class="uk-input" />
+                        </div>
+                      </div>
+                      <!-- Message -->
+                      <div class="uk-width-1-1">
+                        <label class="uk-form-label" style="color: #1B1B1B; border-radius: 12px; font-weight: 600;">
+                          {{ 'mensagem_label' | translate }}
+                        </label>
+                        <textarea class="uk-textarea input-mensagem"
+                          [class.uk-form-danger]="serviceContact.get('message')?.invalid && serviceContact.get('message')?.touched"
+                        formControlName="message" rows="5" aria-label="Message"></textarea>
+                        @if (serviceContact.get('message')?.invalid && serviceContact.get('message')?.touched) {
+                          <small class="uk-text-danger"
+                            >
+                            {{ 'mensagem_required' | translate }}
+                          </small>
+                        }
+                      </div>
+                      <!-- Submit Button -->
+                      <div class="uk-width-1-1">
+                        <div class="uk-margin-medium-top uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                        </div>
+                        <button type="submit"
+                          class="uk-button botao-service uk-button-default uk-border-rounded uk-margin-small-right"
+                          [disabled]="isSubmitting">
+                          @if (!isSubmitting) {
+                            <span>{{'solicitar' | translate}}</span>
+                          }
+                          @if (isSubmitting) {
+                            <span uk-spinner></span>
+                          }
+                        </button>
+                      </div>
+                    </div>
+                  }
 
-                <!-- Submit Button -->
-                <div class="uk-width-1-1">
-                  <button type="submit" class="uk-button botao-service uk-button-default uk-margin-small-right"
-                    [disabled]="isSubmitting">
-                    <span *ngIf="!isSubmitting">{{'solicitar' | translate}}</span>
-                    <span *ngIf="isSubmitting" uk-spinner></span>
+                  <!-- Service Provider Details (conditional) -->
+                  @if (selectedContactType === 'serviceProvider') {
+                    <div
+                      class="uk-margin-large-top uk-width-1-1 uk-grid-small" uk-grid>
+                      <div class="uk-width-1-1">
+                        <h3 class="uk-heading-divider">
+                          <b> {{'serviceprovider_details' | translate}} </b>
+                        </h3>
+                      </div>
+                      <!-- Company Name -->
+                      <div class="uk-width-1-2@s">
+                        <div class="uk-margin">
+                          <label for="nomeEmpresa" class="uk-form-label"><b> {{'nome_empresa_revendedor' | translate }}
+                          </b></label>
+                          <input id="nomeEmpresa" formControlName="nomeEmpresa" type="text" class="uk-input" />
+                        </div>
+                      </div>
+                      <!-- Country -->
+                      <div class="uk-width-1-2@s">
+                        <div class="uk-margin">
+                          <label class="uk-border-rounded uk-form-label" for="paisForm">
+                            <b>{{ 'pais_sede_empresa' | translate}}</b>
+                          </label>
+                          <div class="uk-form-controls">
+                            <select class="uk-select uk-form-width-medium" id="paisForm" formControlName="paisForm">
+                              <option value=""></option>
+                              <option value="Afghanistan">Afghanistan</option>
+                              <option value="Albania">Albania</option>
+                              <option value="Germany">Germany</option>
+                              <option value="Andorra">Andorra</option>
+                              <option value="Angola">Angola</option>
+                              <option value="Anguilla">Anguilla</option>
+                              <option value="Antarctica">Antarctica</option>
+                              <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                              <option value="Argentina">Argentina</option>
+                              <option value="Armenia">Armenia</option>
+                              <option value="Aruba">Aruba</option>
+                              <option value="Australia">Australia</option>
+                              <option value="Austria">Austria</option>
+                              <option value="Azerbaijan">Azerbaijan</option>
+                              <option value="Bahamas">Bahamas</option>
+                              <option value="Bahrain">Bahrain</option>
+                              <option value="Bangladesh">Bangladesh</option>
+                              <option value="Barbados">Barbados</option>
+                              <option value="Belgium">Belgium</option>
+                              <option value="Belize">Belize</option>
+                              <option value="Benin">Benin</option>
+                              <option value="Bermuda">Bermuda</option>
+                              <option value="Bhutan">Bhutan</option>
+                              <option value="Bolivia">Bolivia</option>
+                              <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                              <option value="Botswana">Botswana</option>
+                              <option value="Brazil">Brazil</option>
+                              <option value="Brunei">Brunei</option>
+                              <option value="Bulgaria">Bulgaria</option>
+                              <option value="Burkina Faso">Burkina Faso</option>
+                              <option value="Burundi">Burundi</option>
+                              <option value="Cambodia">Cambodia</option>
+                              <option value="Cameroon">Cameroon</option>
+                              <option value="Canada">Canada</option>
+                              <option value="Cape Verde">Cape Verde</option>
+                              <option value="Cayman Islands">Cayman Islands</option>
+                              <option value="Central African Republic">Central African Republic</option>
+                              <option value="Chad">Chad</option>
+                              <option value="Chile">Chile</option>
+                              <option value="China">China</option>
+                              <option value="Cyprus">Cyprus</option>
+                              <option value="Vatican City">Vatican City</option>
+                              <option value="Colombia">Colombia</option>
+                              <option value="Comoros">Comoros</option>
+                              <option value="Congo">Congo</option>
+                              <option value="Democratic Republic of the Congo">Democratic Republic of the Congo</option>
+                              <option value="South Korea">South Korea</option>
+                              <option value="North Korea">North Korea</option>
+                              <option value="Ivory Coast">Ivory Coast</option>
+                              <option value="Costa Rica">Costa Rica</option>
+                              <option value="Croatia">Croatia</option>
+                              <option value="Cuba">Cuba</option>
+                              <option value="Curaçao">Curaçao</option>
+                              <option value="Denmark">Denmark</option>
+                              <option value="Djibouti">Djibouti</option>
+                              <option value="Dominica">Dominica</option>
+                              <option value="Egypt">Egypt</option>
+                              <option value="El Salvador">El Salvador</option>
+                              <option value="United Arab Emirates">United Arab Emirates</option>
+                              <option value="Ecuador">Ecuador</option>
+                              <option value="Eritrea">Eritrea</option>
+                              <option value="Slovakia">Slovakia</option>
+                              <option value="Slovenia">Slovenia</option>
+                              <option value="Spain">Spain</option>
+                              <option value="United States">United States</option>
+                              <option value="Estonia">Estonia</option>
+                              <option value="Ethiopia">Ethiopia</option>
+                              <option value="Philippines">Philippines</option>
+                              <option value="Finland">Finland</option>
+                              <option value="Fiji">Fiji</option>
+                              <option value="France">France</option>
+                              <option value="Gabon">Gabon</option>
+                              <option value="Gambia">Gambia</option>
+                              <option value="Georgia">Georgia</option>
+                              <option value="Ghana">Ghana</option>
+                              <option value="Gibraltar">Gibraltar</option>
+                              <option value="Greece">Greece</option>
+                              <option value="Grenada">Grenada</option>
+                              <option value="Guadeloupe">Guadeloupe</option>
+                              <option value="Guam">Guam</option>
+                              <option value="Guatemala">Guatemala</option>
+                              <option value="Guernsey">Guernsey</option>
+                              <option value="Guinea">Guinea</option>
+                              <option value="Guinea-Bissau">Guinea-Bissau</option>
+                              <option value="Equatorial Guinea">Equatorial Guinea</option>
+                              <option value="Guyana">Guyana</option>
+                              <option value="French Guiana">French Guiana</option>
+                              <option value="India">India</option>
+                              <option value="Indonesia">Indonesia</option>
+                              <option value="Iran">Iran</option>
+                              <option value="Iraq">Iraq</option>
+                              <option value="Ireland">Ireland</option>
+                              <option value="Iceland">Iceland</option>
+                              <option value="Israel">Israel</option>
+                              <option value="Italy">Italy</option>
+                              <option value="Jamaica">Jamaica</option>
+                              <option value="Japan">Japan</option>
+                              <option value="Jersey">Jersey</option>
+                              <option value="Jordan">Jordan</option>
+                              <option value="Kazakhstan">Kazakhstan</option>
+                              <option value="Kenya">Kenya</option>
+                              <option value="Kyrgyzstan">Kyrgyzstan</option>
+                              <option value="Kuwait">Kuwait</option>
+                              <option value="Laos">Laos</option>
+                              <option value="Lesotho">Lesotho</option>
+                              <option value="Latvia">Latvia</option>
+                              <option value="Lebanon">Lebanon</option>
+                              <option value="Liberia">Liberia</option>
+                              <option value="Libya">Libya</option>
+                              <option value="Liechtenstein">Liechtenstein</option>
+                              <option value="Lithuania">Lithuania</option>
+                              <option value="Luxembourg">Luxembourg</option>
+                              <option value="Macau">Macau</option>
+                              <option value="North Macedonia">North Macedonia</option>
+                              <option value="Madagascar">Madagascar</option>
+                              <option value="Malawi">Malawi</option>
+                              <option value="Malaysia">Malaysia</option>
+                              <option value="Maldives">Maldives</option>
+                              <option value="Mali">Mali</option>
+                              <option value="Malta">Malta</option>
+                              <option value="Morocco">Morocco</option>
+                              <option value="Marshall Islands">Marshall Islands</option>
+                              <option value="Martinique">Martinique</option>
+                              <option value="Mauritania">Mauritania</option>
+                              <option value="Mauritius">Mauritius</option>
+                              <option value="Mayotte">Mayotte</option>
+                              <option value="Mexico">Mexico</option>
+                              <option value="Micronesia">Micronesia</option>
+                              <option value="Moldova">Moldova</option>
+                              <option value="Monaco">Monaco</option>
+                              <option value="Mongolia">Mongolia</option>
+                              <option value="Montenegro">Montenegro</option>
+                              <option value="Montserrat">Montserrat</option>
+                              <option value="Mozambique">Mozambique</option>
+                              <option value="Namibia">Namibia</option>
+                              <option value="Nauru">Nauru</option>
+                              <option value="Nepal">Nepal</option>
+                              <option value="Nicaragua">Nicaragua</option>
+                              <option value="Niger">Niger</option>
+                              <option value="Nigeria">Nigeria</option>
+                              <option value="Niue">Niue</option>
+                              <option value="Norfolk Island">Norfolk Island</option>
+                              <option value="Norway">Norway</option>
+                              <option value="Oman">Oman</option>
+                              <option value="Pakistan">Pakistan</option>
+                              <option value="Palau">Palau</option>
+                              <option value="Palestine">Palestine</option>
+                              <option value="Panama">Panama</option>
+                              <option value="Papua New Guinea">Papua New Guinea</option>
+                              <option value="Paraguay">Paraguay</option>
+                              <option value="Peru">Peru</option>
+                              <option value="Pitcairn Islands">Pitcairn Islands</option>
+                              <option value="Poland">Poland</option>
+                              <option value="Portugal">Portugal</option>
+                              <option value="Qatar">Qatar</option>
+                              <option value="Réunion">Réunion</option>
+                              <option value="Romania">Romania</option>
+                              <option value="Russia">Russia</option>
+                              <option value="Rwanda">Rwanda</option>
+                              <option value="Saint Barthélemy">Saint Barthélemy</option>
+                              <option value="Saint Helena">Saint Helena</option>
+                              <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                              <option value="Saint Lucia">Saint Lucia</option>
+                              <option value="Saint Martin">Saint Martin</option>
+                              <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+                              <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                              <option value="Samoa">Samoa</option>
+                              <option value="San Marino">San Marino</option>
+                              <option value="São Tomé and Príncipe">São Tomé and Príncipe</option>
+                              <option value="Saudi Arabia">Saudi Arabia</option>
+                              <option value="Senegal">Senegal</option>
+                              <option value="Serbia">Serbia</option>
+                              <option value="Seychelles">Seychelles</option>
+                              <option value="Sierra Leone">Sierra Leone</option>
+                              <option value="Singapore">Singapore</option>
+                              <option value="Sint Maarten">Sint Maarten</option>
+                              <option value="Slovakia">Slovakia</option>
+                              <option value="Slovenia">Slovenia</option>
+                              <option value="Solomon Islands">Solomon Islands</option>
+                              <option value="Somalia">Somalia</option>
+                              <option value="South Africa">South Africa</option>
+                              <option value="South Georgia and the South Sandwich Islands">South Georgia and the South
+                                Sandwich
+                              Islands</option>
+                              <option value="South Sudan">South Sudan</option>
+                              <option value="Spain">Spain</option>
+                              <option value="Sri Lanka">Sri Lanka</option>
+                              <option value="Sudan">Sudan</option>
+                              <option value="Suriname">Suriname</option>
+                              <option value="Sweden">Sweden</option>
+                              <option value="Switzerland">Switzerland</option>
+                              <option value="Syria">Syria</option>
+                              <option value="Taiwan">Taiwan</option>
+                              <option value="Tajikistan">Tajikistan</option>
+                              <option value="Tanzania">Tanzania</option>
+                              <option value="Thailand">Thailand</option>
+                              <option value="Timor-Leste">Timor-Leste</option>
+                              <option value="Togo">Togo</option>
+                              <option value="Tokelau">Tokelau</option>
+                              <option value="Tonga">Tonga</option>
+                              <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                              <option value="Tunisia">Tunisia</option>
+                              <option value="Turkey">Turkey</option>
+                              <option value="Turkmenistan">Turkmenistan</option>
+                              <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
+                              <option value="Tuvalu">Tuvalu</option>
+                              <option value="Uganda">Uganda</option>
+                              <option value="Ukraine">Ukraine</option>
+                              <option value="United Arab Emirates">United Arab Emirates</option>
+                              <option value="United Kingdom">United Kingdom</option>
+                              <option value="United States">United States</option>
+                              <option value="Uruguay">Uruguay</option>
+                              <option value="Uzbekistan">Uzbekistan</option>
+                              <option value="Vanuatu">Vanuatu</option>
+                              <option value="Venezuela">Venezuela</option>
+                              <option value="Vietnam">Vietnam</option>
+                              <option value="Wallis and Futuna">Wallis and Futuna</option>
+                              <option value="Western Sahara">Western Sahara</option>
+                              <option value="Yemen">Yemen</option>
+                              <option value="Zambia">Zambia</option>
+                              <option value="Zimbabwe">Zimbabwe</option>
+                              <!-- Other country options -->
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="uk-width-1-1">
+                        <label for="servicoInteresse" class="uk-form-label">
+                          <b>{{ 'servico_interesse_revender' | translate }}</b>
+                        </label>
+                        <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                          @for (service of servicesList; track service) {
+                            <label>
+                              <input
+                                class="uk-checkbox"
+                                type="checkbox"
+                                [value]="service.label"
+                                (change)="onCheckboxChange($event)" />
+                                {{ service.label | translate }}
+                              </label>
+                            }
+                          </div>
+                        </div>
+                        <!-- Angola Cables Customer -->
+                        <div class="uk-width-1-1 uk-margin-medium-top">
+                          <div class="uk-width-1-2@s modern-radio-group">
+                            <label class="uk-form-label">
+                              <b>{{ 'cliente_angola_cables' | translate }}</b>
+                            </label>
+                            <div class="radio-options">
+                              <label class="modern-radio">
+                                <input class="uk-radio" type="radio" formControlName="clienteAngolaCables" value="Yes">
+                                <span>{{ 'sim' | translate }}</span>
+                              </label>
+                              <label class="modern-radio">
+                                <input class="uk-radio" type="radio" formControlName="clienteAngolaCables" value="No">
+                                <span>{{ 'nao' | translate }}</span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Message -->
+                        <div class="uk-width-1-1">
+                          <label class="uk-form-label" style="color: #1B1B1B; border-radius: 12px; font-weight: 600;">
+                            {{ 'mensagem_label' | translate }}
+                          </label>
+                          <textarea class="uk-textarea input-mensagem"
+                            [class.uk-form-danger]="serviceContact.get('message')?.invalid && serviceContact.get('message')?.touched"
+                          formControlName="message" rows="5" aria-label="Message"></textarea>
+                          @if (serviceContact.get('message')?.invalid && serviceContact.get('message')?.touched) {
+                            <small class="uk-text-danger"
+                              >
+                              {{ 'mensagem_required' | translate }}
+                            </small>
+                          }
+                        </div>
+                        <!-- Submit Button -->
+                        <div class="uk-width-1-1">
+                          <button type="submit" class="uk-button botao-service uk-button-default uk-margin-small-right"
+                            [disabled]="isSubmitting">
+                            @if (!isSubmitting) {
+                              <span>{{'solicitar' | translate}}</span>
+                            }
+                            @if (isSubmitting) {
+                              <span uk-spinner></span>
+                            }
+                          </button>
+                        </div>
+                      </div>
+                    }
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Modals (unchanged) -->
+            <div id="loading-modal" uk-modal>
+              <div class="uk-modal-dialog uk-modal-body uk-text-center">
+                <div uk-spinner="ratio: 2"></div>
+                <p class="uk-margin-top">{{ 'enviando' | translate }}</p>
+              </div>
+            </div>
+
+            <div id="success-modal" uk-modal>
+              <div class="uk-modal-dialog uk-modal-body">
+                <button class="uk-modal-close-default" type="button" uk-close></button>
+                <h2 class="uk-modal-title">{{ 'sucesso' | translate }}</h2>
+                <p>{{ 'registro_sucesso' | translate }} 🎉</p>
+                <p class="uk-text-meta">{{ 'contatado_em_breve' | translate }}</p>
+                <div class="uk-text-right">
+                  <button class="uk-button uk-button-default uk-border-rounded uk-modal-close" type="button">
+                    {{ 'ok' | translate }}
                   </button>
                 </div>
               </div>
             </div>
-          </form>
-        </div>
-      </div>
 
-      <!-- Modals (unchanged) -->
-      <div id="loading-modal" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body uk-text-center">
-          <div uk-spinner="ratio: 2"></div>
-          <p class="uk-margin-top">{{ 'enviando' | translate }}</p>
-        </div>
-      </div>
+            <div id="error-modal" uk-modal>
+              <div class="uk-modal-dialog uk-modal-body">
+                <button class="uk-modal-close-default" type="button" uk-close></button>
+                <h2 class="uk-modal-title">{{ 'erro' | translate }}</h2>
+                <p>{{ 'envio_falhou' | translate }}</p>
+                <div class="uk-text-right">
+                  <button class="uk-button uk-button-default uk-border-rounded uk-modal-close" type="button">
+                    {{ 'ok' | translate }}
+                  </button>
+                </div>
+              </div>
+            </div>
 
-      <div id="success-modal" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body">
-          <button class="uk-modal-close-default" type="button" uk-close></button>
-          <h2 class="uk-modal-title">{{ 'sucesso' | translate }}</h2>
-          <p>{{ 'registro_sucesso' | translate }} 🎉</p>
-          <p class="uk-text-meta">{{ 'contatado_em_breve' | translate }}</p>
-          <div class="uk-text-right">
-            <button class="uk-button uk-button-default uk-border-rounded uk-modal-close" type="button">
-              {{ 'ok' | translate }}
-            </button>
+            <div id="validation-modal" uk-modal>
+              <div class="uk-modal-dialog uk-modal-body">
+                <button class="uk-modal-close-default" type="button" uk-close></button>
+                <h2 class="uk-modal-title">{{ 'erro_validacao' | translate }}</h2>
+                <p>{{ 'preencha_corretamente' | translate }}</p>
+                <div class="uk-text-right">
+                  <button class="uk-button uk-button-default uk-border-rounded uk-modal-close" type="button">
+                    {{ 'ok' | translate }}
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div id="error-modal" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body">
-          <button class="uk-modal-close-default" type="button" uk-close></button>
-          <h2 class="uk-modal-title">{{ 'erro' | translate }}</h2>
-          <p>{{ 'envio_falhou' | translate }}</p>
-          <div class="uk-text-right">
-            <button class="uk-button uk-button-default uk-border-rounded uk-modal-close" type="button">
-              {{ 'ok' | translate }}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div id="validation-modal" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body">
-          <button class="uk-modal-close-default" type="button" uk-close></button>
-          <h2 class="uk-modal-title">{{ 'erro_validacao' | translate }}</h2>
-          <p>{{ 'preencha_corretamente' | translate }}</p>
-          <div class="uk-text-right">
-            <button class="uk-button uk-button-default uk-border-rounded uk-modal-close" type="button">
-              {{ 'ok' | translate }}
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<app-rodape></app-rodape>
+      <app-rodape></app-rodape>

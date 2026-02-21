@@ -40,98 +40,110 @@
             <div class="uk-form-controls">
               <input class="uk-border-rounded uk-input" id="firstName" type="text" formControlName="firstName"
                 required />
+              </div>
             </div>
-          </div>
 
 
-          <div
-            *ngIf="contactForm.get('firstName')?.invalid && (contactForm.get('firstName')?.dirty || contactForm.get('firstName')?.touched)"
-            class="uk-text-danger">
-            <ng-container *ngIf="contactForm.get('firstName')?.errors?.['required']">
-              {{ 'campo_obrigatorio' | translate }} </ng-container>
-            <ng-container *ngIf="contactForm.get('firstName')?.errors?.['pattern']">
-              {{ 'formato_invalido' | translate }} </ng-container>
-          </div>
+            @if (contactForm.get('firstName')?.invalid && (contactForm.get('firstName')?.dirty || contactForm.get('firstName')?.touched)) {
+              <div
+                class="uk-text-danger">
+                @if (contactForm.get('firstName')?.errors?.['required']) {
+                  {{ 'campo_obrigatorio' | translate }}
+                }
+                @if (contactForm.get('firstName')?.errors?.['pattern']) {
+                  {{ 'formato_invalido' | translate }}
+                }
+              </div>
+            }
 
-          <!-- Último Nome -->
-          <div class="uk-margin">
-            <label class="texto uk-form-label" for="lastName">{{ 'ultimo_nome' | translate }}</label>
-            <div class="uk-form-controls">
-              <input class="uk-border-rounded uk-input" id="lastName" type="text" formControlName="lastName" required />
+            <!-- Último Nome -->
+            <div class="uk-margin">
+              <label class="texto uk-form-label" for="lastName">{{ 'ultimo_nome' | translate }}</label>
+              <div class="uk-form-controls">
+                <input class="uk-border-rounded uk-input" id="lastName" type="text" formControlName="lastName" required />
+              </div>
             </div>
-          </div>
 
-          <div
-            *ngIf="contactForm.get('lastName')?.invalid && (contactForm.get('lastName')?.dirty || contactForm.get('lastName')?.touched)"
-            class="uk-text-danger">
-            <ng-container *ngIf="contactForm.get('lastName')?.errors?.['required']">
-              {{ 'campo_obrigatorio' | translate }} </ng-container>
-            <ng-container *ngIf="contactForm.get('lastName')?.errors?.['pattern']">
-              {{ 'formato_invalido' | translate }} </ng-container>
-          </div>
+            @if (contactForm.get('lastName')?.invalid && (contactForm.get('lastName')?.dirty || contactForm.get('lastName')?.touched)) {
+              <div
+                class="uk-text-danger">
+                @if (contactForm.get('lastName')?.errors?.['required']) {
+                  {{ 'campo_obrigatorio' | translate }}
+                }
+                @if (contactForm.get('lastName')?.errors?.['pattern']) {
+                  {{ 'formato_invalido' | translate }}
+                }
+              </div>
+            }
 
-          <!-- Seu E-Mail -->
-          <div class="uk-margin">
-            <label class="texto uk-form-label" for="email">{{ 'seu_email' | translate }}</label>
-            <div class="uk-form-controls">
-              <input class="uk-input uk-border-rounded" id="email" type="email" formControlName="email" required />
+            <!-- Seu E-Mail -->
+            <div class="uk-margin">
+              <label class="texto uk-form-label" for="email">{{ 'seu_email' | translate }}</label>
+              <div class="uk-form-controls">
+                <input class="uk-input uk-border-rounded" id="email" type="email" formControlName="email" required />
+              </div>
             </div>
-          </div>
 
-          <div
-            *ngIf="contactForm.get('email')?.invalid && (contactForm.get('email')?.dirty || contactForm.get('email')?.touched)"
-            class="uk-text-danger">
-            <ng-container *ngIf="contactForm.get('email')?.errors?.['required']">
-              {{ 'campo_obrigatorio' | translate }} </ng-container>
-            <ng-container *ngIf="contactForm.get('email')?.errors?.['pattern']">
-              {{ 'formato_invalido_email' | translate }} </ng-container>
-          </div>
+            @if (contactForm.get('email')?.invalid && (contactForm.get('email')?.dirty || contactForm.get('email')?.touched)) {
+              <div
+                class="uk-text-danger">
+                @if (contactForm.get('email')?.errors?.['required']) {
+                  {{ 'campo_obrigatorio' | translate }}
+                }
+                @if (contactForm.get('email')?.errors?.['pattern']) {
+                  {{ 'formato_invalido_email' | translate }}
+                }
+              </div>
+            }
 
-          <!-- És cliente Angola Cables -->
-          <div class="uk-margin">
-            <label class="texto uk-form-label">{{ 'es_cliente_angola_cables' | translate }}</label>
-            <div class="uk-form-controls">
-              <label class="texto">
-                <input class="uk-radio texto" type="radio" formControlName="angolaCables" value="sim" required /> {{
-                'sim' | translate }}
-              </label>
-              <label class="texto uk-margin-left">
-                <input class="uk-radio" type="radio" formControlName="angolaCables" value="nao" /> {{ 'nao' | translate
-                }}
-              </label>
+            <!-- És cliente Angola Cables -->
+            <div class="uk-margin">
+              <label class="texto uk-form-label">{{ 'es_cliente_angola_cables' | translate }}</label>
+              <div class="uk-form-controls">
+                <label class="texto">
+                  <input class="uk-radio texto" type="radio" formControlName="angolaCables" value="sim" required /> {{
+                  'sim' | translate }}
+                </label>
+                <label class="texto uk-margin-left">
+                  <input class="uk-radio" type="radio" formControlName="angolaCables" value="nao" /> {{ 'nao' | translate
+                  }}
+                </label>
+              </div>
             </div>
-          </div>
 
-          <!-- Mensagem -->
-          <div class="uk-margin">
-            <label class="texto uk-form-label" for="message">{{ 'mensagem' | translate }}</label>
-            <div class="uk-form-controls">
-              <textarea class="uk-textarea uk-border-rounded" id="message" rows="5" formControlName="message"
+            <!-- Mensagem -->
+            <div class="uk-margin">
+              <label class="texto uk-form-label" for="message">{{ 'mensagem' | translate }}</label>
+              <div class="uk-form-controls">
+                <textarea class="uk-textarea uk-border-rounded" id="message" rows="5" formControlName="message"
                 required></textarea>
+              </div>
             </div>
-          </div>
 
-          <div
-            *ngIf="contactForm.get('message')?.invalid && (contactForm.get('message')?.dirty || contactForm.get('message')?.touched)"
-            class="uk-text-danger">
-            <ng-container *ngIf="contactForm.get('message')?.errors?.['required']">
-              {{ 'campo_obrigatorio' | translate }} </ng-container>
-            <ng-container *ngIf="contactForm.get('message')?.errors?.['pattern']">
-              {{ 'formato_invalido_email' | translate }} </ng-container>
-          </div>
-
-
-          <!-- Submit Button -->
-          <div class="uk-width-1-1 uk-margin-medium-top">
-            <button type="submit" class="uk-button uk-button-primary uk-border-rounded">
-              {{ 'enviar_mensagem' | translate }}
-            </button>
-          </div>
+            @if (contactForm.get('message')?.invalid && (contactForm.get('message')?.dirty || contactForm.get('message')?.touched)) {
+              <div
+                class="uk-text-danger">
+                @if (contactForm.get('message')?.errors?.['required']) {
+                  {{ 'campo_obrigatorio' | translate }}
+                }
+                @if (contactForm.get('message')?.errors?.['pattern']) {
+                  {{ 'formato_invalido_email' | translate }}
+                }
+              </div>
+            }
 
 
+            <!-- Submit Button -->
+            <div class="uk-width-1-1 uk-margin-medium-top">
+              <button type="submit" class="uk-button uk-button-primary uk-border-rounded">
+                {{ 'enviar_mensagem' | translate }}
+              </button>
+            </div>
 
-        </form>
+
+
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>

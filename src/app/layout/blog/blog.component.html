@@ -11,7 +11,7 @@
   </h3>
 </div>
 
- -->
+-->
 
 
 <div class="uk-container">
@@ -22,64 +22,66 @@
 
   <div class="uk-container uk-margin-top">
     @if (posts$ | async; as posts) {
-    <div class="uk-grid uk-child-width-1-3@m uk-grid-medium" uk-grid>
-      @for (post of posts| slice:0:3; track post.id) {
-      <div>
-        <div class="uk-card  uk-card-small uk-border-rounded">
+      <div class="uk-grid uk-child-width-1-3@m uk-grid-medium" uk-grid>
+        @for (post of posts| slice:0:3; track post.id) {
+          <div>
+            <div class="uk-card  uk-card-small uk-border-rounded">
 
-          <!-- Featured Image -->
-      <div *ngIf="post.imageUrl" class="uk-card-media-top">
-  <img [src]="post.imageUrl" alt="Imagem de destaque"
-    style="border-radius: 20px; width: 100%; height: 220px; object-fit: cover;" />
-</div>
+              <!-- Featured Image -->
+              @if (post.imageUrl) {
+                <div class="uk-card-media-top">
+                  <img [src]="post.imageUrl" alt="Imagem de destaque"
+                    style="border-radius: 20px; width: 100%; height: 220px; object-fit: cover;" />
+                  </div>
+                }
 
-          <div class="uk-card-header">
-            <p class="uk-text-meta" style="font-size: 0.9rem; margin-bottom: 5px;">
-              {{ post.createdAt?.toDate() | date: 'dd/MM/yyyy' }}
-            </p>
-            <a style="color: #1A1A1A;" [routerLink]="['/artigo', post.id]">
-              <p style="font-size: 1.3rem; font-weight: 500;" class="uk-card-title uk-text-left">{{ post.title }}</p>
-            </a>
-          </div>
-          <!-- 
-        <div class="uk-card-body">
-          <div *ngIf="post.content" [innerHTML]="post.content | truncate:150"></div>
+                <div class="uk-card-header">
+                  <p class="uk-text-meta" style="font-size: 0.9rem; margin-bottom: 5px;">
+                    {{ post.createdAt?.toDate() | date: 'dd/MM/yyyy' }}
+                  </p>
+                  <a style="color: #1A1A1A;" [routerLink]="['/artigo', post.id]">
+                    <p style="font-size: 1.3rem; font-weight: 500;" class="uk-card-title uk-text-left">{{ post.title }}</p>
+                  </a>
+                </div>
+                <!--
+                <div class="uk-card-body">
+                  <div *ngIf="post.content" [innerHTML]="post.content | truncate:150"></div>
+                </div>
+
+
+                <div class="uk-card-footer uk-flex uk-flex-between uk-flex-middle">
+                  <a [routerLink]="['/artigo', post.id]" class="uk-button uk-button-text">Ler mais</a>
+                </div> -->
+
+              </div>
+            </div>
+          }
         </div>
-       
-
-        <div class="uk-card-footer uk-flex uk-flex-between uk-flex-middle">
-          <a [routerLink]="['/artigo', post.id]" class="uk-button uk-button-text">Ler mais</a>
-        </div> -->
-
+      } @else {
+        <div class="uk-flex uk-flex-center uk-margin-large-top">
+          <div uk-spinner></div>
         </div>
-      </div>
       }
     </div>
-    } @else {
-    <div class="uk-flex uk-flex-center uk-margin-large-top">
-      <div uk-spinner></div>
-    </div>
-    }
+
+
+
+
   </div>
 
 
-
-
-</div>
-
-
-<div class="uk-container">
+  <div class="uk-container">
 
 
 
-  <div class="uk-grid-small uk-child-width-expand@s" uk-grid>
-    <div>
-      <div class="uk-card uk-text-left " style="padding-top: 30px;">
-        <a style="color: rgba(69, 69, 69, 1); border-color: rgba(69, 69, 69, 1); font-weight:600; border-width: 2px; border-style: solid; padding: 2.5px 40px;"
-          class="uk-button uk-button-default uk-border-pill" routerLink="/blog">
+    <div class="uk-grid-small uk-child-width-expand@s" uk-grid>
+      <div>
+        <div class="uk-card uk-text-left " style="padding-top: 30px;">
+          <a style="color: rgba(69, 69, 69, 1); border-color: rgba(69, 69, 69, 1); font-weight:600; border-width: 2px; border-style: solid; padding: 2.5px 40px;"
+            class="uk-button uk-button-default uk-border-pill" routerLink="/blog">
           {{ 'ver.todos' | translate }} </a>
+        </div>
       </div>
     </div>
-  </div>
 
-</div>
+  </div>

@@ -33,59 +33,69 @@
     </div>
 
     <!-- Blog Section -->
-    <div *ngIf="isTabActive('blog')" class="uk-animation-fade">
-      <div class="uk-card uk-card-body">
-        <app-artigo-postar></app-artigo-postar>
-        <h3 class="uk-heading-line uk-text-center uk-margin-medium-top">
-          <span>Artigos publicados</span>
-        </h3>
-        <app-artigo-lista></app-artigo-lista>
+    @if (isTabActive('blog')) {
+      <div class="uk-animation-fade">
+        <div class="uk-card uk-card-body">
+          <app-artigo-postar></app-artigo-postar>
+          <h3 class="uk-heading-line uk-text-center uk-margin-medium-top">
+            <span>Artigos publicados</span>
+          </h3>
+          <app-artigo-lista></app-artigo-lista>
+        </div>
       </div>
-    </div>
+    }
 
     <!-- Notícias Section -->
-    <div *ngIf="isTabActive('noticias')" class="uk-animation-fade">
-      <div class="uk-card uk-card-body">
-        <app-noticias-postar></app-noticias-postar>
-        <h3 class="uk-heading-line uk-text-center uk-margin-medium-top">
-          <span>Notícias publicadas</span>
-        </h3>
-        <app-noticias-listar></app-noticias-listar>
+    @if (isTabActive('noticias')) {
+      <div class="uk-animation-fade">
+        <div class="uk-card uk-card-body">
+          <app-noticias-postar></app-noticias-postar>
+          <h3 class="uk-heading-line uk-text-center uk-margin-medium-top">
+            <span>Notícias publicadas</span>
+          </h3>
+          <app-noticias-listar></app-noticias-listar>
+        </div>
       </div>
-    </div>
+    }
 
     <!-- Empregos Section -->
-    <div *ngIf="isTabActive('empregos')" class="uk-animation-fade">
-      <div class="uk-card uk-card-body">
-        <app-vagas-criar></app-vagas-criar>
-        <h3 class="uk-heading-line uk-text-center uk-margin-medium-top">
-          <span>Vagas Abertas</span>
-        </h3>
-        <app-vagas-listar></app-vagas-listar>
+    @if (isTabActive('empregos')) {
+      <div class="uk-animation-fade">
+        <div class="uk-card uk-card-body">
+          <app-vagas-criar></app-vagas-criar>
+          <h3 class="uk-heading-line uk-text-center uk-margin-medium-top">
+            <span>Vagas Abertas</span>
+          </h3>
+          <app-vagas-listar></app-vagas-listar>
+        </div>
       </div>
-    </div>
+    }
 
     <!-- Eventos Section -->
-    <div *ngIf="isTabActive('eventos')" class="uk-animation-fade">
-      <div class="uk-card uk-card-body">
-        <app-eventos-postar></app-eventos-postar>
-        <h3 class="uk-heading-line uk-text-center uk-margin-medium-top">
-          <span>Eventos Publicados</span>
-        </h3>
-        <app-eventos-listar></app-eventos-listar>
+    @if (isTabActive('eventos')) {
+      <div class="uk-animation-fade">
+        <div class="uk-card uk-card-body">
+          <app-eventos-postar></app-eventos-postar>
+          <h3 class="uk-heading-line uk-text-center uk-margin-medium-top">
+            <span>Eventos Publicados</span>
+          </h3>
+          <app-eventos-listar></app-eventos-listar>
+        </div>
       </div>
-    </div>
+    }
 
     <!-- Painéis Section -->
-    <div *ngIf="isTabActive('paineis')" class="uk-animation-fade">
-      <div class="uk-card uk-card-body">
-        <app-paineis-postar></app-paineis-postar>
-        <h3 class="uk-heading-line uk-text-center uk-margin-medium-top">
-          <span>Painéis publicados</span>
-        </h3>
-        <app-paineis-listar></app-paineis-listar>
+    @if (isTabActive('paineis')) {
+      <div class="uk-animation-fade">
+        <div class="uk-card uk-card-body">
+          <app-paineis-postar></app-paineis-postar>
+          <h3 class="uk-heading-line uk-text-center uk-margin-medium-top">
+            <span>Painéis publicados</span>
+          </h3>
+          <app-paineis-listar></app-paineis-listar>
+        </div>
       </div>
-    </div>
+    }
   </section>
 </main>
 

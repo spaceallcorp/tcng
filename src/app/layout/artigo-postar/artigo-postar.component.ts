@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Firestore, addDoc, collection, serverTimestamp } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { EditorModule } from '@tinymce/tinymce-angular';
 
 import { TranslateService, TranslatePipe } from '@ngx-translate/core'; // Inserido
@@ -11,7 +11,7 @@ import { TranslateService, TranslatePipe } from '@ngx-translate/core'; // Inseri
   selector: 'app-artigo-postar',
   standalone: true,
   // Adição de TranslatePipe aos imports
-  imports: [FormsModule, CommonModule, EditorModule,], // Inserido
+  imports: [FormsModule, EditorModule], // Inserido
   templateUrl: './artigo-postar.component.html',
   styleUrls: ['./artigo-postar.component.css']
 })

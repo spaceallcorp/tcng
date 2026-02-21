@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 import { ContadorComponent } from '../contador/contador.component';
 import { CaracteristicasComponent } from "../caracteristicas/caracteristicas.component";
@@ -20,7 +20,7 @@ declare const UIkit: any; // To access UIkit globally
 @Component({
   selector: 'app-angolacables',
   standalone: true,
-  imports: [CommonModule, EventosAcComponent, CertificacoesComponent, SlideshowComponent, BlogComponent, EventosComponent, Ad2Component, ArtigoListaComponent, EventosListarComponent, ParceirosComponent, TranslatePipe, RouterLink, ContadorComponent, CaracteristicasComponent, NoticiasListarComponent],
+  imports: [EventosAcComponent, CertificacoesComponent, SlideshowComponent, BlogComponent, EventosComponent, Ad2Component, ArtigoListaComponent, EventosListarComponent, ParceirosComponent, TranslatePipe, RouterLink, ContadorComponent, CaracteristicasComponent, NoticiasListarComponent],
   templateUrl: './angolacables.component.html',
   styleUrl: './angolacables.component.css'
 })

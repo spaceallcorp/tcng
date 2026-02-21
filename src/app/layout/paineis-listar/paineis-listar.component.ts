@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { PainelService } from '../../services/painel.service';
-import { AsyncPipe, CommonModule, NgIf } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
