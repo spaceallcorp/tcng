@@ -51,6 +51,12 @@ export const routes: Routes = [
     loadComponent: () => import('./layout/artigo-lista/artigo-lista.component').then(m => m.ArtigoListaComponent)
   },
 
+  
+  {
+    path: 'cookies-policy',
+    loadComponent: () => import('./paginas/policy-cookies/policy-cookies.component').then(m => m.PolicyCookiesComponent)
+  },
+
     {
     path: 'news',
     loadComponent: () => import('./paginas/noticias/noticias.component').then(m => m.NoticiasComponent)

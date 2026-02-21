@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TranslateModule, TranslateService, TranslatePipe, TranslateDirective } from '@ngx-translate/core';
+import { CookiesComponent } from './layout/cookies/cookies.component';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TranslateModule, ],
+  imports: [RouterOutlet, TranslateModule, CookiesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   standalone: true, 
@@ -17,7 +18,7 @@ export class AppComponent {
   
 
   constructor(private translate: TranslateService) {
-    this.translate.addLangs(['en','pt']);
+    this.translate.addLangs(['en','en']);
     this.translate.setDefaultLang('en');
     this.translate.use('en');
 

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormControl, FormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { RouterLink } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cookies',
@@ -13,6 +14,8 @@ import { RouterLink } from '@angular/router';
   styleUrl: './cookies.component.css'
 })
 export class CookiesComponent implements OnInit {
+
+
   public cookieService = inject(CookieService);
   
   mostrarBanner = signal(false);
