@@ -1,13 +1,13 @@
 <div class="uk-container uk-margin-top">
-  @if (noticias$ | async; as noticias) {
+  @if (allNoticias.length > 0) {
     <div class="uk-grid uk-child-width-1-3@m uk-grid-medium uk-grid-match" uk-grid>
-      @for (noticia of noticias; track noticia.id) {
-        <div>
-          <div style="border-radius: 30px;" class="uk-card  uk-border-rounded uk-text-left">
+      @for (noticia of paginatedNoticias; track noticia.id) {
+        <div style="display: flex;">
+          <div style="border-radius: 30px; width: 100%; height: 100%; display: flex; flex-direction: column; box-shadow: 0 6px 18px rgba(17, 24, 39, 0.12);" class="uk-card uk-border-rounded uk-text-left">
 
             <!-- Featured Image -->
             @if (noticia.imageUrl) {
-              <div class="uk-card-media-top">
+              <div class="uk-card-media-top" style="flex-shrink: 0;">
                     <img [src]="noticia.imageUrl" alt="Imagem de destaque" style="border-top-left-radius: 20px; 
            border-top-right-radius: 20px; 
            width: 100%; 
@@ -17,17 +17,19 @@
               }
 
               <div class=" "
-                style="background-color: #1C1C45; padding: 25px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
-                <p class="uk-text-meta uk-margin-remove-top uk-text-left"
-                  style="font-size: 0.9rem; margin-bottom: 5px;">
-                  {{ noticia.createdAt?.toDate() | date: 'dd/MM/yyyy ' }}
-                </p>
-                <a style="color: #1A1A1A;" target="_blank" href="{{ noticia.noticiaUrl }}">
-                  <p style="color: white !important; min-height: 60px;" class="uk-light"
-                    [innerHTML]="noticia.title | truncate:60">
+                style="background-color: #1C1C45; padding: 25px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; display: flex; flex-direction: column; justify-content: space-between; flex: 1 1 auto; height: 100%;">
+                <div>
+                  <p class="uk-text-meta uk-margin-remove-top uk-text-left"
+                    style="font-size: 0.9rem; margin-bottom: 5px;">
+                    {{ noticia.createdAt?.toDate() | date: 'dd/MM/yyyy ' }}
                   </p>
+                  <a style="color: #1A1A1A;" target="_blank" href="{{ noticia.noticiaUrl }}">
+                    <p style="color: white !important; min-height: 60px;" class="uk-light"
+                      [innerHTML]="noticia.title | truncate:60">
+                    </p>
 
-                </a>
+                  </a>
+                </div>
                 <div class="uk-child-width-expand@s" uk-grid>
                   <div>
                     <div class=" ">
@@ -61,6 +63,18 @@
           </div>
         }
       </div>
+
+      @if (totalPages > 1) {
+        <div class="uk-flex uk-flex-center uk-flex-middle uk-margin-medium-top" style="gap: 12px; height: 44px;">
+          <button type="button" class="uk-button uk-button-secondary uk-border-pill" style="height: 44px; border-radius: 40px; display: inline-flex; align-items: center; justify-content: center; margin: 0;" [disabled]="!hasPreviousPage" (click)="prevPage()">
+            Previous
+          </button>
+          <span class="uk-text-small uk-text-muted uk-flex uk-flex-middle" style="height: 44px; line-height: 44px; display: inline-flex; align-items: center; justify-content: center; margin: 0;">{{ currentPage + 1 }} / {{ totalPages }}</span>
+          <button type="button" class="uk-button uk-button-default uk-border-pill" style="height: 44px; border-radius: 40px; display: inline-flex; align-items: center; justify-content: center; margin: 0;" [disabled]="!hasNextPage" (click)="nextPage()">
+            Next
+          </button>
+        </div>
+      }
     } @else {
       <div class="uk-flex uk-flex-center uk-margin-large-top">
         <div uk-spinner></div>

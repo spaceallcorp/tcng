@@ -23,16 +23,47 @@ import { RouterLink } from "@angular/router";
 })
 export class NoticiasListarComponent implements OnInit {
 
-
   safeContent: SafeHtml = '';
   private noticiaService = inject(NoticiaService);
-  
+
   noticias$ = this.noticiaService.getNoticias();
+  allNoticias: any[] = [];
+  currentPage = 0;
+  readonly pageSize = 6;
 
   constructor(
     private translate: TranslateService,
     private sanitizer: DomSanitizer
   ) { }
+
+  get paginatedNoticias(): any[] {
+    const startIndex = this.currentPage * this.pageSize;
+    return this.allNoticias.slice(startIndex, startIndex + this.pageSize);
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.allNoticias.length / this.pageSize);
+  }
+
+  get hasPreviousPage(): boolean {
+    return this.currentPage > 0;
+  }
+
+  get hasNextPage(): boolean {
+    return this.currentPage < this.totalPages - 1;
+  }
+
+  nextPage(): void {
+    if (this.hasNextPage) {
+      this.currentPage += 1;
+    }
+  }
+
+  prevPage(): void {
+    if (this.hasPreviousPage) {
+      this.currentPage -= 1;
+    }
+  }
 
   useLanguage(language: string): void {
     this.translate.use(language);
@@ -40,8 +71,11 @@ export class NoticiasListarComponent implements OnInit {
 
   ngOnInit() {
     this.noticias$.subscribe(noticias => {
-      if (noticias.length > 0) {
-        this.safeContent = this.sanitizer.bypassSecurityTrustHtml(noticias[0].content);
+      this.allNoticias = noticias ?? [];
+      this.currentPage = 0;
+
+      if (this.allNoticias.length > 0) {
+        this.safeContent = this.sanitizer.bypassSecurityTrustHtml(this.allNoticias[0].content);
       }
     });
   }
