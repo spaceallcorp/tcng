@@ -19,5 +19,9 @@ export class RodapeComponent {
       
       constructor(private translate: TranslateService) {}
       
+      openCookieSettings(): void {
+          window.dispatchEvent(new CustomEvent('open-cookie-settings'));
+      }
+      
 
 }

@@ -1,51 +1,121 @@
+<!-- Cookie Consent Banner -->
 @if (mostrarBanner()) {
-  <div class="cookie-banner-fixo">
-    <div class="banner-content">
-      <p style="font-size: 11px">
-        We respect your privacy. Choose how you would like to proceed with our cookies. Learn how your information may be used by reading our 
-        <a style="color:#fff; font-weight: 600; text-decoration: underline;" routerLink="/cookies-policy">
-          Cookies Policy
-        </a>
+  <div class="cookie-banner-container" role="region" aria-label="Cookie consent banner">
+    <div class="cookie-banner-card">
+      <div class="cookie-banner-header">
+        <span class="cookie-icon">🍪</span>
+        <h3 class="cookie-title">We Value Your Privacy</h3>
+      </div>
+      <p class="cookie-text">
+        We use cookies to improve your browsing experience, analyze site traffic, and deliver tailored content.
+        You can choose to accept all cookies, reject non-essential ones, or customize your preferences anytime.
+        Learn more in our
+        <a routerLink="/cookies-policy" class="cookie-link">Cookie Policy</a>
+        and
+        <a routerLink="/privacypolicy" class="cookie-link">Privacy Policy</a>.
       </p>
-      <div class="banner-actions">
-        <button class="btn btn-primary" (click)="aceitarTudo()">Accept All</button>
-        <button class="btn btn-secondary" (click)="rejeitarTudo()">Reject</button>
-        <button class="btn btn-link" (click)="abrirAjustes()">Settings</button>
+      <div class="cookie-actions">
+        <button type="button" class="btn btn-primary" (click)="aceitarTudo()">Accept All</button>
+        <button type="button" class="btn btn-secondary" (click)="rejeitarTudo()">Reject Non-Essential</button>
+        <button type="button" class="btn btn-outline" (click)="abrirAjustes()">Customize</button>
       </div>
     </div>
   </div>
 }
 
+<!-- Floating Re-open Button (Persistent Cookie Control) -->
+@if (consentGiven() && !mostrarBanner()) {
+  <button 
+    type="button" 
+    class="cookie-floating-trigger" 
+    (click)="abrirAjustes()" 
+    title="Cookie & Privacy Settings"
+    aria-label="Manage cookie settings">
+    <span class="floating-icon">🍪</span>
+    <span class="floating-label">Cookie Preferences</span>
+  </button>
+}
+
+<!-- Cookie Preferences Modal -->
 @if (mostrarModalAjustes()) {
-  <div class="modal-overlay">
-    <div class="modal-card">
-      <h2>Privacy Settings</h2>
-      <p>Manage which cookies you allow us to use.</p>
-      
-      <div class="pref-item">
-        <label>
-          <input type="checkbox" checked disabled> 
-          <strong>Essential</strong> (Required for the website to function)
-        </label>
+  <div class="modal-overlay" (click)="fecharAjustes()" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <div class="modal-title-wrapper">
+          <span class="cookie-icon-modal">🛡️</span>
+          <div>
+            <h2 id="modal-title" class="modal-title">Cookie & Privacy Settings</h2>
+            <p class="modal-subtitle">Choose which cookies you allow us to store on your device.</p>
+          </div>
+        </div>
+        <button type="button" class="modal-close" (click)="fecharAjustes()" aria-label="Close modal">&times;</button>
       </div>
 
-      <div class="pref-item">
-        <label>
-          <input type="checkbox" [(ngModel)]="prefs.analiticos"> 
-          <strong>Analytics</strong> (To help us understand how you use the website)
-        </label>
-      </div>
+      <div class="modal-body">
+        <!-- Essential Cookies -->
+        <div class="pref-card">
+          <div class="pref-header">
+            <div class="pref-title-group">
+              <span class="pref-title">Strictly Necessary Cookies</span>
+              <span class="pref-badge">Always Active</span>
+            </div>
+            <div class="switch-wrapper">
+              <label class="switch" title="Strictly necessary cookies cannot be disabled">
+                <input type="checkbox" checked disabled>
+                <span class="slider disabled"></span>
+              </label>
+            </div>
+          </div>
+          <p class="pref-desc">
+            Essential for core website functionality, security, network routing, and session management. These cannot be switched off.
+          </p>
+        </div>
 
-      <div class="pref-item">
-        <label>
-          <input type="checkbox" [(ngModel)]="prefs.marketing"> 
-          <strong>Marketing</strong> (For personalized ads)
-        </label>
+        <!-- Analytics Cookies -->
+        <div class="pref-card">
+          <div class="pref-header">
+            <div class="pref-title-group">
+              <span class="pref-title">Performance & Analytics</span>
+            </div>
+            <div class="switch-wrapper">
+              <label class="switch">
+                <input type="checkbox" [(ngModel)]="prefs.analiticos" id="toggle-analytics">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+          <p class="pref-desc">
+            Allow us to count visits and traffic sources so we can measure and improve the performance of our site and services.
+          </p>
+        </div>
+
+        <!-- Marketing Cookies -->
+        <div class="pref-card">
+          <div class="pref-header">
+            <div class="pref-title-group">
+              <span class="pref-title">Marketing & Personalization</span>
+            </div>
+            <div class="switch-wrapper">
+              <label class="switch">
+                <input type="checkbox" [(ngModel)]="prefs.marketing" id="toggle-marketing">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+          <p class="pref-desc">
+            Used to deliver relevant information and promotions tailored to your interests and assess our marketing effectiveness.
+          </p>
+        </div>
       </div>
 
       <div class="modal-footer">
-        <button class="btn btn-secondary" (click)="fecharAjustes()">Cancel</button>
-        <button class="btn btn-primary" (click)="salvarPreferencias()">Save Preferences</button>
+        <div class="footer-left">
+          <button type="button" class="btn btn-secondary btn-sm" (click)="rejeitarTudo()">Reject All</button>
+        </div>
+        <div class="footer-right">
+          <button type="button" class="btn btn-outline btn-sm" (click)="aceitarTudo()">Accept All</button>
+          <button type="button" class="btn btn-primary btn-sm" (click)="salvarPreferencias()">Save Preferences</button>
+        </div>
       </div>
     </div>
   </div>

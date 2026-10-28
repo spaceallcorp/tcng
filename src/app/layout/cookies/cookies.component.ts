@@ -1,72 +1,103 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormControl, FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { RouterLink } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+
+export interface CookiePreferences {
+  essenciais: boolean;
+  analiticos: boolean;
+  marketing: boolean;
+  timestamp?: string;
+}
 
 @Component({
   selector: 'app-cookies',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule, RouterLink ],
+  imports: [CommonModule, FormsModule, RouterLink],
   providers: [CookieService],
   templateUrl: './cookies.component.html',
   styleUrl: './cookies.component.css'
 })
 export class CookiesComponent implements OnInit {
-
-
   public cookieService = inject(CookieService);
-  
+
   mostrarBanner = signal(false);
   mostrarModalAjustes = signal(false);
-  cookieInput = new FormControl('');
+  consentGiven = signal(false);
 
-  // Preferências do usuário
-  prefs = {
-    essenciais: true, // Sempre verdadeiro
-    marketing: false,
-    analiticos: false
+  // User preferences
+  prefs: CookiePreferences = {
+    essenciais: true, // Always true and locked
+    analiticos: false,
+    marketing: false
   };
 
-  ngOnInit() {
-    if (!this.cookieService.check('cookie-consent')) {
+  ngOnInit(): void {
+    if (this.cookieService.check('cookie-consent')) {
+      try {
+        const saved = JSON.parse(this.cookieService.get('cookie-consent'));
+        if (saved && typeof saved === 'object') {
+          this.prefs = {
+            essenciais: true,
+            analiticos: !!saved.analiticos,
+            marketing: !!saved.marketing,
+            timestamp: saved.timestamp
+          };
+          this.consentGiven.set(true);
+        }
+      } catch {
+        this.mostrarBanner.set(true);
+      }
+    } else {
       this.mostrarBanner.set(true);
     }
   }
 
-  aceitarTudo() {
-    this.prefs.marketing = true;
+  @HostListener('window:open-cookie-settings')
+  onOpenSettings(): void {
+    this.abrirAjustes();
+  }
+
+  aceitarTudo(): void {
     this.prefs.analiticos = true;
+    this.prefs.marketing = true;
     this.salvarPreferencias();
   }
 
-  rejeitarTudo() {
-    this.prefs.marketing = false;
+  rejeitarTudo(): void {
     this.prefs.analiticos = false;
+    this.prefs.marketing = false;
     this.salvarPreferencias();
   }
 
-  abrirAjustes() {
+  abrirAjustes(): void {
     this.mostrarModalAjustes.set(true);
   }
 
-  fecharAjustes() {
+  fecharAjustes(): void {
     this.mostrarModalAjustes.set(false);
   }
 
-  salvarPreferencias() {
-    const consentObj = JSON.stringify(this.prefs);
-    this.cookieService.set('cookie-consent', consentObj, 365, '/');
+  salvarPreferencias(): void {
+    const consentObj: CookiePreferences = {
+      essenciais: true,
+      analiticos: this.prefs.analiticos,
+      marketing: this.prefs.marketing,
+      timestamp: new Date().toISOString()
+    };
+
+    this.cookieService.set('cookie-consent', JSON.stringify(consentObj), {
+      expires: 365,
+      path: '/',
+      sameSite: 'Lax',
+      secure: window.location.protocol === 'https:'
+    });
+
+    this.consentGiven.set(true);
     this.mostrarBanner.set(false);
     this.mostrarModalAjustes.set(false);
-  }
 
-  // Métodos do seu Demo original
-  setCookie() {
-    this.cookieService.set('X-Auth-Token', this.cookieInput.value || '', 7, '/');
-  }
-  deleteCookie() {
-    this.cookieService.delete('X-Auth-Token', '/');
+    window.dispatchEvent(new CustomEvent('cookie-consent-updated', { detail: consentObj }));
   }
 }
