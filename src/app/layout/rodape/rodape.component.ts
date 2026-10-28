@@ -14,6 +14,8 @@ export class RodapeComponent {
       useLanguage(language: string): void {
           this.translate.use(language);
       }
+
+      year: number = new Date().getFullYear();
       
       constructor(private translate: TranslateService) {}
       

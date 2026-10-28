@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { productResolver } from './resolvers/product-resolver';
 import { InicioComponent } from './paginas/inicio/inicio.component';
 import { DatacenterComponent } from './paginas/datacenter/datacenter.component';
 import { AcercaComponent } from './paginas/acerca/acerca.component';
@@ -19,64 +20,127 @@ import { TermsandconditionsComponent } from './paginas/termsandconditions/termsa
 
 
 export const routes: Routes = [
+  { 
+    path: '', 
+    component: InicioComponent, 
+    title: 'TelCables Nigeria | Global Connectivity, Cloud & Data Center Solutions' 
+  },
+  { 
+    path: 'inicio', 
+    component: InicioComponent, 
+    title: 'Home | TelCables Nigeria' 
+  },
+  { 
+    path: 'company', 
+    component: AcercaComponent, 
+    title: 'About Us - Who We Are | TelCables Nigeria' 
+  },
 
-  { path: '', component: InicioComponent },
-  { path: 'inicio', component: InicioComponent },
-  { path: 'company', component: AcercaComponent },
+  { 
+    path: 'datacenter', 
+    component: DatacenterComponent, 
+    title: 'Data Center & Colocation Facilities | TelCables Nigeria' 
+  },
+  { 
+    path: 'eventos', 
+    component: EventosAcComponent, 
+    title: 'Events & Conferences | TelCables Nigeria' 
+  },
+  { 
+    path: 'solutions', 
+    component: BlogComponent, 
+    title: 'Enterprise Solutions & Industry Insights | TelCables Nigeria' 
+  },
+  { 
+    path: 'connectivity', 
+    component: ConectividadeComponent, 
+    title: 'Global Connectivity, IP Transit & Metro Connect | TelCables Nigeria' 
+  },
+  { 
+    path: 'cloud', 
+    component: CloudservicesComponent, 
+    title: 'Cloud Services, IaaS & Cloud Storage | TelCables Nigeria' 
+  },
+  { 
+    path: 'data-center', 
+    component: DatacentersevicesComponent, 
+    title: 'Data Center Services & Interconnectivity | TelCables Nigeria' 
+  },
+  { 
+    path: 'security', 
+    component: SegurancaComponent, 
+    title: 'Cybersecurity & DDoS Protection Solutions | TelCables Nigeria' 
+  },
+  { 
+    path: 'contact', 
+    component: ContactoComponent, 
+    title: 'Contact Us | TelCables Nigeria' 
+  },
 
-  { path: 'datacenter', component: DatacenterComponent },
-  { path: 'eventos', component: EventosAcComponent },
-  { path: 'solutions', component: BlogComponent },
-  { path: 'connectivity', component: ConectividadeComponent },
-  { path: 'cloud', component: CloudservicesComponent },
-  { path: 'data-center', component: DatacentersevicesComponent },
-  { path: 'security', component: SegurancaComponent },
-  { path: 'contact', component: ContactoComponent },
-  { path: 'datacenter', component: DatacentersevicesComponent },
+  { 
+    path: 'service-contact', 
+    component: ServiceFormComponent, 
+    title: 'Request a Service & Consultation | TelCables Nigeria' 
+  },
 
-  
-  { path: 'service-contact', component: ServiceFormComponent},
+  { 
+    path: 'mkt-proibido', 
+    component: DashboardComponent, 
+    title: 'Dashboard | TelCables Nigeria' 
+  },
 
-
-  { path: 'mkt-proibido', component: DashboardComponent },
-
-  { path: 'privacypolicy', component: PrivacypolicyComponent},
-  { path: 'termsandconditions', component: TermsandconditionsComponent },
-
-
-
+  { 
+    path: 'privacypolicy', 
+    component: PrivacypolicyComponent, 
+    title: 'Privacy Policy | TelCables Nigeria' 
+  },
+  { 
+    path: 'termsandconditions', 
+    component: TermsandconditionsComponent, 
+    title: 'Terms and Conditions | TelCables Nigeria' 
+  },
 
   {
     path: 'solution',
-    loadComponent: () => import('./layout/artigo-lista/artigo-lista.component').then(m => m.ArtigoListaComponent)
+    loadComponent: () => import('./layout/artigo-lista/artigo-lista.component').then(m => m.ArtigoListaComponent),
+    title: 'Solutions & Case Studies | TelCables Nigeria'
   },
 
-  
+  {
+    path: 'product/:id',
+    loadComponent: () => import('./layout/product-detail/product-detail.component').then(m => m.ProductDetailComponent),
+    resolve: {
+      productName: productResolver
+    },
+    title: 'Products & Services | TelCables Nigeria'
+  },
+
   {
     path: 'cookies-policy',
-    loadComponent: () => import('./paginas/policy-cookies/policy-cookies.component').then(m => m.PolicyCookiesComponent)
+    loadComponent: () => import('./paginas/policy-cookies/policy-cookies.component').then(m => m.PolicyCookiesComponent),
+    title: 'Cookie Policy | TelCables Nigeria'
   },
 
-    {
+  {
     path: 'news',
-    loadComponent: () => import('./paginas/noticias/noticias.component').then(m => m.NoticiasComponent)
+    loadComponent: () => import('./paginas/noticias/noticias.component').then(m => m.NoticiasComponent),
+    title: 'Latest News & Media | TelCables Nigeria'
   },
   {
     path: 'solution/:id',
-    loadComponent: () => import('./layout/artigo/artigo.component').then(m => m.ArtigoComponent)
+    loadComponent: () => import('./layout/artigo/artigo.component').then(m => m.ArtigoComponent),
+    title: 'Solution Details | TelCables Nigeria'
   },
 
   {
     path: 'postar',
-    loadComponent: () => import('./layout/artigo-postar/artigo-postar.component').then(m => m.ArtigoPostarComponent)
+    loadComponent: () => import('./layout/artigo-postar/artigo-postar.component').then(m => m.ArtigoPostarComponent),
+    title: 'Publish Article | TelCables Nigeria'
   },
 
   {
     path: 'postar-vaga',
-    loadComponent: () => import('./layout/vagas-criar/vagas-criar.component').then(m => m.VagasCriarComponent)
+    loadComponent: () => import('./layout/vagas-criar/vagas-criar.component').then(m => m.VagasCriarComponent),
+    title: 'Post Job Opening | TelCables Nigeria'
   },
-
-
-
-
 ];
