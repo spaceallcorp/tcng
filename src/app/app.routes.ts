@@ -13,7 +13,6 @@ import { SegurancaComponent } from './paginas/seguranca/seguranca.component';
 import { NoticiasComponent } from './paginas/noticias/noticias.component';
 import { ContactoComponent } from './paginas/contacto/contacto.component';
 
-import { DashboardComponent } from './paginas/dashboard/dashboard.component';
 import { ServiceFormComponent } from './layout/service-form/service-form.component';
 import { PrivacypolicyComponent } from './paginas/privacypolicy/privacypolicy.component';
 import { TermsandconditionsComponent } from './paginas/termsandconditions/termsandconditions.component';
@@ -84,12 +83,6 @@ export const routes: Routes = [
   },
 
   { 
-    path: 'mkt-proibido', 
-    component: DashboardComponent, 
-    title: 'Dashboard | TelCables Nigeria' 
-  },
-
-  { 
     path: 'privacypolicy', 
     component: PrivacypolicyComponent, 
     title: 'Privacy Policy | TelCables Nigeria' 
@@ -130,17 +123,5 @@ export const routes: Routes = [
     path: 'solution/:id',
     loadComponent: () => import('./layout/artigo/artigo.component').then(m => m.ArtigoComponent),
     title: 'Solution Details | TelCables Nigeria'
-  },
-
-  {
-    path: 'postar',
-    loadComponent: () => import('./layout/artigo-postar/artigo-postar.component').then(m => m.ArtigoPostarComponent),
-    title: 'Publish Article | TelCables Nigeria'
-  },
-
-  {
-    path: 'postar-vaga',
-    loadComponent: () => import('./layout/vagas-criar/vagas-criar.component').then(m => m.VagasCriarComponent),
-    title: 'Post Job Opening | TelCables Nigeria'
   },
 ];

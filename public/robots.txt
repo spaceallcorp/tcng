@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /mkt-proibido
-Disallow: /postar
-Disallow: /postar-vaga
 
 Sitemap: https://telcables.ng/sitemap.xml
-

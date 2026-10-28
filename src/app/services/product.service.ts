@@ -23,7 +23,17 @@ export class ProductService {
   /** LISTAR TODOS OS PRODUTOS */
   getProducts(): Observable<Produto[]> {
     return collectionData(this.productsCollection, { idField: 'id' }).pipe(
-      map(products => products as Produto[])
+      map(products =>
+        products.map(doc => {
+          const data = doc as any;
+          return {
+            ...data,
+            description: data.description ?? data.descriptionPT ?? data.descriptionPt ?? '',
+            metrics: data.metrics ?? [],
+            features: data.features ?? []
+          } as Produto;
+        })
+      )
     );
   }
 
