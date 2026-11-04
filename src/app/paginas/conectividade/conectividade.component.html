@@ -1,259 +1,463 @@
 <app-menu></app-menu>
-<div class="fundo-cabecalho">
-    <div class="gradiente-texto-cabecalho">
-        <div class="conteudo-cabecalho uk-margin-medium-top">
-            <div class="uk-container uk-margin-large-bottom">
-                <h4 style="color:white; font-size: 1.1rem;">{{ 'conectividade_titulo' | translate }}</h4>
-                <h1 style="color:#fff; margin-top: 20px; font-weight: 800;">{{
-                    'conectividade_subtitulo_parte1'
-                    | translate }}<br>{{ 'conectividade_subtitulo_parte2' | translate }}</h1>
-            </div>
-        </div>
-    </div>
-</div>
 
-
-
-
-
-<!-- Services Tabs Section -->
-<div class="fundo-cronologia-abas">
+<!-- Enhanced Hero Section -->
+<header class="service-hero" role="banner">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
     <div class="uk-container">
-        <div class="uk-container ">
-            <!-- Slider Navigation -->
-            <div uk-slider>
-                <div class="uk-position-relative">
-                    <!-- Navigation Arrows -->
-                    <a class="uk-position-center-left-out uk-hidden-hover uk-margin-small-right" href="#"
-                        uk-slidenav-previous uk-slider-item="previous"></a>
-                    <a class="uk-position-center-right-out uk-hidden-hover uk-margin-small-left" href="#"
-                        uk-slidenav-next uk-slider-item="next"></a>
-
-                    <!-- Slider Container -->
-                    <div class="uk-slider-container">
-                        <ul class="uk-slider-items uk-child-width-auto uk-grid uk-grid-small"
-                            uk-switcher="connect: .timeline-content; animation: uk-animation-fade">
-                            <li><a>Internet Connections</a></li>
-                            <li><a>Private Metro Connections</a></li>
-                            <li><a>International Private Circuit</a></li>
-                            <li><a>ACloudConnect</a></li>
-                        </ul>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="uk-container">
-                <img src="/img/servicos/internet-connections.png" alt="Internet Connections"
-                    style="filter: brightness(50%) ; width: 100%; height: 120px;  border-radius: 10px 10px  0px 0px; object-fit: cover;">
-            </div>
-
-            <!-- Content Switcher -->
-            <div class="timeline-content uk-switcher ">
-                <!-- Internet Connections -->
-                <div class="uk-child-width-1-2@m uk-grid-divider" uk-grid>
-                    <div>
-                        <div class="uk-card uk-card-body">
-                            <p class="uk-margin-small-bottom" style="color: white;"> Internet Connections</p>
-                            <h2 class="service-title">Connect your infrastructure to the internet with up to 99.95% SLA
-                            </h2>
-                            <p style="color: white" class="uk-margin-small-top">
-                                <b>Broadband Access:</b> Service is provided to customer location with
-                                single last mile connection or extension via fiber or radio.<br>
-                                <b>Premium Delivery:</b> Access delivered to customer's location with
-                                protected last mile connections.
-                            </p>
-                            <div class="industry-list">
-                                <span class="industry-tag">Technology</span>
-                                <span class="industry-tag">Energy, Oil & Gas</span>
-                                <span class="industry-tag">Manufacturing</span>
-                                <span class="industry-tag">Finance Sector</span>
-                                <span class="industry-tag">Public Sector</span>
-                                <span class="industry-tag">General Markets</span>
-                            </div>
-                            <ul class="benefits-list uk-margin-small-top">
-                                <li>Global access to network</li>
-                                <li>Guaranteed speed and Quality of service</li>
-                                <li>24x7x365 support to provide upto 99.95% SLA</li>
-                                <li>Flexible billing and delivery model</li>
-                                <li>Service upgrade ondemand</li>
-                            </ul>
-                            <div class="uk-margin uk-margin-medium-bottom ">
-                                <a routerLink="/service-contact" class="uk-button talk-to-expert-btn"
-                                    aria-label="Talk to an expert">
-                                    <span style="font-weight: 600;">Talk to an expert</span>
-                                    <span class="uk-margin-small-left" uk-icon="icon: arrow-right"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="scroll-target" id="internet">
-                        <div style="margin-top:0px !important" class="uk-card card-accordion uk-card-body uk-text-left">
-                            <ul uk-accordion="collapsible: false">
-                                <li class="uk-open">
-                                    <a class="uk-accordion-title" href><b>Dedicated Internet Access (DIA)</b></a>
-                                    <div class="uk-accordion-content">
-                                        <p>Internet access to B2B customer at the datacenter where we have presence,
-                                            doesn't require last mile connection or extension.</p>
-
-                                    </div>
-                                </li>
-                                <li class="uk-margin-small-top">
-                                    <a class="uk-accordion-title" href><b>IP Transit</b></a>
-                                    <div class="uk-accordion-content">
-                                        <p>BGP peering for IP advertising for B2B customers with ASN at the datacenter
-                                            where we have presence and customer end location. Sometimes require last
-                                            mile connection or extension to customer end location (CPE will be installed
-                                            at customer location for handoff).</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Private Metro Connections -->
-                <div class="switcher-grid uk-child-width-1-2@m uk-grid-divider" uk-grid>
-                    <div>
-                        <div class="switcher-card uk-card uk-card-body">
-                            <h2 class="service-title">Private site-to-site/multisites dedicated connection</h2>
-                            <div class="industry-list">
-                                <span class="industry-tag">Finance Sector</span>
-                                <span class="industry-tag">Technology</span>
-                                <span class="industry-tag">Energy, Oil & Gas</span>
-                                <span class="industry-tag">Manufacturing</span>
-                            </div>
-                            <ul class="benefits-list uk-margin-small-top">
-                                <li>Consistent speed and Quality of service</li>
-                                <li>Secured and reliable private symmetric connections</li>
-                                <li>Ondemand service upgrade</li>
-                                <li>24x7x365 NOC support</li>
-                            </ul>
-                            <div class="uk-margin uk-margin-medium-bottom  ">
-                                <a routerLink="/service-contact" class="uk-button talk-to-expert-btn"
-                                    aria-label="Talk to an expert">
-                                    <span style="font-weight: 600;">Talk to an expert</span>
-                                    <span class="uk-margin-small-left" uk-icon="icon: arrow-right"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="scroll-target" id="private-metro">
-                        <div class="switcher-card uk-card uk-card-body uk-text-left">
-                            <ul uk-accordion="collapsible: false">
-                                <li class="uk-open">
-                                    <a class="uk-accordion-title" href><b>MetroConnect</b></a>
-                                    <div class="uk-accordion-content">
-                                        <p>Built for Enterprise that have a centralized core network at their HQ or DC
-                                            that needs to be connected to other sites, this is a dedicated site-to-site connection or site-to-multisite interconnection on
-                                            fiber.</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- International Private Circuit -->
-                <div id="ipc" class="switcher-grid uk-child-width-1-2@m uk-grid-divider" uk-grid>
-                    <div>
-                        <div class="switcher-card uk-card uk-card-body scroll-target">
-
-                            <h2 class="service-title">Dedicated international circuits for global sites interconnections
-                            </h2>
-                            <div class="industry-list">
-                                <span class="industry-tag">Financial Sector</span>
-                                <span class="industry-tag">Technology</span>
-                                <span class="industry-tag">Oil & Gas</span>
-                                <span class="industry-tag">Multinationals</span>
-                            </div>
-                            <ul class="benefits-list uk-margin-small-top">
-                                <li>International Connectivity & Global Coverage</li>
-                                <li>Improved latency to endpoints</li>
-                                <li>Assured Service Delivery</li>
-                                <li>24x7x365 Technical Support & Security Services</li>
-                            </ul>
-                            <div class="uk-margin uk-margin-medium-bottom ">
-                                <a routerLink="/service-contact" class="uk-button talk-to-expert-btn"
-                                    aria-label="Talk to an expert">
-                                    <span style="font-weight: 600;">Talk to an expert</span>
-                                    <span class="uk-margin-small-left" uk-icon="icon: arrow-right"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="scroll-target">
-                        <div class="switcher-card uk-card uk-card-body uk-text-left">
-                            <ul uk-accordion="collapsible: false">
-                                <li class="uk-open">
-                                    <a class="uk-accordion-title" href><b>International Private Circuit</b></a>
-                                    <div class="uk-accordion-content">
-                                        <p>Leasedline connection from a local site to international point(s) +930
-                                            Datacenters across the globe supported by our resilience submarine cable
-                                            network from Nigeria to other African Nations, EMEA, Americas and Asia.</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ACloudConnect -->
-                <div class="switcher-grid uk-child-width-1-2@m uk-grid-divider" uk-grid>
-                    <div>
-                        <div class="switcher-card uk-card uk-card-body">
-                            <h2 class="service-title">Secured connections to Public Cloud Service Providers from Nigeria
-                            </h2>
-                            <div class="industry-list ">
-                                <span class="industry-tag">Entertainment</span>
-                                <span class="industry-tag">Financial Sector</span>
-                                <span class="industry-tag">Education</span>
-                                <span class="industry-tag">Technology</span>
-                                <span class="industry-tag">Multinationals</span>
-                            </div>
-                            <ul class="benefits-list uk-margin-small-top">
-                                <li>Improved Quality of Service</li>
-                                <li>Dedicated, low-latency links to Cloud Service Provider</li>
-                                <li>Private & secured connection to customer premises (optional)</li>
-                            </ul>
-
-                            <div class="uk-margin uk-margin-medium-bottom ">
-                                <a routerLink="/service-contact" class="uk-button talk-to-expert-btn"
-                                    aria-label="Talk to an expert">
-                                    <span style="font-weight: 600;">Talk to an expert</span>
-                                    <span class="uk-margin-small-left" uk-icon="icon: arrow-right"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="scroll-target">
-                        <div class="uk-card uk-card-body uk-text-left">
-                            <ul uk-accordion="collapsible: false">
-                                <li class="uk-open">
-                                    <a class="uk-accordion-title" href><b>ACloudConnect</b></a>
-                                    <div class="uk-accordion-content">
-                                        <p>Leased capacity connections from a customer site to one or multiple
-                                            International Cloud Service Providers from over +290 cloud zones in ROA,
-                                            EMEA, Americas and Asia.</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div class="hero-badge-wrapper">
+        <span class="hero-badge">
+          <span uk-icon="icon: world; ratio: 0.85" class="badge-icon"></span>
+          {{ 'conectividade_titulo' | translate }}
+        </span>
+      </div>
+      <h1 class="hero-title">
+        {{ 'conectividade_subtitulo_parte1' | translate }}<br>
+        <span class="hero-highlight">{{ 'conectividade_subtitulo_parte2' | translate }}</span>
+      </h1>
+      <p class="hero-subtext">
+        High-performance subsea and terrestrial network solutions designed for mission-critical enterprise workloads across Africa, EMEA, and the Americas.
+      </p>
     </div>
-</div>
+  </div>
+</header>
 
+<!-- Services Tabs & Showcase Section -->
+<section class="services-section">
+  <div class="uk-container">
 
+    <!-- Glassmorphic Segmented Tabs Navigation -->
+    <div class="tabs-nav-wrapper">
+      <div class="tabs-scroll-container">
+        <ul class="segmented-tabs" uk-switcher="connect: .timeline-content; animation: uk-animation-fade">
+          <li class="uk-active">
+            <a (click)="switchTab(0)" role="button" tabindex="0">
+              <span class="tab-icon" uk-icon="icon: receiver; ratio: 0.9"></span>
+              <span>Internet Connections</span>
+            </a>
+          </li>
+          <li>
+            <a (click)="switchTab(1)" role="button" tabindex="0">
+              <span class="tab-icon" uk-icon="icon: git-branch; ratio: 0.9"></span>
+              <span>Private Metro Connections</span>
+            </a>
+          </li>
+          <li>
+            <a (click)="switchTab(2)" role="button" tabindex="0">
+              <span class="tab-icon" uk-icon="icon: world; ratio: 0.9"></span>
+              <span>International Private Circuit</span>
+            </a>
+          </li>
+          <li>
+            <a (click)="switchTab(3)" role="button" tabindex="0">
+              <span class="tab-icon" uk-icon="icon: cloud-upload; ratio: 0.9"></span>
+              <span>ACloudConnect</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-<!-- UIkit JS -->
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit-icons.min.js"></script>
+    <!-- Content Switcher -->
+    <div class="timeline-content uk-switcher">
 
+      <!-- 1. Internet Connections -->
+      <article class="service-card-panel">
+        <div class="service-banner-media">
+          <img src="/img/servicos/internet-connections.png" alt="Internet Connections" class="banner-img">
+          <div class="banner-gradient"></div>
+          <div class="banner-label-pill">
+            <span uk-icon="icon: receiver; ratio: 0.8"></span>
+            <span>Dedicated Access & Peering</span>
+          </div>
+        </div>
 
+        <div class="service-card-body">
+          <div class="uk-grid uk-grid-large uk-child-width-1-2@m" uk-grid>
+            <!-- Left Overview -->
+            <div>
+              <div class="service-lead-content">
+                <span class="service-kicker">Enterprise Internet</span>
+                <h2 class="service-title">Connect your infrastructure to the global internet with up to 99.95% SLA</h2>
+                
+                <div class="service-description-box">
+                  <p class="service-text-highlight">
+                    <strong>Broadband Access:</strong> Service provided directly to customer premises with single last-mile connection or extension via high-capacity fiber or radio.
+                  </p>
+                  <p class="service-text-highlight">
+                    <strong>Premium Delivery:</strong> Protected last-mile dual-homed connectivity designed for financial institutions and mission-critical business hubs.
+                  </p>
+                </div>
+
+                <div class="industry-section">
+                  <span class="industry-label">Target Industries</span>
+                  <div class="industry-tags-list">
+                    <span class="industry-tag">Technology</span>
+                    <span class="industry-tag">Energy, Oil & Gas</span>
+                    <span class="industry-tag">Manufacturing</span>
+                    <span class="industry-tag">Financial Sector</span>
+                    <span class="industry-tag">Public Sector</span>
+                    <span class="industry-tag">Wholesale Carriers</span>
+                  </div>
+                </div>
+
+                <div class="benefits-section">
+                  <span class="benefits-label">Key Capabilities</span>
+                  <ul class="benefits-list">
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Tier-1 global IP backbone access with ultra-low latency</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Guaranteed symmetrical bandwidth and carrier-grade QoS</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>24x7x365 proactive NOC monitoring backed by up to 99.95% SLA</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Flexible burstable billing models and on-demand capacity scaling</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="service-action-wrap">
+                  <a routerLink="/service-contact" class="btn-talk-expert" aria-label="Talk to a connectivity expert">
+                    <span>Talk to an expert</span>
+                    <span uk-icon="icon: arrow-right; ratio: 0.9" class="btn-arrow"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Accordion Deep-Dive -->
+            <div id="internet" class="scroll-target">
+              <div class="accordion-container">
+                <span class="accordion-header-label">Service Architecture & Tiers</span>
+                <ul uk-accordion="collapsible: false; multiple: false">
+                  <li class="uk-open glass-accordion-item">
+                    <a class="uk-accordion-title" href>
+                      <span class="acc-title-text">Dedicated Internet Access (DIA)</span>
+                      <span uk-icon="icon: chevron-down; ratio: 0.9" class="acc-chevron"></span>
+                    </a>
+                    <div class="uk-accordion-content">
+                      <p>
+                        High-speed symmetrical Internet access tailored for B2B enterprises at our carrier-neutral data centers and partner facilities. Delivers uncontended, direct gateway to international transit without local loop bottlenecks.
+                      </p>
+                      <ul class="feature-bullets">
+                        <li>1:1 uncontended symmetrical bandwidth from 10 Mbps to 100 Gbps</li>
+                        <li>Direct connectivity to major internet exchange points (IXPs)</li>
+                        <li>Primary and backup routing configurations</li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li class="glass-accordion-item">
+                    <a class="uk-accordion-title" href>
+                      <span class="acc-title-text">IP Transit</span>
+                      <span uk-icon="icon: chevron-down; ratio: 0.9" class="acc-chevron"></span>
+                    </a>
+                    <div class="uk-accordion-content">
+                      <p>
+                        High-capacity BGP peering and wholesale IP advertising for ISPs, CDNs, and enterprises holding their own Autonomous System Number (ASN). Handled directly at our points of presence with optional CPE installation.
+                      </p>
+                      <ul class="feature-bullets">
+                        <li>Full and partial BGP routing table feeds</li>
+                        <li>Direct peering with global Tier-1 upstream providers</li>
+                        <li>Integrated anti-DDoS traffic filtering option</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. Private Metro Connections -->
+      <article class="service-card-panel">
+        <div class="service-banner-media">
+          <img src="/img/servicos/cabelhaco-servicos.png" alt="Private Metro Connections" class="banner-img">
+          <div class="banner-gradient"></div>
+          <div class="banner-label-pill">
+            <span uk-icon="icon: git-branch; ratio: 0.8"></span>
+            <span>Low-Latency Metro Interconnect</span>
+          </div>
+        </div>
+
+        <div class="service-card-body">
+          <div class="uk-grid uk-grid-large uk-child-width-1-2@m" uk-grid>
+            <div>
+              <div class="service-lead-content">
+                <span class="service-kicker">Urban Fiber Solutions</span>
+                <h2 class="service-title">Private site-to-site and multisite dedicated optical connectivity</h2>
+                
+                <div class="service-description-box">
+                  <p class="service-text-highlight">
+                    Engineered for financial institutions, conglomerates, and distributed campuses requiring high-speed deterministic transport between headquarters, branches, and primary data centers.
+                  </p>
+                </div>
+
+                <div class="industry-section">
+                  <span class="industry-label">Target Industries</span>
+                  <div class="industry-tags-list">
+                    <span class="industry-tag">Financial Sector</span>
+                    <span class="industry-tag">Technology & IT</span>
+                    <span class="industry-tag">Energy, Oil & Gas</span>
+                    <span class="industry-tag">Manufacturing</span>
+                    <span class="industry-tag">Healthcare Systems</span>
+                  </div>
+                </div>
+
+                <div class="benefits-section">
+                  <span class="benefits-label">Key Capabilities</span>
+                  <ul class="benefits-list">
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Ultra-low sub-millisecond deterministic latency across metropolitan hubs</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Physically and logically isolated private symmetric circuits</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Transparent Layer 2 and Layer 3 transport topologies</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Automated failover routes and dedicated 24x7 incident engineers</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="service-action-wrap">
+                  <a routerLink="/service-contact" class="btn-talk-expert" aria-label="Talk to a metro connectivity expert">
+                    <span>Talk to an expert</span>
+                    <span uk-icon="icon: arrow-right; ratio: 0.9" class="btn-arrow"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="private-metro" class="scroll-target">
+              <div class="accordion-container">
+                <span class="accordion-header-label">Network Topology Options</span>
+                <ul uk-accordion="collapsible: false; multiple: false">
+                  <li class="uk-open glass-accordion-item">
+                    <a class="uk-accordion-title" href>
+                      <span class="acc-title-text">MetroConnect (Dedicated Metro Dark & Lit Fiber)</span>
+                      <span uk-icon="icon: chevron-down; ratio: 0.9" class="acc-chevron"></span>
+                    </a>
+                    <div class="uk-accordion-content">
+                      <p>
+                        Dedicated fiber-optic interconnection linking your enterprise headquarters to critical metropolitan colocation hubs. Completely isolated from public IP traffic for maximum cryptographic security.
+                      </p>
+                      <ul class="feature-bullets">
+                        <li>Layer 2 (Ethernet Private Line / EVPL) configurations</li>
+                        <li>Layer 3 MPLS VPN for multi-site corporate WANs</li>
+                        <li>End-to-end SLA with sub-second protection switching</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. International Private Circuit -->
+      <article id="ipc" class="service-card-panel scroll-target">
+        <div class="service-banner-media">
+          <img src="/img/servicos/transporte.jpeg" alt="International Private Circuit" class="banner-img">
+          <div class="banner-gradient"></div>
+          <div class="banner-label-pill">
+            <span uk-icon="icon: world; ratio: 0.8"></span>
+            <span>Global Subsea Cable Network</span>
+          </div>
+        </div>
+
+        <div class="service-card-body">
+          <div class="uk-grid uk-grid-large uk-child-width-1-2@m" uk-grid>
+            <div>
+              <div class="service-lead-content">
+                <span class="service-kicker">Global Transit Backbone</span>
+                <h2 class="service-title">Dedicated international subsea circuits for global enterprise interconnectivity</h2>
+                
+                <div class="service-description-box">
+                  <p class="service-text-highlight">
+                    Direct access over our high-resilience trans-Atlantic and pan-African submarine cable systems (SACS, Monet, WACS) to interconnect your enterprise across 930+ datacenters worldwide.
+                  </p>
+                </div>
+
+                <div class="industry-section">
+                  <span class="industry-label">Target Industries</span>
+                  <div class="industry-tags-list">
+                    <span class="industry-tag">Financial Institutions</span>
+                    <span class="industry-tag">Global Multinationals</span>
+                    <span class="industry-tag">Oil & Gas Conglomerates</span>
+                    <span class="industry-tag">Hyperscale Cloud & OTTs</span>
+                  </div>
+                </div>
+
+                <div class="benefits-section">
+                  <span class="benefits-label">Key Capabilities</span>
+                  <ul class="benefits-list">
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Shortest latency routing connecting Africa, Americas, and Europe</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Committed 99.95%+ uptime with diverse subsea path protection</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Scalable capacity from 1 Gbps up to multi-terabit spectrum</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Direct presence in premier financial hubs (London, NY, São Paulo, Lagos)</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="service-action-wrap">
+                  <a routerLink="/service-contact" class="btn-talk-expert" aria-label="Talk to an international circuit expert">
+                    <span>Talk to an expert</span>
+                    <span uk-icon="icon: arrow-right; ratio: 0.9" class="btn-arrow"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="accordion-container">
+                <span class="accordion-header-label">International Architecture</span>
+                <ul uk-accordion="collapsible: false; multiple: false">
+                  <li class="uk-open glass-accordion-item">
+                    <a class="uk-accordion-title" href>
+                      <span class="acc-title-text">International Leased Lines & Optical Spectrum</span>
+                      <span uk-icon="icon: chevron-down; ratio: 0.9" class="acc-chevron"></span>
+                    </a>
+                    <div class="uk-accordion-content">
+                      <p>
+                        High-speed point-to-point leased line transport linking African headquarters directly into EMEA, the Americas, and Asia. Bypasses public internet routing variations for predictable high-volume bulk transfers.
+                      </p>
+                      <ul class="feature-bullets">
+                        <li>Direct access to 930+ carrier-neutral colocation facilities</li>
+                        <li>Unrivalled low-latency South Atlantic routes (SACS & Monet)</li>
+                        <li>Tailored SLAs with proactive performance telemetry</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. ACloudConnect -->
+      <article id="acloudconnect" class="service-card-panel scroll-target">
+        <div class="service-banner-media">
+          <img src="/img/servicos/cloud-connect.jpeg" alt="ACloudConnect" class="banner-img">
+          <div class="banner-gradient"></div>
+          <div class="banner-label-pill">
+            <span uk-icon="icon: cloud-upload; ratio: 0.8"></span>
+            <span>Direct Public Cloud On-Ramp</span>
+          </div>
+        </div>
+
+        <div class="service-card-body">
+          <div class="uk-grid uk-grid-large uk-child-width-1-2@m" uk-grid>
+            <div>
+              <div class="service-lead-content">
+                <span class="service-kicker">Direct Cloud Connectivity</span>
+                <h2 class="service-title">Dedicated, secure on-ramps to AWS, Microsoft Azure, Google Cloud, and Oracle</h2>
+                
+                <div class="service-description-box">
+                  <p class="service-text-highlight">
+                    Bypasses the public internet to establish private, direct high-speed connections between your on-premises infrastructure and leading global cloud providers with enterprise SLAs.
+                  </p>
+                </div>
+
+                <div class="industry-section">
+                  <span class="industry-label">Target Industries</span>
+                  <div class="industry-tags-list">
+                    <span class="industry-tag">Financial Sector</span>
+                    <span class="industry-tag">Software & FinTech</span>
+                    <span class="industry-tag">Healthcare & Biotech</span>
+                    <span class="industry-tag">Higher Education</span>
+                    <span class="industry-tag">Multinational Enterprises</span>
+                  </div>
+                </div>
+
+                <div class="benefits-section">
+                  <span class="benefits-label">Key Capabilities</span>
+                  <ul class="benefits-list">
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Drastically reduced egress data transfer costs</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Consistent, jitter-free throughput with guaranteed low latency</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Bank-grade security: traffic never traverses the public internet</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Access to over 290 global cloud availability zones</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="service-action-wrap">
+                  <a routerLink="/service-contact" class="btn-talk-expert" aria-label="Talk to a cloud connectivity expert">
+                    <span>Talk to an expert</span>
+                    <span uk-icon="icon: arrow-right; ratio: 0.9" class="btn-arrow"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="accordion-container">
+                <span class="accordion-header-label">Multi-Cloud Interconnection</span>
+                <ul uk-accordion="collapsible: false; multiple: false">
+                  <li class="uk-open glass-accordion-item">
+                    <a class="uk-accordion-title" href>
+                      <span class="acc-title-text">ACloudConnect Gateway</span>
+                      <span uk-icon="icon: chevron-down; ratio: 0.9" class="acc-chevron"></span>
+                    </a>
+                    <div class="uk-accordion-content">
+                      <p>
+                        High-resilience virtual and physical circuits from your local data center rack or office directly to AWS Direct Connect, Azure ExpressRoute, Google Cloud Interconnect, and Oracle FastConnect.
+                      </p>
+                      <ul class="feature-bullets">
+                        <li>Predictable bandwidth allocations from 50 Mbps to 10 Gbps+</li>
+                        <li>Automated redundant path routing across international hubs</li>
+                        <li>Centralized multi-cloud management portal</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
 
 <app-ad2></app-ad2>
-
 <app-rodape></app-rodape>

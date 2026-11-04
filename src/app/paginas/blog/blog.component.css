@@ -1,30 +1,115 @@
-.fundo-cabecalho{
-    background-image: url('/img/blog-banner.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+/* =========================================================
+   SOLUTIONS (BLOG) PAGE STYLES - MODERN PRESENTATION
+========================================================= */
 
-    background-color: #000;
-    position: relative;
-    min-height: 400px; /* Adjust based on design */
-        margin-top: 70px;
-
+:host {
+  display: block;
+  background-color: #f8fafc;
+  color: #1e293b;
+  overflow-x: hidden;
 }
 
-.logo-cabecalho-pagina{
-    height: 40px;
-    width: auto;
-
+.service-hero {
+  position: relative;
+  min-height: 400px;
+  background-image: url('/img/blog-banner.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #001740;
+  display: flex;
+  align-items: flex-end;
+  margin-top: 67px;
+  overflow: hidden;
+  border-radius: 0 0 32px 32px;
 }
 
-.conteudo-cabecalho{
-    
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 78, 0.918), rgba(0, 0, 78, 0.918), rgba(0, 0, 255, 0)); /* Blue to transparent */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 23, 64, 0.72) 0%,
+    rgba(0, 37, 97, 0.88) 60%,
+    rgba(0, 79, 91, 0.95) 100%
+  );
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 50px 0 60px;
+  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 
+.hero-badge-wrapper {
+  margin-bottom: 14px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(26, 184, 221, 0.16);
+  border: 1px solid rgba(26, 184, 221, 0.38);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #1AB8DD;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin: 0 0 14px 0 !important;
+  max-width: 900px;
+}
+
+.hero-highlight {
+  color: #1AB8DD;
+  text-shadow: 0 0 30px rgba(26, 184, 221, 0.35);
+}
+
+.hero-subtext {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 !important;
+}
+
+.solutions-content-section {
+  padding: 20px 0 60px;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 960px) {
+  .service-hero {
+    min-height: 340px;
+    border-radius: 0 0 24px 24px;
+  }
+  .hero-content {
+    padding: 36px 0 46px;
+  }
+}

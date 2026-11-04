@@ -1,47 +1,154 @@
-.fundo-cabecalho{
-    background-image: url('/img/blog-banner.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+/* =========================================================
+   SOLUTIONS ARTICLE LISTING - MODERN PRESENTATION
+========================================================= */
 
-    background-color: #000;
-    position: relative;
-    min-height: 400px; /* Adjust based on design */
+.articles-list-container {
+  padding: 50px 0 80px;
 }
 
-.thumbnail {
-  height: 220px; /* adjust to the size you want */
-  overflow: hidden;
+.solution-article-card {
+  background: #ffffff;
   border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 37, 97, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 37, 97, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.thumbnail img {
+.solution-article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 45px rgba(0, 37, 97, 0.12);
+  border-color: rgba(26, 184, 221, 0.35);
+}
+
+.solution-card-media {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #001740;
+}
+
+.solution-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 20px;
+  transition: transform 0.6s ease;
 }
 
-
-
-.logo-cabecalho-pagina{
-    height: 40px;
-    width: auto;
-
+.solution-article-card:hover .solution-card-img {
+  transform: scale(1.05);
 }
 
-.conteudo-cabecalho{
-    
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 78, 0.918), rgba(0, 0, 78, 0.918), rgba(0, 0, 255, 0)); /* Blue to transparent */
+.solution-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 37, 97, 0.1) 0%, rgba(0, 37, 97, 0.65) 100%);
 }
 
+.solution-card-tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(0, 23, 64, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #1AB8DD;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
 
-.uk-card-media-top img {
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+.solution-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.solution-card-link {
+  text-decoration: none !important;
+}
+
+.solution-card-title {
+  color: #002561;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 18px 0 !important;
+  transition: color 0.2s ease;
+}
+
+.solution-article-card:hover .solution-card-title {
+  color: #004f5b;
+}
+
+.solution-card-footer {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(0, 37, 97, 0.08);
+}
+
+.btn-read-solution {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #004f5b;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-read-solution .read-icon {
+  color: #1AB8DD;
+  transition: transform 0.2s ease;
+}
+
+.btn-read-solution:hover {
+  color: #1AB8DD;
+}
+
+.btn-read-solution:hover .read-icon {
+  transform: translateX(4px);
+}
+
+/* Loading state */
+.loading-state-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+}
+
+.solution-spinner {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid rgba(26, 184, 221, 0.15);
+  border-top-color: #1AB8DD;
+  animation: spin 0.8s linear infinite;
+}
+
+.loading-label {
+  color: #64748b;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 14px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

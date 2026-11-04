@@ -1,215 +1,343 @@
 <app-menu></app-menu>
-<div class="fundo-cabecalho">
-  <div class="gradiente-texto-cabecalho">
-    <div class="conteudo-cabecalho uk-margin-medium-top">
-      <div class="uk-container header-text uk-margin-large-bottom">
-        <h4 style="color:white">Cloud</h4>
-        <h1 style="color:#fff; font-weight: bolder;">{{ 'cloud_subtitulo_pagina' | translate }}</h1>
+
+<!-- Enhanced Hero Section -->
+<header class="service-hero" role="banner">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="uk-container">
+      <div class="hero-badge-wrapper">
+        <span class="hero-badge">
+          <span uk-icon="icon: cloud-upload; ratio: 0.85" class="badge-icon"></span>
+          {{ 'cloud_titulo_pagina' | translate }}
+        </span>
       </div>
+      <h1 class="hero-title">
+        Scalable Enterprise Cloud &amp;<br>
+        <span class="hero-highlight">{{ 'cloud_subtitulo_pagina' | translate }}</span>
+      </h1>
+      <p class="hero-subtext">
+        High-availability infrastructure as a service (IaaS), multi-region disaster recovery, and sovereign S3-compatible cloud storage engineered for African and global business growth.
+      </p>
     </div>
   </div>
-</div>
+</header>
 
+<!-- Services Tabs & Showcase Section -->
+<section class="services-section">
+  <div class="uk-container">
 
-
-<!-- Services Tabs Section -->
-<div class="fundo-cronologia-abas">
-  <div class=" uk-container ">
-    <div class="uk-container">
-      <!-- Slider Navigation -->
-      <div uk-slider>
-        <div class="uk-position-relative">
-          <!-- Navigation Arrows -->
-          <a class="uk-position-center-left-out uk-hidden-hover uk-margin-small-right" href="#" uk-slidenav-previous
-            uk-slider-item="previous"></a>
-          <a class="uk-position-center-right-out uk-hidden-hover uk-margin-small-left" href="#" uk-slidenav-next
-            uk-slider-item="next"></a>
-
-          <!-- Slider Container -->
-          <div class="uk-slider-container">
-            <ul class="uk-slider-items uk-child-width-auto uk-grid uk-grid-small"
-              uk-switcher="connect: .timeline-content">
-              <li><a class="texto-abas-cronologia">Virtual Infrastructure (IaaS)</a></li>
-              <li><a class="texto-abas-cronologia">Cloud Backup (Backups2Africa)</a></li>
-              <li><a class="texto-abas-cronologia">Storage-as-a-Service</a></li>
-            </ul>
-          </div>
-        </div>
+    <!-- Glassmorphic Segmented Tabs Navigation -->
+    <div class="tabs-nav-wrapper">
+      <div class="tabs-scroll-container">
+        <ul class="segmented-tabs" uk-switcher="connect: .timeline-content; animation: uk-animation-fade">
+          <li class="uk-active">
+            <a (click)="switchTab(0)" role="button" tabindex="0">
+              <span class="tab-icon" uk-icon="icon: database; ratio: 0.9"></span>
+              <span>Virtual Infrastructure (IaaS)</span>
+            </a>
+          </li>
+          <li>
+            <a (click)="switchTab(1)" role="button" tabindex="0">
+              <span class="tab-icon" uk-icon="icon: history; ratio: 0.9"></span>
+              <span>Cloud Backup (Backups2Africa)</span>
+            </a>
+          </li>
+          <li>
+            <a (click)="switchTab(2)" role="button" tabindex="0">
+              <span class="tab-icon" uk-icon="icon: folder; ratio: 0.9"></span>
+              <span>Storage-as-a-Service</span>
+            </a>
+          </li>
+        </ul>
       </div>
+    </div>
 
+    <!-- Content Switcher -->
+    <div class="timeline-content uk-switcher">
 
-      <div class="uk-container">
-        <img src="/img/servicos/cloud-services.png" alt="Cloud Services"
-          style="filter: brightness(50%) ; width: 100%; height: 120px;  border-radius: 10px 10px  0px 0px; object-fit: cover;">
-      </div>
-
-      <!-- Content Switcher -->
-      <div class="timeline-content uk-switcher ">
-        <!-- Internet Connections -->
-        <div id="iaas" class=" scroll-target uk-child-width-1-2@m uk-grid-divider" uk-grid>
-          <div class="uk-margin-medium-bottom">
-            <div class="uk-card uk-card-body uk-margin-small-bottom ">
-              <h2 class="service-title">Virtualized computing resources such as servers, storage, and networking
-              </h2>
-              <div class="industry-list">
-                <span class="industry-tag">Technology</span>
-                <span class="industry-tag">Energy, Oil & Gas</span>
-                <span class="industry-tag">Manufacturing</span>
-                <span class="industry-tag">Finance Sector</span>
-                <span class="industry-tag">Public Sector</span>
-                <span class="industry-tag">General Markets</span>
-              </div>
-              <ul class="benefits-list uk-margin-small-top">
-                <li>Global access to network</li>
-                <li>Guaranteed speed and Quality of service</li>
-                <li>24x7x365 support to provide upto 99.95% SLA</li>
-                <li>Flexible billing and delivery model</li>
-                <li>Service upgrade ondemand</li>
-              </ul>
-
-              <div class="uk-margin  ">
-                <a routerLink="/service-contact" class="uk-button talk-to-expert-btn" aria-label="Talk to an expert">
-                  <span style="font-weight: 600;">Talk to an expert</span>
-                  <span class="uk-margin-small-left" uk-icon="icon: arrow-right"></span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="uk-card uk-card-body uk-text-left">
-              <ul uk-accordion="collapsible: true">
-                <li class="uk-open">
-                  <a class="uk-accordion-title"><b>Virtual Infrastructure (IaaS)</b></a>
-                  <div class="uk-accordion-content">
-                    <p>On demand virtualized computing resources over the internet, such as compute servers, storage,
-                      and networking on our B2B management portal; flexible and scalable. Built to meet and support
-                      every B2B needs.</p>
-
-                  </div>
-                </li>
-
-
-              </ul>
-
-              <!-- 
-              <div class="uk-margin">
-                <a routerLink="/service-contact" class="uk-button talk-to-expert-btn" aria-label="Talk to an expert">
-                  <span style="font-weight: 600;">Talk to an expert</span>
-                  <span class="uk-margin-small-left" uk-icon="icon: arrow-right"></span>
-                </a>
-              </div> -->
-            </div>
+      <!-- 1. Virtual Infrastructure (IaaS) -->
+      <article id="iaas" class="service-card-panel scroll-target">
+        <div class="service-banner-media">
+          <img src="/img/servicos/cloud-services.png" alt="Virtual Infrastructure (IaaS)" class="banner-img">
+          <div class="banner-gradient"></div>
+          <div class="banner-label-pill">
+            <span uk-icon="icon: server; ratio: 0.8"></span>
+            <span>Compute, Virtualization &amp; SDN</span>
           </div>
         </div>
 
-        <!-- Private Metro Connections -->
-        <div id="backup" class="scroll-target uk-child-width-1-2@m uk-grid-divider" uk-grid>
-          <div class="uk-margin-medium-bottom">
-            <div class="uk-card uk-card-body">
-              <h2 class="service-title">Centralized management for cloud backups and recovery strategy</h2>
-              <div class="industry-list">
-                <span class="industry-tag">Technology</span>
-                <span class="industry-tag">Finance</span>
-                <span class="industry-tag">Public Sector</span>
-                <span class="industry-tag">General Markets</span>
-              </div>
-              <ul class="benefits-list uk-margin-small-top">
-                <li>Fast data recovery </li>
-                <li>Encrypted data archiving</li>
-                <li>Continuous data protection </li>
-                <li>RTOs close to zero for a protected workloads</li>
-              </ul>
-
-              <div class="uk-margin uk-margin-small-top ">
-                <a routerLink="/service-contact" class="uk-button talk-to-expert-btn" aria-label="Talk to an expert">
-                  <span style="font-weight: 600;">Talk to an expert</span>
-                  <span class="uk-margin-small-left" uk-icon="icon: arrow-right"></span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="uk-card uk-card-body uk-text-left">
-              <ul uk-accordion="collapsible: false">
-                <li class="uk-open">
-                  <a class="uk-accordion-title"><b>Cloud Backup (Backups2Africa)</b></a>
-                  <div class="uk-accordion-content">
-                    <p>Offers automation and the centralised management of backups and data recovery (disaster recovery)
-                      with secure cloud data storage to enable a simply and quick means to recover your data.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- International Private Circuit -->
-        <div class="scroll-target uk-child-width-1-2@m uk-grid-divider" uk-grid>
-          <div id="storage" class="scroll-target uk-margin-medium-bottom">
-            <div class="uk-card uk-card-body">
-              <h2 class="service-title">Flexible and affordable storage for large data management
-              </h2>
-              <div class="industry-list">
-                <span class="industry-tag">Technology</span>
-                <span class="industry-tag">Entertainment</span>
-                <span class="industry-tag">Finance</span>
-                <span class="industry-tag">Manufacturing</span>
-                <span class="industry-tag">Public Sector</span>
-                <span class="industry-tag">Education</span>
-                <span class="industry-tag">General Markets</span>
-
-
-
-              </div>
-              <ul class="benefits-list uk-margin-small-top">
-                <li>Reduced Capital Expenditure</li>
-                <li>Flexibile and Scalable</li>
-                <li>Zero ingress/egress/IOPs charges</li>
-                <li>Business Continuity</li>
-              </ul>
-
-
-
-              <div class="uk-margin">
-                <a routerLink="/service-contact" class="uk-button talk-to-expert-btn">
-                  <span style="font-weight: 600;">Talk to an expert</span>
-                  <span class="uk-margin-small-left" uk-icon="icon: arrow-right"></span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div>
+        <div class="service-card-body">
+          <div class="uk-grid uk-grid-large uk-child-width-1-2@m" uk-grid>
             <div>
-              <div class="uk-card uk-card-body uk-text-left">
-                <ul uk-accordion="collapsible: false">
-                  <li class="uk-open">
-                    <a class="uk-accordion-title"><b>Storage-as-a-Service
-                      </b></a>
+              <div class="service-lead-content">
+                <span class="service-kicker">Cloud Infrastructure</span>
+                <h2 class="service-title">Virtualized high-performance compute, storage, and networking resources</h2>
+                
+                <div class="service-description-box">
+                  <p class="service-text-highlight">
+                    Deploy scalable enterprise virtual machines with NVMe SSD high-IOPS storage, redundant networking, and dedicated self-service orchestration through our intuitive B2B management portal.
+                  </p>
+                </div>
+
+                <div class="industry-section">
+                  <span class="industry-label">Target Industries</span>
+                  <div class="industry-tags-list">
+                    <span class="industry-tag">Technology &amp; SaaS</span>
+                    <span class="industry-tag">Energy, Oil &amp; Gas</span>
+                    <span class="industry-tag">Manufacturing</span>
+                    <span class="industry-tag">Banking &amp; FinTech</span>
+                    <span class="industry-tag">Government &amp; Public Sector</span>
+                    <span class="industry-tag">E-Commerce</span>
+                  </div>
+                </div>
+
+                <div class="benefits-section">
+                  <span class="benefits-label">Key Capabilities</span>
+                  <ul class="benefits-list">
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Instant on-demand virtual machine provisioning and automated scaling</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Up to 99.95% availability SLA with VMware and OpenStack hypervisors</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Carrier-grade network integration with low-latency IP transit</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Predictable cost models with zero hidden ingress/egress surcharges</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="service-action-wrap">
+                  <a routerLink="/service-contact" class="btn-talk-expert" aria-label="Talk to an IaaS cloud expert">
+                    <span>Talk to an expert</span>
+                    <span uk-icon="icon: arrow-right; ratio: 0.9" class="btn-arrow"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="accordion-container">
+                <span class="accordion-header-label">Infrastructure Tiers</span>
+                <ul uk-accordion="collapsible: false; multiple: false">
+                  <li class="uk-open glass-accordion-item">
+                    <a class="uk-accordion-title" href>
+                      <span class="acc-title-text">Virtual Data Center (vDC)</span>
+                      <span uk-icon="icon: chevron-down; ratio: 0.9" class="acc-chevron"></span>
+                    </a>
                     <div class="uk-accordion-content">
-                      <p>Provides scalable and flexible data storage capabilities to organizations to store, manage, and
-                        access their data in a secure, cost-effective, and efficient manner without the need to invest
-                        in
-                        or maintain physical storage infrastructure.</p>
+                      <p>
+                        A completely isolated pool of cloud compute, memory, and virtual storage resources. Enables enterprise IT teams to create custom VPCs, configure virtual firewalls, load balancers, and manage private networks.
+                      </p>
+                      <ul class="feature-bullets">
+                        <li>Dedicated vCPU and RAM allocations without noisy-neighbor contention</li>
+                        <li>High-speed NVMe block storage with automated snapshots</li>
+                        <li>Self-service web console and full REST API integration</li>
+                      </ul>
                     </div>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-
-
         </div>
-      </div>
+      </article>
+
+      <!-- 2. Cloud Backup (Backups2Africa) -->
+      <article id="backup" class="service-card-panel scroll-target">
+        <div class="service-banner-media">
+          <img src="/img/servicos/backups.png" alt="Cloud Backup Backups2Africa" class="banner-img">
+          <div class="banner-gradient"></div>
+          <div class="banner-label-pill">
+            <span uk-icon="icon: history; ratio: 0.8"></span>
+            <span>Disaster Recovery &amp; Immutable Protection</span>
+          </div>
+        </div>
+
+        <div class="service-card-body">
+          <div class="uk-grid uk-grid-large uk-child-width-1-2@m" uk-grid>
+            <div>
+              <div class="service-lead-content">
+                <span class="service-kicker">Data Protection &amp; BCDR</span>
+                <h2 class="service-title">Centralized management for automated cloud backups and disaster recovery</h2>
+                
+                <div class="service-description-box">
+                  <p class="service-text-highlight">
+                    Powered by Backups2Africa, provide air-gapped, immutable ransomware protection with near-zero Recovery Point Objectives (RPO) and Recovery Time Objectives (RTO) across hybrid enterprise workloads.
+                  </p>
+                </div>
+
+                <div class="industry-section">
+                  <span class="industry-label">Target Industries</span>
+                  <div class="industry-tags-list">
+                    <span class="industry-tag">Financial Institutions</span>
+                    <span class="industry-tag">Healthcare &amp; Insurance</span>
+                    <span class="industry-tag">Legal &amp; Professional Services</span>
+                    <span class="industry-tag">Education &amp; Research</span>
+                    <span class="industry-tag">Enterprise IT</span>
+                  </div>
+                </div>
+
+                <div class="benefits-section">
+                  <span class="benefits-label">Key Capabilities</span>
+                  <ul class="benefits-list">
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Continuous data protection with near-zero RTO for critical databases</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Immutable storage preventing ransomware modification or deletion</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>AES-256 end-to-end encryption in-flight and at-rest</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Centralized single-pane-of-glass policy dashboard</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="service-action-wrap">
+                  <a routerLink="/service-contact" class="btn-talk-expert" aria-label="Talk to a cloud backup expert">
+                    <span>Talk to an expert</span>
+                    <span uk-icon="icon: arrow-right; ratio: 0.9" class="btn-arrow"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="accordion-container">
+                <span class="accordion-header-label">Recovery Architecture</span>
+                <ul uk-accordion="collapsible: false; multiple: false">
+                  <li class="uk-open glass-accordion-item">
+                    <a class="uk-accordion-title" href>
+                      <span class="acc-title-text">Backups2Africa Automated Orchestration</span>
+                      <span uk-icon="icon: chevron-down; ratio: 0.9" class="acc-chevron"></span>
+                    </a>
+                    <div class="uk-accordion-content">
+                      <p>
+                        Comprehensive backup and disaster recovery as a service (DRaaS) designed for physical servers, hypervisors (VMware, Hyper-V, KVM), Microsoft 365, and bare-metal databases.
+                      </p>
+                      <ul class="feature-bullets">
+                        <li>Automated synthetic full backups with global deduplication</li>
+                        <li>Granular file-level and application-consistent item restores</li>
+                        <li>Multi-tenant compliance reporting for audits (ISO 27001, NDPR)</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Storage-as-a-Service -->
+      <article id="storage" class="service-card-panel scroll-target">
+        <div class="service-banner-media">
+          <img src="/img/servicos/cloud.jpeg" alt="Storage as a Service" class="banner-img">
+          <div class="banner-gradient"></div>
+          <div class="banner-label-pill">
+            <span uk-icon="icon: folder; ratio: 0.8"></span>
+            <span>S3-Compatible Object &amp; Block Storage</span>
+          </div>
+        </div>
+
+        <div class="service-card-body">
+          <div class="uk-grid uk-grid-large uk-child-width-1-2@m" uk-grid>
+            <div>
+              <div class="service-lead-content">
+                <span class="service-kicker">High-Capacity Object Storage</span>
+                <h2 class="service-title">Flexible, affordable, sovereign object storage for massive enterprise datasets</h2>
+                
+                <div class="service-description-box">
+                  <p class="service-text-highlight">
+                    Scalable, S3-compatible cloud storage enabling enterprises to archive big data, media assets, compliance logs, and analytics with zero ingress or egress penalties.
+                  </p>
+                </div>
+
+                <div class="industry-section">
+                  <span class="industry-label">Target Industries</span>
+                  <div class="industry-tags-list">
+                    <span class="industry-tag">Media &amp; Entertainment</span>
+                    <span class="industry-tag">Telecommunications</span>
+                    <span class="industry-tag">Financial Archives</span>
+                    <span class="industry-tag">Big Data &amp; AI Analytics</span>
+                    <span class="industry-tag">Healthcare Imaging</span>
+                  </div>
+                </div>
+
+                <div class="benefits-section">
+                  <span class="benefits-label">Key Capabilities</span>
+                  <ul class="benefits-list">
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Zero ingress, egress, or API IOPS surcharge fees</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>11 9s (99.999999999%) data durability with geo-distributed parity</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Drop-in Amazon S3 API compatibility with existing toolchains</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Data sovereignty: hosted in certified local data centers</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="service-action-wrap">
+                  <a routerLink="/service-contact" class="btn-talk-expert" aria-label="Talk to a cloud storage expert">
+                    <span>Talk to an expert</span>
+                    <span uk-icon="icon: arrow-right; ratio: 0.9" class="btn-arrow"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="accordion-container">
+                <span class="accordion-header-label">Storage Architecture</span>
+                <ul uk-accordion="collapsible: false; multiple: false">
+                  <li class="uk-open glass-accordion-item">
+                    <a class="uk-accordion-title" href>
+                      <span class="acc-title-text">S3-Compatible Object Store &amp; Hot/Cold Tiers</span>
+                      <span uk-icon="icon: chevron-down; ratio: 0.9" class="acc-chevron"></span>
+                    </a>
+                    <div class="uk-accordion-content">
+                      <p>
+                        High-throughput distributed object storage built to seamlessly interface with modern applications, backup targets, and analytical data lakes without protocol translation.
+                      </p>
+                      <ul class="feature-bullets">
+                        <li>Bucket lifecycle management for automatic archiving</li>
+                        <li>Object lock (WORM) compliance for regulatory data retention</li>
+                        <li>High bandwidth interconnectivity to local metro exchange points</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
+</section>
 
-  <!-- UIkit JS -->
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit-icons.min.js"></script>
-
-
-
-  <app-ad2></app-ad2>
-
-
-  <app-rodape></app-rodape>
+<app-ad2></app-ad2>
+<app-rodape></app-rodape>

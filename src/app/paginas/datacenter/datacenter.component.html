@@ -1,231 +1,280 @@
 <app-menu></app-menu>
 
-<div class="fundo-cabecalho">
-  <div class="gradiente-texto-cabecalho">
-    <div class="conteudo-cabecalho uk-margin-medium-top">
-      <div class="uk-container uk-margin-large-bottom">
-        <h4 style="color:white; font-size: 1.1rem;">Data Centers</h4>
-        <h1 style="color:rgba(39, 200, 227, 1); margin-top: 20px; font-weight: 800;"> {{'datacenter.titulo' | translate
-          }}
-        </h1>
+<!-- Enhanced Hero Section -->
+<header class="service-hero" role="banner">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="uk-container">
+      <div class="hero-badge-wrapper">
+        <span class="hero-badge">
+          <span uk-icon="icon: server; ratio: 0.85" class="badge-icon"></span>
+          Data Centers
+        </span>
       </div>
+      <h1 class="hero-title">
+        Robust World-Class Facilities &amp;<br>
+        <span class="hero-highlight">{{ 'datacenter.titulo' | translate }}</span>
+      </h1>
+      <p class="hero-subtext">
+        High-availability data hubs engineered for enterprise colocation, subsea cable termination, and multi-tenant cloud ecosystems.
+      </p>
     </div>
   </div>
-</div>
+</header>
 
-
-
-
-<!-- -->
-<div class="">
+<!-- Facility Highlights & Virtual Tour Section -->
+<section class="facilities-section">
   <div class="uk-container">
-    <div class="uk-margin-sma-top uk-text-left" uk-grid>
-
-    </div>
-  </div>
-
-  <div class=" uk-margin-medium-top uk-container ">
     <div class="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-grid-match uk-grid" uk-grid>
+      
+      <!-- AngoNAP I -->
       <div>
-        <div class="border uk-card uk-card-primary uk-card-body">
-          <h3 style="color:#000026; font-weight: bold;" class="uk-text-left">AngoNAP I</h3>
-          <p style="font-size: 12px;color:#000026; " class="uk-text-left">Luanda, Angola</p>
-          <div class="uk-margin-small">
-            <p style="text-align: justify; color:white; color:#000026; ">
-              <b style="font-size: 12px;">Espaço de Hospedagem:</b><br>
-              Expansível até 1000 racks<br>
-              <b style="font-size: 12px; color:#000026; ">Dimensão das Racks:</b><br> 45 U<br>
-              <b style="font-size: 12px; color:#000026; "> Protecção contra incêndio:</b><br> Gás Novec e HSSD
-            </p>
+        <div class="facility-card">
+          <div class="facility-card-header">
+            <span class="location-badge">
+              <span uk-icon="icon: location; ratio: 0.8"></span>
+              Luanda, Angola
+            </span>
+            <h3 class="facility-name">AngoNAP I</h3>
+          </div>
+          
+          <div class="facility-specs">
+            <div class="spec-row">
+              <span class="spec-label">Capacity:</span>
+              <span class="spec-value">Expandable up to 1,000 racks</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Rack Dimension:</span>
+              <span class="spec-value">45 U High-Density</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Fire Protection:</span>
+              <span class="spec-value">Novec 1230 Gas &amp; HSSD</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Power &amp; Cooling:</span>
+              <span class="spec-value">2N Redundant UPS / N+1 Chillers</span>
+            </div>
           </div>
         </div>
       </div>
 
+      <!-- AngoNAP II -->
       <div>
-        <div class="border uk-card uk-card-primary uk-card-body">
-          <h3 style="color:#000026;  font-weight: bold;" class="uk-text-left">AngoNAP II</h3>
-          <p style="font-size: 12px; color:#000026;" class="uk-text-left">Fortaleza, Brasil</p>
-          <div class="uk-margin-small">
-            <p style="text-align: justify;color:#000026;">
-              <b style="font-size: 12px;">Espaço de Hospedagem:</b><br>
-              Expansível até 400 racks<br>
-              <b style="font-size: 12px; color:#000026;">Dimensão das Racks:</b> <br>42 U<br>
-              <b style="font-size: 12px;color:#000026;">Protecção contra incêndio:</b><br> Gás FM 200 e HSSD
-            </p>
+        <div class="facility-card">
+          <div class="facility-card-header">
+            <span class="location-badge">
+              <span uk-icon="icon: location; ratio: 0.8"></span>
+              Fortaleza, Brazil
+            </span>
+            <h3 class="facility-name">AngoNAP II</h3>
+          </div>
+          
+          <div class="facility-specs">
+            <div class="spec-row">
+              <span class="spec-label">Capacity:</span>
+              <span class="spec-value">Expandable up to 400 racks</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Rack Dimension:</span>
+              <span class="spec-value">42 U High-Density</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Fire Protection:</span>
+              <span class="spec-value">FM-200 Gas &amp; HSSD</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Cable Landing:</span>
+              <span class="spec-value">Direct SACS &amp; Monet Subsea</span>
+            </div>
           </div>
         </div>
       </div>
 
+      <!-- Virtual Visit Card -->
       <div>
-        <div class="border fundo-cloud uk-card uk-card-default uk-card-body uk-text-left">
-          <h3 style="color: white;">{{'visita.virtual' | translate}}</h3>
-          <p style="color: white;">{{'visita.desc' | translate}}</p>
-          <div style="margin-top: 10px;">
-            <a href="#modal-visita" uk-toggle>
-              <button class="uk-button uk-button-primary uk-button-medium uk-border-pill">
-                <span class="uk-margin-small-right uk-margin-small-left">{{'visita.botao' | translate}}</span>
-              </button>
-            </a>
+        <div class="virtual-tour-card">
+          <div class="tour-card-content">
+            <span class="tour-badge">
+              <span uk-icon="icon: video-camera; ratio: 0.8"></span>
+              360° Interactive Experience
+            </span>
+            <h3 class="tour-title">{{ 'visita.virtual' | translate }}</h3>
+            <p class="tour-desc">{{ 'visita.desc' | translate }}</p>
+            <div class="tour-action-wrap">
+              <a href="#modal-visita" uk-toggle class="btn-virtual-tour">
+                <span uk-icon="icon: play-circle; ratio: 0.9"></span>
+                <span>{{ 'visita.botao' | translate }}</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
-</div>
+</section>
 
-
-<div class=" bg-pattern">
-  <div class="uk-container uk-margin-large-top uk-margin-large-bottom " style="">
-    <p style="font-size: 1.55rem; color:#000026 " class="uk-text-center uk-container ">{{ 'datacenter.desc' | translate
-    }}</p>
+<!-- Quote / Description Banner -->
+<section class="datacenter-quote-section">
+  <div class="uk-container">
+    <div class="quote-card">
+      <span class="quote-icon" uk-icon="icon: quote-right; ratio: 1.5"></span>
+      <p class="quote-text">{{ 'datacenter.desc' | translate }}</p>
+    </div>
   </div>
-</div>
+</section>
 
+<!-- Facility Services Showcase -->
+<section class="datacenter-capabilities-section">
+  <div class="uk-container">
+    <div class="section-title-wrap uk-text-center">
+      <span class="section-kicker">Integrated Ecosystem</span>
+      <h2 class="section-title">Colocation, Managed Operations &amp; Interconnectivity</h2>
+    </div>
 
-
-<!-- This is the modal -->
-<div id="modal-visita" uk-modal>
-  <div class="uk-modal-dialog uk-modal-body uk-border-rounded fundo-form">
-    <p style="font-weight: bolder; color:#000026" class="uk-modal-title">Informações do visitante</p>
-
-
-    <form [formGroup]="visitForm" class=" uk-form-stacked uk-border-rounded uk-margin-small-top">
-
-      @if (visitForm.get('firstName')?.invalid && (visitForm.get('firstName')?.dirty || visitForm.get('firstName')?.touched)) {
-        <div
-          class="uk-text-danger">
-          @if (visitForm.get('firstName')?.errors?.['required']) {
-            {{ 'campo_obrigatorio' | translate }}
-          }
-          @if (visitForm.get('firstName')?.errors?.['pattern']) {
-            {{ 'formato_invalido' | translate }}
-          }
-        </div>
-      }
-
-      <!-- Último Nome -->
-      <div class="uk-margin">
-        <label style="color:#1B1B1B" class="texto uk-form-label" for="nome">{{ 'nome.completo' | translate }}</label>
-        <div class="uk-form-controls">
-          <input class="uk-border-rounded uk-input" id="nome" type="text" formControlName="nome" required />
-        </div>
-      </div>
-
-
-      <!-- Seu E-Mail -->
-      <div class="uk-margin">
-        <label style="color:#1B1B1B" class="texto uk-form-label" for="email">{{ 'seu.email' | translate }}</label>
-        <div class="uk-form-controls">
-          <input class="uk-input uk-border-rounded" id="email" type="email" formControlName="email" required />
+    <div class="uk-grid-match uk-child-width-1-3@m uk-grid-medium" uk-grid>
+      
+      <!-- Card 1: AngoNAP -->
+      <div>
+        <div class="capability-card">
+          <div class="capability-media">
+            <img src="img/servicos/angonap_service.png" alt="AngoNAP Tier III Colocation" class="capability-img">
+            <div class="capability-overlay"></div>
+            <span class="capability-tag">Facility</span>
+          </div>
+          <div class="capability-body">
+            <h3 class="capability-title">AngoNAP Facilities</h3>
+            <p class="capability-desc">{{ 'angonap_card_descricao' | translate }}</p>
+            <div class="capability-footer">
+              <a href="https://angolacables.rds.land/data-center" target="_blank" rel="noopener noreferrer" class="btn-capability-link">
+                <span>{{ 'guia_produto' | translate }}</span>
+                <span uk-icon="icon: arrow-right; ratio: 0.85"></span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
-      @if (visitForm.get('email')?.invalid && (visitForm.get('email')?.dirty || visitForm.get('email')?.touched)) {
-        <div
-          class="uk-text-danger">
-          @if (visitForm.get('email')?.errors?.['required']) {
-            {{ 'campo_obrigatorio' | translate }}
-          }
-          @if (visitForm.get('email')?.errors?.['pattern']) {
-            {{ 'formato_invalido_email' | translate }}
-          }
+      <!-- Card 2: Managed Services -->
+      <div>
+        <div class="capability-card">
+          <div class="capability-media">
+            <img src="img/servicos/managed-services.jpg" alt="Managed Data Center Services" class="capability-img">
+            <div class="capability-overlay"></div>
+            <span class="capability-tag">Operations</span>
+          </div>
+          <div class="capability-body">
+            <h3 class="capability-title">Managed Services</h3>
+            <p class="capability-desc">{{ 'managed_services_card_descricao' | translate }}</p>
+            <div class="capability-footer">
+              <a href="https://angolacables.rds.land/data-center" target="_blank" rel="noopener noreferrer" class="btn-capability-link">
+                <span>{{ 'guia_produto' | translate }}</span>
+                <span uk-icon="icon: arrow-right; ratio: 0.85"></span>
+              </a>
+            </div>
+          </div>
         </div>
-      }
+      </div>
 
+      <!-- Card 3: Global Data Center Interconnection -->
+      <div>
+        <div class="capability-card">
+          <div class="capability-media">
+            <img src="img/servicos/gdi.jpg" alt="Global Data Center Interconnection" class="capability-img">
+            <div class="capability-overlay"></div>
+            <span class="capability-tag">Backbone</span>
+          </div>
+          <div class="capability-body">
+            <h3 class="capability-title">Global Interconnection</h3>
+            <p class="capability-desc">{{ 'gdi_descricao' | translate }}</p>
+            <div class="capability-footer">
+              <a href="https://angolacables.rds.land/data-center" target="_blank" rel="noopener noreferrer" class="btn-capability-link">
+                <span>{{ 'guia_produto' | translate }}</span>
+                <span uk-icon="icon: arrow-right; ratio: 0.85"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <div class="uk-margin">
-        <label style="color:#1B1B1B" class="uk-form-label" for="form-stacked-select"> {{ 'qual.datacenter' | translate
-        }} </label>
-        <div class="uk-form-controls">
-          <select class="uk-select uk-border-rounded" id="form-stacked-select">
+    </div>
+  </div>
+</section>
+
+<!-- Virtual Visit Modal -->
+<div id="modal-visita" class="uk-flex-top" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body modal-glass-dialog uk-margin-auto-vertical">
+    <button class="uk-modal-close-default" type="button" uk-close></button>
+    
+    <div class="modal-header-wrap">
+      <span class="modal-badge">
+        <span uk-icon="icon: video-camera; ratio: 0.8"></span>
+        Virtual Tour Access
+      </span>
+      <h3 class="modal-title">Visitor Registration</h3>
+      <p class="modal-subtitle">Experience our carrier-neutral data centers remotely in immersive 360° detail.</p>
+    </div>
+
+    <form [formGroup]="visitForm" class="modal-form uk-form-stacked" (ngSubmit)="submitForm($event)">
+
+      <!-- Name Field -->
+      <div class="form-group">
+        <label class="form-label" for="nome">{{ 'nome.completo' | translate }}</label>
+        <div class="input-wrap">
+          <span class="input-icon" uk-icon="icon: user; ratio: 0.85"></span>
+          <input class="form-input" id="nome" type="text" formControlName="nome" placeholder="John Doe" required />
+        </div>
+        @if (visitForm.get('nome')?.invalid && (visitForm.get('nome')?.dirty || visitForm.get('nome')?.touched)) {
+          <div class="form-error">
+            @if (visitForm.get('nome')?.errors?.['required']) {
+              {{ 'campo_obrigatorio' | translate }}
+            }
+          </div>
+        }
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-group">
+        <label class="form-label" for="email">{{ 'seu.email' | translate }}</label>
+        <div class="input-wrap">
+          <span class="input-icon" uk-icon="icon: mail; ratio: 0.85"></span>
+          <input class="form-input" id="email" type="email" formControlName="email" placeholder="name@company.com" required />
+        </div>
+        @if (visitForm.get('email')?.invalid && (visitForm.get('email')?.dirty || visitForm.get('email')?.touched)) {
+          <div class="form-error">
+            @if (visitForm.get('email')?.errors?.['required']) {
+              {{ 'campo_obrigatorio' | translate }}
+            }
+            @if (visitForm.get('email')?.errors?.['email'] || visitForm.get('email')?.errors?.['pattern']) {
+              {{ 'formato_invalido_email' | translate }}
+            }
+          </div>
+        }
+      </div>
+
+      <!-- Datacenter Choice -->
+      <div class="form-group">
+        <label class="form-label" for="form-stacked-select">{{ 'qual.datacenter' | translate }}</label>
+        <div class="input-wrap">
+          <span class="input-icon" uk-icon="icon: location; ratio: 0.85"></span>
+          <select class="form-select" id="form-stacked-select">
             <option>AngoNAP I (Luanda, Angola)</option>
-            <option>AngoNAP II (Fortaleza, Brasil)</option>
+            <option>AngoNAP II (Fortaleza, Brazil)</option>
           </select>
         </div>
       </div>
 
+      <div class="modal-actions">
+        <button class="btn-submit-visit" type="submit">
+          <span>{{ 'comecar.visita' | translate }}</span>
+          <span uk-icon="icon: arrow-right; ratio: 0.9"></span>
+        </button>
+      </div>
 
     </form>
-    <p class="uk-text-right">
-      <button style="background-color: #28C1FD; margin: 20px;; color: #000026; font-weight: 600;"
-        (click)="submitForm($event)" class="uk-button  uk-button-medium uk-border-pill" type="button">{{'comecar.visita'
-      | translate }} </button>
-    </p>
   </div>
 </div>
-<!--
-<div class="fundo-cabecalho">
-  <div class="gradiente-texto-cabecalho">
-    <div class="conteudo-cabecalho uk-margin-medium-top">
-      <div class="uk-container uk-margin-large-bottom">
-        <h4 style="color:white">Data Center</h4>
-        <h1 style="color:rgba(39, 200, 227, 1); font-weight: bolder;">Infraestrutura robusta para um mundo digital <br> sempre conectado.</h1>
-      </div>
-    </div>
-  </div>
-</div>
--->
 
-
-<div class="uk-container">
-  <div
-    class="uk-grid-column-small uk-grid-row-small uk-child-width-1-3@s uk-grid-match uk-text-left uk-margin-large-bottom uk-margin-large-top "
-    uk-grid>
-
-    <div>
-      <div class="uk-card uk-card-default uk-card-body border-2 uk-flex uk-flex-column uk-flex-stretch">
-        <div class="">
-          <img class="border-2 card-image" src="img/servicos/angonap_service.png" width="1800" height="1200" alt="">
-          <h2 style="color: rgba(9, 0, 67, 1); font-weight: bolder;"><b>AngoNAP </b></h2>
-          <br>
-            <p>{{ 'angonap_card_descricao' | translate }}</p>
-          </div>
-          <div class="uk-text-center uk-margin-auto-top">
-            <a style="font-weight: bold;" href="https://angolacables.rds.land/data-center">
-              <button class="botao-guia uk-margin-medium-top uk-button uk-border-pill uk-width-1-1">{{ 'guia_produto' |
-              translate }}</button>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="uk-card uk-card-default uk-card-body border-2 uk-flex uk-flex-column uk-flex-stretch">
-          <div class="">
-            <img class="border-2 card-image" src="img/servicos/managed-services.jpg" width="1800" height="1200" alt="">
-            <h2 style="color: rgba(9, 0, 67, 1); font-weight: bolder;"><b>Managed Services</b></h2> <br>
-            <p>{{ 'managed_services_card_descricao' | translate }}</p>
-          </div>
-          <div class="uk-text-center uk-margin-auto-top">
-            <a href="https://angolacables.rds.land/data-center" style="font-weight: bold;">
-              <button class="botao-guia uk-margin-medium-top uk-button uk-border-pill uk-width-1-1">{{ 'guia_produto' |
-              translate }}</button>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="uk-card uk-card-default uk-card-body border-2 uk-flex uk-flex-column uk-flex-stretch">
-          <div class="">
-            <img class="border-2 card-image" src="img/servicos/gdi.jpg" width="1800" height="1200" alt="">
-            <h2 style="color: rgba(9, 0, 67, 1); font-weight: bolder;"><b>Global Data Center Interconnection</b></h2><br>
-            <p>{{ 'gdi_descricao' | translate }}</p>
-          </div>
-          <div class="uk-text-center uk-margin-auto-top">
-            <a href="https://angolacables.rds.land/data-center" style="font-weight: bold;">
-              <button class="botao-guia uk-margin-medium-top uk-button uk-border-pill uk-width-1-1">{{ 'guia_produto' |
-              translate }}</button>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <app-ad2></app-ad2>
-
-  </div>
-
-  <app-rodape></app-rodape>
+<app-ad2></app-ad2>
+<app-rodape></app-rodape>

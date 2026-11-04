@@ -36,7 +36,7 @@ export class CloudservicesComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.switcher = UIkit.switcher('.timeline-content');
+    this.switcher = UIkit.switcher('.segmented-tabs') || UIkit.switcher('.timeline-content');
 
     this.route.fragment.subscribe(fragment => {
       if (!fragment) return;
@@ -52,25 +52,29 @@ export class CloudservicesComponent implements AfterViewInit {
         case 'storage':
           this.switchTab(2);
           break;
-      
       }
 
       // Scroll to the actual target element by fragment id
-      const target = document.getElementById(fragment);
-      if (target) {
-        const headerOffset = 180; // 👈 height of your fixed header
-        const elementPosition = target.getBoundingClientRect().top + window.scrollY;
-        const offsetPosition = elementPosition - headerOffset;
+      setTimeout(() => {
+        const target = document.getElementById(fragment);
+        if (target) {
+          const headerOffset = 180;
+          const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - headerOffset;
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
     });
   }
 
   switchTab(tabIndex: number) {
+    if (!this.switcher) {
+      this.switcher = UIkit.switcher('.segmented-tabs') || UIkit.switcher('.timeline-content');
+    }
     if (this.switcher) {
       this.switcher.show(tabIndex);
     }

@@ -1,105 +1,454 @@
 <app-menu></app-menu>
-<div class="fundo-cabecalho">
-  <div class="gradiente-texto-cabecalho">
-    <div class="conteudo-cabecalho uk-margin-medium-top">
-      <div class="uk-container uk-margin-large-bottom">
-        <h4 style="color:white">{{ 'seguranca_titulo_pagina' | translate }}</h4>
-        <h1 style="color:#fff; font-weight: bolder;">{{ 'seguranca_subtitulo_parte1' | translate
-          }}<br>{{ 'seguranca_subtitulo_parte2' | translate }}</h1>
+
+<!-- Enhanced Hero Section -->
+<header class="service-hero" role="banner">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="uk-container">
+      <div class="hero-badge-wrapper">
+        <span class="hero-badge">
+          <span uk-icon="icon: lock; ratio: 0.85" class="badge-icon"></span>
+          {{ 'seguranca_titulo_pagina' | translate }}
+        </span>
       </div>
+      <h1 class="hero-title">
+        {{ 'seguranca_subtitulo_parte1' | translate }}<br>
+        <span class="hero-highlight">{{ 'seguranca_subtitulo_parte2' | translate }}</span>
+      </h1>
+      <p class="hero-subtext">
+        Multi-terabit volumetric Anti-DDoS scrubbing, Web Application Firewalls (WAF), and Anycast DNS defenses safeguarding enterprise continuity across African and global networks.
+      </p>
     </div>
   </div>
-</div>
+</header>
 
+<!-- Services Tabs & Showcase Section -->
+<section class="services-section">
+  <div class="uk-container">
 
-<!-- Services Tabs Section -->
-<div class="fundo-cronologia-abas">
-  <div class="uk-container ">
-    <div class="">
-      <!-- Slider Navigation -->
-      <div uk-slider>
-        <div class="uk-position-relative">
-          <!-- Navigation Arrows -->
-          <a class="uk-position-center-left-out uk-hidden-hover uk-margin-small-right" href="#" uk-slidenav-previous
-            uk-slider-item="previous"></a>
-          <a class="uk-position-center-right-out uk-hidden-hover uk-margin-small-left" href="#" uk-slidenav-next
-            uk-slider-item="next"></a>
+    <!-- Glassmorphic Segmented Tabs Navigation -->
+    <div class="tabs-nav-wrapper">
+      <div class="tabs-scroll-container">
+        <ul class="segmented-tabs" uk-switcher="connect: .timeline-content; animation: uk-animation-fade">
+          <li class="uk-active">
+            <a (click)="switchTab(0)" role="button" tabindex="0">
+              <span class="tab-icon" uk-icon="icon: shield; ratio: 0.9"></span>
+              <span>Clean Pipe - Anti-DDoS</span>
+            </a>
+          </li>
+          <li>
+            <a (click)="switchTab(1)" role="button" tabindex="0">
+              <span class="tab-icon" uk-icon="icon: server; ratio: 0.9"></span>
+              <span>Origin Protection</span>
+            </a>
+          </li>
+          <li>
+            <a (click)="switchTab(2)" role="button" tabindex="0">
+              <span class="tab-icon" uk-icon="icon: lock; ratio: 0.9"></span>
+              <span>Application Protection</span>
+            </a>
+          </li>
+          <li>
+            <a (click)="switchTab(3)" role="button" tabindex="0">
+              <span class="tab-icon" uk-icon="icon: world; ratio: 0.9"></span>
+              <span>DNS Protection</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-          <!-- Slider Container -->
-          <div class="uk-slider-container">
-            <ul class="uk-slider-items uk-child-width-auto uk-grid uk-grid-small"
-              uk-switcher="connect: .timeline-content">
-              <li><a class="texto-abas-cronologia">Anti-DDoS</a></li>
+    <!-- Content Switcher -->
+    <div class="timeline-content uk-switcher">
 
-
-            </ul>
+      <!-- 1. Clean Pipe - Anti-DDoS -->
+      <article id="cleanpipe" class="service-card-panel scroll-target">
+        <div class="service-banner-media">
+          <img src="/img/servicos/security.png" alt="Clean Pipe Anti-DDoS Network Defense" class="banner-img">
+          <div class="banner-gradient"></div>
+          <div class="banner-label-pill">
+            <span uk-icon="icon: shield; ratio: 0.8"></span>
+            <span>Volumetric Terabit Scrubbing</span>
           </div>
         </div>
-      </div>
 
+        <div class="service-card-body">
+          <div class="uk-grid uk-grid-large uk-child-width-1-2@m" uk-grid>
+            <div>
+              <div class="service-lead-content">
+                <span class="service-kicker">Network Perimeter Defense</span>
+                <h2 class="service-title">Maximize your network uptime and protect against multi-vector DDoS attacks</h2>
+                
+                <div class="service-description-box">
+                  <p class="service-text-highlight">
+                    Real-time automated mitigation of volumetric, protocol, and state-exhaustion DDoS attacks. Malicious traffic is scrubbed at the edge before it ever reaches your network boundary or data center transit.
+                  </p>
+                </div>
 
-      
-      <div class="uk-container">
-        <img src="/img/servicos/security.png" alt="Security Services"
-          style="filter: brightness(50%) ; width: 100%; height: 120px;  border-radius: 10px 10px  0px 0px; object-fit: cover;">
-      </div>
-
-      <!-- Content Switcher -->
-      <div class="timeline-content uk-switcher ">
-        <!-- Internet Connections -->
-        <div class="uk-child-width-1-2@m" uk-grid>
-          <div>
-            <div class="uk-card uk-card-body">
-              <h2 class="service-title">Maximize your network security from DDOS attacks
-              </h2>
-              <div class="industry-list">
-                <span class="industry-tag">Technology</span>
-                <span class="industry-tag">Energy, Oil & Gas</span>
-                <span class="industry-tag">Manufacturing</span>
-                <span class="industry-tag">Finance Sector</span>
-                <span class="industry-tag">Public Sector</span>
-                <span class="industry-tag">General Markets</span>
-              </div>
-              <ul class="benefits-list uk-margin-small-top">
-                <li>24/7 Monitoring and Detection</li>
-                <li>Protection against server bandwidth overload</li>
-                <li>Protection against machine resources state-exhaustion</li>
-                <li>Mitigation of malicious traffic</li>
-              </ul>
-
-              <div class="uk-margin">
-                <a routerLink="/service-contact" class="uk-button talk-to-expert-btn" aria-label="Talk to an expert">
-                  <span style="font-weight: 600;">Talk to an expert</span>
-                  <span class="uk-margin-small-left" uk-icon="icon: arrow-right"></span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="uk-card uk-card-body uk-text-left">
-              <ul uk-accordion="collapsible: false">
-                <li class="uk-open">
-                  <a class="uk-accordion-title" href><b>Anti-DDoS</b></a>
-                  <div class="uk-accordion-content">
-                    <p>Colocate your infrastructure within any of our facilites in Lagos, Luanda and Fortaleza with high
-                      availability, diverse provider choice with high security for business continuity.</p>
-
+                <div class="industry-section">
+                  <span class="industry-label">Target Industries</span>
+                  <div class="industry-tags-list">
+                    <span class="industry-tag">Financial Institutions</span>
+                    <span class="industry-tag">Internet Service Providers</span>
+                    <span class="industry-tag">E-Commerce &amp; Retail</span>
+                    <span class="industry-tag">Gaming &amp; Media</span>
+                    <span class="industry-tag">Government Portals</span>
                   </div>
-                </li>
+                </div>
 
-              </ul>
+                <div class="benefits-section">
+                  <span class="benefits-label">Key Capabilities</span>
+                  <ul class="benefits-list">
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Multi-terabit automated traffic scrubbing with sub-second time-to-mitigate</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Zero packet loss for legitimate traffic via intelligent flow inspection</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Comprehensive protection against SYN, UDP, ICMP floods, and amplification attacks</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>24x7x365 Security Operations Center (SOC) oversight and incident telemetry</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="action-buttons-group">
+                  <a routerLink="/product/cleanpipe_-_anti-ddos" class="btn-product-detail" aria-label="Explore Clean Pipe details">
+                    <span>Explore Solution</span>
+                    <span uk-icon="icon: chevron-right; ratio: 0.8"></span>
+                  </a>
+                  <a routerLink="/service-contact" class="btn-talk-expert" aria-label="Consult with security engineers">
+                    <span>Talk to an expert</span>
+                    <span uk-icon="icon: arrow-right; ratio: 0.9" class="btn-arrow"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="accordion-container">
+                <span class="accordion-header-label">Mitigation Architecture</span>
+                <ul uk-accordion="collapsible: false; multiple: false">
+                  <li class="uk-open glass-accordion-item">
+                    <a class="uk-accordion-title" href>
+                      <span class="acc-title-text">Cloud Scrubbing &amp; BGP Flowspec Routing</span>
+                      <span uk-icon="icon: chevron-down; ratio: 0.9" class="acc-chevron"></span>
+                    </a>
+                    <div class="uk-accordion-content">
+                      <p>
+                        Traffic is dynamically redirected through our global scrubbing centers using BGP Anycast announcements. Attack vectors are neutralized at line rate, and clean data is seamlessly tunneled back to your origin.
+                      </p>
+                      <ul class="feature-bullets">
+                        <li>Always-On and On-Demand routing engagement models</li>
+                        <li>Real-time telemetry portal displaying attack bandwidth and vector breakdowns</li>
+                        <li>SLA guarantee for rapid anomaly detection and zero downstream congestion</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
+      </article>
 
-      </div>
+      <!-- 2. Origin Protection -->
+      <article id="origin-protection" class="service-card-panel scroll-target">
+        <div class="service-banner-media">
+          <img src="/img/servicos/seguranca.jpeg" alt="Origin Protection Anti-DDoS" class="banner-img">
+          <div class="banner-gradient"></div>
+          <div class="banner-label-pill">
+            <span uk-icon="icon: server; ratio: 0.8"></span>
+            <span>Origin IP Masking &amp; Isolation</span>
+          </div>
+        </div>
+
+        <div class="service-card-body">
+          <div class="uk-grid uk-grid-large uk-child-width-1-2@m" uk-grid>
+            <div>
+              <div class="service-lead-content">
+                <span class="service-kicker">Infrastructure Cloaking</span>
+                <h2 class="service-title">Shield your origin IP addresses from discovery and direct hostile assaults</h2>
+                
+                <div class="service-description-box">
+                  <p class="service-text-highlight">
+                    Hide your production servers and origin IP addresses behind our globally distributed reverse proxy shield. Attackers cannot bypass edge security to strike your data center directly.
+                  </p>
+                </div>
+
+                <div class="industry-section">
+                  <span class="industry-label">Target Industries</span>
+                  <div class="industry-tags-list">
+                    <span class="industry-tag">Core Banking Services</span>
+                    <span class="industry-tag">Digital Payment Gateways</span>
+                    <span class="industry-tag">ERP &amp; Private Cloud Hosts</span>
+                    <span class="industry-tag">Healthcare Portals</span>
+                  </div>
+                </div>
+
+                <div class="benefits-section">
+                  <span class="benefits-label">Key Capabilities</span>
+                  <ul class="benefits-list">
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Total obfuscation of core hosting servers and datacenter IPs</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Automated blocking of bypass attempts with strict IP access control lists (ACLs)</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Reduced server compute burden by offloading edge TLS handshakes</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Seamless integration with existing load balancers and firewalls</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="action-buttons-group">
+                  <a routerLink="/product/origin_protection_-_anti-ddos" class="btn-product-detail" aria-label="Explore Origin Protection details">
+                    <span>Explore Solution</span>
+                    <span uk-icon="icon: chevron-right; ratio: 0.8"></span>
+                  </a>
+                  <a routerLink="/service-contact" class="btn-talk-expert" aria-label="Consult with security engineers">
+                    <span>Talk to an expert</span>
+                    <span uk-icon="icon: arrow-right; ratio: 0.9" class="btn-arrow"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="accordion-container">
+                <span class="accordion-header-label">Cloaking Architecture</span>
+                <ul uk-accordion="collapsible: false; multiple: false">
+                  <li class="uk-open glass-accordion-item">
+                    <a class="uk-accordion-title" href>
+                      <span class="acc-title-text">Secure Edge Proxy Tunneling</span>
+                      <span uk-icon="icon: chevron-down; ratio: 0.9" class="acc-chevron"></span>
+                    </a>
+                    <div class="uk-accordion-content">
+                      <p>
+                        All incoming traffic must terminate at our Anycast edge nodes. Only authenticated, verified requests are relayed to your origin servers over private encrypted tunnels or direct cross-connects.
+                      </p>
+                      <ul class="feature-bullets">
+                        <li>Mutual TLS (mTLS) authentication between edge nodes and origin</li>
+                        <li>Automated origin rate-limiting preventing resource exhaustion</li>
+                        <li>Zero downtime transition with no renumbering of private IP spaces</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Application Protection -->
+      <article id="app-protection" class="service-card-panel scroll-target">
+        <div class="service-banner-media">
+          <img src="/img/servicos/cloud-services.png" alt="Application Protection WAF" class="banner-img">
+          <div class="banner-gradient"></div>
+          <div class="banner-label-pill">
+            <span uk-icon="icon: lock; ratio: 0.8"></span>
+            <span>Layer 7 WAF &amp; API Security</span>
+          </div>
+        </div>
+
+        <div class="service-card-body">
+          <div class="uk-grid uk-grid-large uk-child-width-1-2@m" uk-grid>
+            <div>
+              <div class="service-lead-content">
+                <span class="service-kicker">Web Application Firewall</span>
+                <h2 class="service-title">Defend critical APIs, portals, and web services from OWASP Top 10 vulnerabilities</h2>
+                
+                <div class="service-description-box">
+                  <p class="service-text-highlight">
+                    Intelligent Web Application Firewall (WAF) inspecting HTTP/HTTPS traffic to prevent SQL injection, cross-site scripting (XSS), credential stuffing, and malicious scraping before requests reach your code.
+                  </p>
+                </div>
+
+                <div class="industry-section">
+                  <span class="industry-label">Target Industries</span>
+                  <div class="industry-tags-list">
+                    <span class="industry-tag">FinTech &amp; Mobile Banking</span>
+                    <span class="industry-tag">Online Retail &amp; Marketplaces</span>
+                    <span class="industry-tag">Healthcare Records</span>
+                    <span class="industry-tag">SaaS Platforms</span>
+                  </div>
+                </div>
+
+                <div class="benefits-section">
+                  <span class="benefits-label">Key Capabilities</span>
+                  <ul class="benefits-list">
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Real-time blocking of SQLi, XSS, CSRF, and remote code execution exploits</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Behavioral bot management distinguishing human traffic from automated crawlers</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>OpenAPI / Swagger schema validation for REST &amp; GraphQL API protection</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Automated rule updates aligned with global threat intelligence feeds</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="action-buttons-group">
+                  <a routerLink="/product/application_protection_service" class="btn-product-detail" aria-label="Explore Application Protection details">
+                    <span>Explore Solution</span>
+                    <span uk-icon="icon: chevron-right; ratio: 0.8"></span>
+                  </a>
+                  <a routerLink="/service-contact" class="btn-talk-expert" aria-label="Consult with security engineers">
+                    <span>Talk to an expert</span>
+                    <span uk-icon="icon: arrow-right; ratio: 0.9" class="btn-arrow"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="accordion-container">
+                <span class="accordion-header-label">Application Defense Tiers</span>
+                <ul uk-accordion="collapsible: false; multiple: false">
+                  <li class="uk-open glass-accordion-item">
+                    <a class="uk-accordion-title" href>
+                      <span class="acc-title-text">Managed Rulesets &amp; Zero-Day Virtual Patching</span>
+                      <span uk-icon="icon: chevron-down; ratio: 0.9" class="acc-chevron"></span>
+                    </a>
+                    <div class="uk-accordion-content">
+                      <p>
+                        Instantly neutralize newly discovered zero-day vulnerabilities in frameworks (Apache, Nginx, Spring, WordPress) without waiting for engineering release cycles.
+                      </p>
+                      <ul class="feature-bullets">
+                        <li>Ultra-low latency deep packet inspection (&lt; 2ms overhead)</li>
+                        <li>Custom regex and logic rule-builder for organization-specific workflows</li>
+                        <li>Compliance-ready event audit logging and SIEM integration (Splunk, Elastic)</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. DNS Protection -->
+      <article id="dns-protection" class="service-card-panel scroll-target">
+        <div class="service-banner-media">
+          <img src="/img/servicos/cabelhaco-servicos.png" alt="DNS Protection Anycast Shield" class="banner-img">
+          <div class="banner-gradient"></div>
+          <div class="banner-label-pill">
+            <span uk-icon="icon: world; ratio: 0.8"></span>
+            <span>Authoritative Anycast DNS Shield</span>
+          </div>
+        </div>
+
+        <div class="service-card-body">
+          <div class="uk-grid uk-grid-large uk-child-width-1-2@m" uk-grid>
+            <div>
+              <div class="service-lead-content">
+                <span class="service-kicker">Domain Resolution Resilience</span>
+                <h2 class="service-title">High-availability authoritative DNS resilient against DNS floods and poisoning</h2>
+                
+                <div class="service-description-box">
+                  <p class="service-text-highlight">
+                    Guarantees continuous 100% domain resolution uptime. Deployed across a global Anycast network to absorb NXDOMAIN storms, DNS reflection, and unauthorized hijacking attempts.
+                  </p>
+                </div>
+
+                <div class="industry-section">
+                  <span class="industry-label">Target Industries</span>
+                  <div class="industry-tags-list">
+                    <span class="industry-tag">Mission-Critical Web Portals</span>
+                    <span class="industry-tag">Financial Transactions</span>
+                    <span class="industry-tag">Corporate Domain Registrars</span>
+                    <span class="industry-tag">Telecommunications</span>
+                  </div>
+                </div>
+
+                <div class="benefits-section">
+                  <span class="benefits-label">Key Capabilities</span>
+                  <ul class="benefits-list">
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>100% authoritative DNS uptime SLA with Anycast global distribution</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Built-in DNSSEC cryptographic signing preventing cache poisoning and spoofing</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Instantaneous sub-second DNS record propagation across all continents</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Smart geo-routing steering visitors to the nearest server origin</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="action-buttons-group">
+                  <a routerLink="/product/dns_protection_service" class="btn-product-detail" aria-label="Explore DNS Protection details">
+                    <span>Explore Solution</span>
+                    <span uk-icon="icon: chevron-right; ratio: 0.8"></span>
+                  </a>
+                  <a routerLink="/service-contact" class="btn-talk-expert" aria-label="Consult with security engineers">
+                    <span>Talk to an expert</span>
+                    <span uk-icon="icon: arrow-right; ratio: 0.9" class="btn-arrow"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="accordion-container">
+                <span class="accordion-header-label">DNS Resolution Infrastructure</span>
+                <ul uk-accordion="collapsible: false; multiple: false">
+                  <li class="uk-open glass-accordion-item">
+                    <a class="uk-accordion-title" href>
+                      <span class="acc-title-text">Anycast Constellation &amp; DNSSEC</span>
+                      <span uk-icon="icon: chevron-down; ratio: 0.9" class="acc-chevron"></span>
+                    </a>
+                    <div class="uk-accordion-content">
+                      <p>
+                        A single IP address shared across dozens of international nodes routes queries to the topologically closest healthy server, dampening latency and neutralizing regional attacks.
+                      </p>
+                      <ul class="feature-bullets">
+                        <li>Automatic failover and health checking for primary/secondary nameservers</li>
+                        <li>Full support for IPv6 (AAAA records), ALIAS, and Apex CNAME flattening</li>
+                        <li>Granular query-rate limiting filtering rogue query storms</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
-</div>
-
-
-
-
+</section>
 
 <app-ad2></app-ad2>
 <app-rodape></app-rodape>

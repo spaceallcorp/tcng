@@ -35,8 +35,8 @@ export class DatacentersevicesComponent implements AfterViewInit {
 
 
   ngAfterViewInit(): void {
-    // ✅ Init UIkit switcher on the real container
-    this.switcher = UIkit.switcher('.timeline-content');
+    // Init UIkit switcher on the real container
+    this.switcher = UIkit.switcher('.segmented-tabs') || UIkit.switcher('.timeline-content');
 
     this.route.fragment.subscribe(fragment => {
       if (!fragment) return;
@@ -55,22 +55,27 @@ export class DatacentersevicesComponent implements AfterViewInit {
       }
 
       // Scroll to fragment target
-      const target = document.getElementById(fragment);
-      if (target) {
-        const headerOffset = 180;
-        const elementPosition =
-          target.getBoundingClientRect().top + window.scrollY;
-        const offsetPosition = elementPosition - headerOffset;
+      setTimeout(() => {
+        const target = document.getElementById(fragment);
+        if (target) {
+          const headerOffset = 180;
+          const elementPosition =
+            target.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - headerOffset;
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
     });
   }
 
   switchTab(tabIndex: number) {
+    if (!this.switcher) {
+      this.switcher = UIkit.switcher('.segmented-tabs') || UIkit.switcher('.timeline-content');
+    }
     if (this.switcher) {
       this.switcher.show(tabIndex);
     }

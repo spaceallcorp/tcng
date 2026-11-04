@@ -1,127 +1,341 @@
 <app-menu></app-menu>
-<div class="fundo-cabecalho">
-    <div class="gradiente-texto-cabecalho">
-        <div class="conteudo-cabecalho uk-margin-medium-top">
-            <div class="uk-container uk-margin-large-bottom">
-                <h4 style="color:white">{{ 'datacenter_titulo_pagina' | translate }}</h4>
-                <h1 style="color:#fff; font-weight: bolder;">{{ 'datacenter.titulo' | translate }}
-                </h1>
-            </div>
-        </div>
-    </div>
-</div>
 
-
-<!-- Services Tabs Section -->
-<div class="fundo-cronologia-abas">
-    <div class="uk-container ">
-        <div class="">
-            <!-- Slider Navigation -->
-            <div uk-slider>
-                <div class="uk-position-relative">
-                    <!-- Navigation Arrows -->
-                    <a class="uk-position-center-left-out uk-hidden-hover uk-margin-small-right" href="#"
-                        uk-slidenav-previous uk-slider-item="previous"></a>
-                    <a class="uk-position-center-right-out uk-hidden-hover uk-margin-small-left" href="#"
-                        uk-slidenav-next uk-slider-item="next"></a>
-
-
-                </div>
-            </div>
-
-
-            
-
-      <div class="uk-container">
-        <img src="/img/servicos/data-center.png" alt="Cloud Services"
-          style="filter: brightness(50%) ; width: 100%; height: 120px;  border-radius: 10px 10px  0px 0px; object-fit: cover;">
+<!-- Enhanced Hero Section -->
+<header class="service-hero" role="banner">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="uk-container">
+      <div class="hero-badge-wrapper">
+        <span class="hero-badge">
+          <span uk-icon="icon: server; ratio: 0.85" class="badge-icon"></span>
+          {{ 'datacenter_titulo_pagina' | translate }}
+        </span>
       </div>
+      <h1 class="hero-title">
+        Carrier-Neutral Colocation &amp;<br>
+        <span class="hero-highlight">{{ 'datacenter.titulo' | translate }}</span>
+      </h1>
+      <p class="hero-subtext">
+        Securely host, power, and cross-connect your mission-critical enterprise hardware within Tier-III certified facilities strategically located across Lagos, Luanda, and Fortaleza.
+      </p>
+    </div>
+  </div>
+</header>
 
+<!-- Services Tabs & Showcase Section -->
+<section class="services-section">
+  <div class="uk-container">
 
-            <!-- Rack Colocation Switcher -->
-            <div class="timeline-content uk-switcher " #servicesTabs>
+    <!-- Glassmorphic Segmented Tabs Navigation -->
+    <div class="tabs-nav-wrapper">
+      <div class="tabs-scroll-container">
+        <ul class="segmented-tabs" uk-switcher="connect: .timeline-content; animation: uk-animation-fade">
+          <li class="uk-active">
+            <a (click)="switchTab(0)" role="button" tabindex="0">
+              <span class="tab-icon" uk-icon="icon: server; ratio: 0.9"></span>
+              <span>Rack Colocation</span>
+            </a>
+          </li>
+          <li>
+            <a (click)="switchTab(1)" role="button" tabindex="0">
+              <span class="tab-icon" uk-icon="icon: git-branch; ratio: 0.9"></span>
+              <span>Interconnectivity</span>
+            </a>
+          </li>
+          <li>
+            <a (click)="switchTab(2)" role="button" tabindex="0">
+              <span class="tab-icon" uk-icon="icon: cog; ratio: 0.9"></span>
+              <span>Remote Hands &amp; Support</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-                <div class="uk-child-width-1-2@m uk-grid-divider" uk-grid>
-                    <div class="uk-margin-medium-bottom" >
-                        <div class="uk-card uk-card-body">
-                            <h2 class="service-title">Securely host, power and connect your critical infrastructure
-                            </h2>
-                            <div class="industry-list">
-                                <span class="industry-tag">Technology</span>
-                                <span class="industry-tag">Energy, Oil & Gas</span>
-                                <span class="industry-tag">Manufacturing</span>
-                                <span class="industry-tag">Finance Sector</span>
-                                <span class="industry-tag">Public Sector</span>
-                                <span class="industry-tag">General Markets</span>
-                            </div>
-                            <ul class="benefits-list uk-margin-small-top">
-                                <li> Enhanced security and power supply</li>
-                                <li>Managed and reduced operational overhead</li>
-                                <li> Interconnection point with submarine cable systems,
-                                    IXP´s, OTT´s, national and international operators</li>
-                                <li>Uptime</li>
-                                <li>Expert support and 24x7 NOC support</li>
+    <!-- Content Switcher -->
+    <div class="timeline-content uk-switcher">
 
-                            </ul>
-                            <div class="uk-margin">
-                               <a routerLink="/service-contact" class="uk-button talk-to-expert-btn" aria-label="Talk to an expert">
-                                    <span style="font-weight: 600;">Talk to an expert</span>
-                                    <span class="uk-margin-small-left" uk-icon="icon: arrow-right"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-card uk-card-body uk-text-left">
-                            <ul uk-accordion="collapsible: false">
-                                <li id="rack-colocation" class="uk-open">
-                                    <a class="uk-accordion-title" href><b>Rack Colocation</b></a>
-                                    <div class="uk-accordion-content">
-                                        <p>Colocate your infrastructure within any of our facilites in Lagos, Luanda and
-                                            Fortaleza with high
-                                            availability, diverse provider choice with high security for business
-                                            continuity.</p>
+      <!-- 1. Rack Colocation -->
+      <article id="rack-colocation" class="service-card-panel scroll-target">
+        <div class="service-banner-media">
+          <img src="/img/servicos/data-center.png" alt="Rack Colocation Facility" class="banner-img">
+          <div class="banner-gradient"></div>
+          <div class="banner-label-pill">
+            <span uk-icon="icon: server; ratio: 0.8"></span>
+            <span>Tier-III Certified Colocation</span>
+          </div>
+        </div>
 
-                                    </div>
-                                </li>
-                                <li id="interconnectivity" class="uk-margin-small-top">
-                                    <a class="uk-accordion-title" href><b>Interconnectivity</b></a>
-                                    <div class="uk-accordion-content">
-                                        <p>Access our diverse connectivity portfolio when you colocate within our data
-                                            centers and connect
-                                            to other service providers and customers.</p>
-
-                                    </div>
-                                </li>
-                                <li id="remote-hands"  class="uk-margin-small-top">
-                                    <a class="uk-accordion-title" href><b>Remote Hands & Support</b></a>
-                                    <div class="uk-accordion-content">
-                                        <p>An on-demand service that provides technical assistance and maintenance for
-                                            hosted infrastructure
-                                            at the DC.</p>
-
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
+        <div class="service-card-body">
+          <div class="uk-grid uk-grid-large uk-child-width-1-2@m" uk-grid>
+            <div>
+              <div class="service-lead-content">
+                <span class="service-kicker">Data Center Space</span>
+                <h2 class="service-title">Securely host, power, and safeguard your critical server infrastructure</h2>
+                
+                <div class="service-description-box">
+                  <p class="service-text-highlight">
+                    Colocate your IT hardware in our carrier-neutral facilities (AngoNAP Lagos, Luanda, Fortaleza) engineered to provide 99.982% uptime, biometric perimeter defense, and dual-bus redundant power feeds.
+                  </p>
                 </div>
 
+                <div class="industry-section">
+                  <span class="industry-label">Target Industries</span>
+                  <div class="industry-tags-list">
+                    <span class="industry-tag">Financial Institutions</span>
+                    <span class="industry-tag">Telecommunications</span>
+                    <span class="industry-tag">Oil &amp; Gas Conglomerates</span>
+                    <span class="industry-tag">Cloud Service Providers</span>
+                    <span class="industry-tag">FinTech &amp; Web3</span>
+                    <span class="industry-tag">Government Agencies</span>
+                  </div>
+                </div>
 
+                <div class="benefits-section">
+                  <span class="benefits-label">Key Capabilities</span>
+                  <ul class="benefits-list">
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Carrier-neutral ecosystem with multiple Tier-1 upstream providers</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>2N / N+1 UPS power architecture and standby diesel generators</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Multi-layered physical security, CCTV, and biometric access</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Environmentally controlled hot/cold aisle containment cooling</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="service-action-wrap">
+                  <a routerLink="/service-contact" class="btn-talk-expert" aria-label="Talk to a colocation expert">
+                    <span>Talk to an expert</span>
+                    <span uk-icon="icon: arrow-right; ratio: 0.9" class="btn-arrow"></span>
+                  </a>
+                </div>
+              </div>
             </div>
+
+            <div>
+              <div class="accordion-container">
+                <span class="accordion-header-label">Colocation Specifications</span>
+                <ul uk-accordion="collapsible: false; multiple: false">
+                  <li class="uk-open glass-accordion-item">
+                    <a class="uk-accordion-title" href>
+                      <span class="acc-title-text">Cabinet &amp; Cage Configurations</span>
+                      <span uk-icon="icon: chevron-down; ratio: 0.9" class="acc-chevron"></span>
+                    </a>
+                    <div class="uk-accordion-content">
+                      <p>
+                        From single 42U/45U private lockable server racks up to customized private secure cages. Fully metered dual A+B power whips with power density configurations ranging from 3 kW to 15+ kW per rack.
+                      </p>
+                      <ul class="feature-bullets">
+                        <li>High-density 42U and 45U perforated racks</li>
+                        <li>Intelligent rack PDUs with real-time remote telemetry</li>
+                        <li>Automated gas-based fire suppression (Novec 1230 / FM-200)</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
+      </article>
+
+      <!-- 2. Interconnectivity -->
+      <article id="interconnectivity" class="service-card-panel scroll-target">
+        <div class="service-banner-media">
+          <img src="/img/servicos/cabelhaco-servicos.png" alt="Data Center Interconnectivity" class="banner-img">
+          <div class="banner-gradient"></div>
+          <div class="banner-label-pill">
+            <span uk-icon="icon: git-branch; ratio: 0.8"></span>
+            <span>Carrier-Neutral Cross-Connects</span>
+          </div>
+        </div>
+
+        <div class="service-card-body">
+          <div class="uk-grid uk-grid-large uk-child-width-1-2@m" uk-grid>
+            <div>
+              <div class="service-lead-content">
+                <span class="service-kicker">High-Density Fabric</span>
+                <h2 class="service-title">Direct cross-connects to global subsea cables, IXPs, and cloud ecosystems</h2>
+                
+                <div class="service-description-box">
+                  <p class="service-text-highlight">
+                    Connect directly to local and international carriers, internet exchange points (IXPN, Angonix), OTT providers, and partner financial networks without traversing public metropolitan networks.
+                  </p>
+                </div>
+
+                <div class="industry-section">
+                  <span class="industry-label">Target Industries</span>
+                  <div class="industry-tags-list">
+                    <span class="industry-tag">Content Delivery Networks (CDNs)</span>
+                    <span class="industry-tag">Internet Service Providers</span>
+                    <span class="industry-tag">Trading &amp; High-Frequency FinTech</span>
+                    <span class="industry-tag">Enterprise Corporates</span>
+                  </div>
+                </div>
+
+                <div class="benefits-section">
+                  <span class="benefits-label">Key Capabilities</span>
+                  <ul class="benefits-list">
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Sub-millisecond localized optical cross-connects (Single-mode fiber &amp; copper)</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Direct termination on submarine cable landing stations (SACS, WACS, Monet)</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Rapid provisioning within 48 to 72 business hours</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Redundant meet-me room (MMR) architecture</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="service-action-wrap">
+                  <a routerLink="/service-contact" class="btn-talk-expert" aria-label="Talk to an interconnectivity expert">
+                    <span>Talk to an expert</span>
+                    <span uk-icon="icon: arrow-right; ratio: 0.9" class="btn-arrow"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="accordion-container">
+                <span class="accordion-header-label">Interconnection Matrix</span>
+                <ul uk-accordion="collapsible: false; multiple: false">
+                  <li class="uk-open glass-accordion-item">
+                    <a class="uk-accordion-title" href>
+                      <span class="acc-title-text">Meet-Me Room (MMR) Cross-Connects</span>
+                      <span uk-icon="icon: chevron-down; ratio: 0.9" class="acc-chevron"></span>
+                    </a>
+                    <div class="uk-accordion-content">
+                      <p>
+                        High-integrity physical cross-connects between customer equipment and third-party telecom operators, content networks, and public peering switches inside our meet-me rooms.
+                      </p>
+                      <ul class="feature-bullets">
+                        <li>Standardized fiber (OS2 single-mode, OM4 multi-mode) and Cat6A copper</li>
+                        <li>Diverse conduit routing preventing single points of failure</li>
+                        <li>Transparent patch testing and optical time-domain reflectometer (OTDR) reports</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Remote Hands & Support -->
+      <article id="remote-hands" class="service-card-panel scroll-target">
+        <div class="service-banner-media">
+          <img src="/img/servicos/managed-services.jpg" alt="Remote Hands Support" class="banner-img">
+          <div class="banner-gradient"></div>
+          <div class="banner-label-pill">
+            <span uk-icon="icon: cog; ratio: 0.8"></span>
+            <span>24x7x365 On-Site Technical Hands</span>
+          </div>
+        </div>
+
+        <div class="service-card-body">
+          <div class="uk-grid uk-grid-large uk-child-width-1-2@m" uk-grid>
+            <div>
+              <div class="service-lead-content">
+                <span class="service-kicker">Managed DC Operations</span>
+                <h2 class="service-title">24x7 on-site technical assistance, maintenance, and hardware management</h2>
+                
+                <div class="service-description-box">
+                  <p class="service-text-highlight">
+                    Extend your IT team’s operational reach without dispatching local engineers. Our certified on-site technicians handle cable patching, visual audits, hot-swapping, and scheduled maintenance around the clock.
+                  </p>
+                </div>
+
+                <div class="industry-section">
+                  <span class="industry-label">Target Industries</span>
+                  <div class="industry-tags-list">
+                    <span class="industry-tag">International Enterprises</span>
+                    <span class="industry-tag">Global Cloud Platforms</span>
+                    <span class="industry-tag">Multi-Site Operators</span>
+                    <span class="industry-tag">Financial Institutions</span>
+                  </div>
+                </div>
+
+                <div class="benefits-section">
+                  <span class="benefits-label">Key Capabilities</span>
+                  <ul class="benefits-list">
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>24x7x365 rapid response dispatch with strict SLA response windows</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Server hard/soft power cycling and emergency console troubleshooting</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Hardware receiving, inventory logging, unboxing, and rack mounting</span>
+                    </li>
+                    <li>
+                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
+                      <span>Structured optical and copper patch testing and labeling</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="service-action-wrap">
+                  <a routerLink="/service-contact" class="btn-talk-expert" aria-label="Talk to a remote hands expert">
+                    <span>Talk to an expert</span>
+                    <span uk-icon="icon: arrow-right; ratio: 0.9" class="btn-arrow"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="accordion-container">
+                <span class="accordion-header-label">Service Level Agreements</span>
+                <ul uk-accordion="collapsible: false; multiple: false">
+                  <li class="uk-open glass-accordion-item">
+                    <a class="uk-accordion-title" href>
+                      <span class="acc-title-text">Smart Hands Scope &amp; Response Tiers</span>
+                      <span uk-icon="icon: chevron-down; ratio: 0.9" class="acc-chevron"></span>
+                    </a>
+                    <div class="uk-accordion-content">
+                      <p>
+                        Available as ad-hoc pay-per-ticket service or contracted monthly retainers. All actions documented with real-time ticketing, photo verification, and digital sign-off.
+                      </p>
+                      <ul class="feature-bullets">
+                        <li>Emergency ticket response under 30 minutes</li>
+                        <li>Certified technicians trained on Dell, HPE, Cisco, and Juniper hardware</li>
+                        <li>Comprehensive asset tracking and secure storage holding room</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
     </div>
-</div>
-
-<!-- UIkit JS -->
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit-icons.min.js"></script>
-
-
-
-
-
+  </div>
+</section>
 
 <app-ad2></app-ad2>
 <app-rodape></app-rodape>

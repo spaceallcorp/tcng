@@ -66,22 +66,18 @@
   </div>
 </div>
 
-<div style="margin-top: 140px" class="uk-container">
+<div style="margin-top: 100px" class="uk-container">
   <div class="uk-grid-small uk-grid-match" uk-grid>
 
     <div class="uk-width-1-1 uk-width-1-2@m uk-width-1-3@l">
-
       <div class="card-border uk-card uk-card-body small-cell core-services-card">
+        <div class="core-services-overlay"></div>
         <div class="texto-banner">
-          <p style="font-size: 0.8rem;">{{'core-services' | translate}}</p>
-          <p style="font-weight: 700;">{{'core-services-description' | translate }}</p>
+          <span class="core-services-badge">{{'core-services' | translate}}</span>
+          <p class="core-services-heading">{{'core-services-description' | translate }}</p>
         </div>
       </div>
-
     </div>
-
-
-
 
     <!-- Second Column -->
     <div class="uk-width-1-1 uk-width-1-2@m uk-width-1-3@l">
@@ -89,44 +85,44 @@
 
         <!-- Connectivity -->
         <div class="uk-width-1-1">
-          <div class="card-border uk-card uk-card-default uk-card-body small-cell">
-            <p class="uk-card-title" style="color: #20530a">
-              <span uk-icon="icon: world; ratio: 2" class="uk-margin-xsmall-right"></span>
+          <div class="card-border uk-card uk-card-default uk-card-body small-cell service-feature-card">
+            <p class="uk-card-title service-card-header">
+              <span uk-icon="icon: world; ratio: 1.8" class="service-icon-cyan"></span>
               <b>{{'service-connectivity' | translate }}</b>
             </p>
-            <p style="font-size: 1.3rem; font-weight: 600;" class="uk-margin-small-top">
+            <p class="service-card-headline uk-margin-small-top">
               {{'connectivity-service-headline' | translate }}
             </p>
-            <p style="color: #000 !important;" class="uk-margin-small-top">
+            <p class="service-card-desc uk-margin-small-top">
               {{'servicos.connectivity.desc' | translate }}
             </p>
-            <a routerLink="/connectivity">
-              <button class="uk-button uk-button-medium uk-border-pill uk-margin-small-top"
-                style="background-color:#FAA61A; color:#003283; font-weight:700; padding:8px 40px;">
-                {{ 'learn-more' | translate }}
-              </button>
+            <a routerLink="/connectivity" class="service-learn-more-link">
+              <span class="service-btn-pill">
+                <span>{{ 'learn-more' | translate }}</span>
+                <span uk-icon="icon: arrow-right; ratio: 0.85" class="btn-arrow-icon"></span>
+              </span>
             </a>
           </div>
         </div>
 
         <!-- Cloud -->
         <div class="uk-width-1-1">
-          <div class="card-border uk-card uk-card-default uk-card-body small-cell">
-            <p class="uk-card-title" style="color: #20530a">
-              <span uk-icon="icon: cloud-upload; ratio: 2" class="uk-margin-xsmall-right"></span>
+          <div class="card-border uk-card uk-card-default uk-card-body small-cell service-feature-card">
+            <p class="uk-card-title service-card-header">
+              <span uk-icon="icon: cloud-upload; ratio: 1.8" class="service-icon-cyan"></span>
               <b>{{'servicos.cloud' | translate }}</b>
             </p>
-            <p style="font-size: 1.3rem; font-weight: 600;" class="uk-margin-small-top">
+            <p class="service-card-headline uk-margin-small-top">
               {{'servicos.cloud.headline' | translate }}
             </p>
-            <p style="color: #000 !important;" class="uk-margin-small-top">
+            <p class="service-card-desc uk-margin-small-top">
               {{'servicos.cloud.desc' | translate }}
             </p>
-            <a routerLink="/cloud">
-              <button class="uk-button uk-button-medium uk-border-pill uk-margin-small-top"
-                style="background-color:#FAA61A; color:#003283; font-weight:700; padding:8px 40px;">
-                {{ 'learn-more' | translate }}
-              </button>
+            <a routerLink="/cloud" class="service-learn-more-link">
+              <span class="service-btn-pill">
+                <span>{{ 'learn-more' | translate }}</span>
+                <span uk-icon="icon: arrow-right; ratio: 0.85" class="btn-arrow-icon"></span>
+              </span>
             </a>
           </div>
         </div>
@@ -140,45 +136,44 @@
 
         <!-- Security -->
         <div class="uk-width-1-1">
-          <div class="card-border uk-card uk-card-default uk-card-body small-cell">
-            <p class="uk-card-title" style="color:#20530a">
-              <span uk-icon="icon: lock; ratio: 2" class="uk-margin-xsmall-right"></span>
+          <div class="card-border uk-card uk-card-default uk-card-body small-cell service-feature-card">
+            <p class="uk-card-title service-card-header">
+              <span uk-icon="icon: lock; ratio: 1.8" class="service-icon-cyan"></span>
               <b>{{'servicos.seguranca' | translate }}</b>
             </p>
-            <p style="font-size: 1.3rem; font-weight: 600;" class="uk-margin-small-top">
+            <p class="service-card-headline uk-margin-small-top">
               {{'servicos.seguranca.headline' | translate }}
             </p>
-
-            <p style="color: #000 !important;" class="uk-margin-small-top">
+            <p class="service-card-desc uk-margin-small-top">
               {{'servicos.seguranca.desc' | translate }}
             </p>
-            <a routerLink="/security">
-              <button class="uk-button uk-button-medium uk-border-pill uk-margin-small-top"
-                style="background-color:#FAA61A; color:#003283; font-weight:700; padding:8px 40px;">
-                {{ 'learn-more' | translate }}
-              </button>
+            <a routerLink="/security" class="service-learn-more-link">
+              <span class="service-btn-pill">
+                <span>{{ 'learn-more' | translate }}</span>
+                <span uk-icon="icon: arrow-right; ratio: 0.85" class="btn-arrow-icon"></span>
+              </span>
             </a>
           </div>
         </div>
 
         <!-- Data Centers -->
         <div class="uk-width-1-1">
-          <div class="card-border uk-card uk-card-default uk-card-body small-cell">
-            <p class="uk-card-title" style="color:#20530a">
-              <span uk-icon="icon: server; ratio: 2" class="uk-margin-xsmall-right"></span>
+          <div class="card-border uk-card uk-card-default uk-card-body small-cell service-feature-card">
+            <p class="uk-card-title service-card-header">
+              <span uk-icon="icon: server; ratio: 1.8" class="service-icon-cyan"></span>
               <b>{{'data-centers' | translate}}</b>
             </p>
-            <p style="font-size: 1.3rem; font-weight: 600;" class="uk-margin-small-top">
+            <p class="service-card-headline uk-margin-small-top">
               {{'data-center-services' | translate }}
             </p>
-            <p style="color: #000 !important;" class="uk-margin-small-top">
+            <p class="service-card-desc uk-margin-small-top">
               {{'data-center-services-description' | translate }}
             </p>
-            <a routerLink="/data-center">
-              <button class="uk-button uk-button-medium uk-border-pill uk-margin-small-top"
-                style="background-color:#FAA61A; color:#003283; font-weight:700; padding:8px 40px;">
-                {{ 'learn-more' | translate }}
-              </button>
+            <a routerLink="/data-center" class="service-learn-more-link">
+              <span class="service-btn-pill">
+                <span>{{ 'learn-more' | translate }}</span>
+                <span uk-icon="icon: arrow-right; ratio: 0.85" class="btn-arrow-icon"></span>
+              </span>
             </a>
           </div>
         </div>
