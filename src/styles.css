@@ -1,4 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  /* Nigerian Flag & TelCables Corporate Palette */
+  --ng-green: #008751;
+  --ng-green-dark: #006838;
+  --ng-green-light: #00a865;
+  --tcng-navy: #002561;
+  --tcng-navy-dark: #001740;
+  --tcng-cyan: #1AB8DD;
+  --tcng-teal: #004f5b;
+  
+  /* Harmonized Predominant Brand Gradients */
+  --tcng-predominant-gradient: linear-gradient(135deg, #008751 0%, #00565b 45%, #002561 100%);
+  --tcng-navbar-gradient: linear-gradient(180deg, #006838 0%, #004b56 45%, #002561 100%);
+  --tcng-accent-gradient: linear-gradient(90deg, #008751 0%, #1AB8DD 50%, #002561 100%);
+}
+
 body, a, p, h1, h2, h3, h4, li, ul {
   
     font-family: "Poppins", sans-serif;

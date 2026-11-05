@@ -16,7 +16,8 @@
         <span class="hero-highlight">{{ 'cloud_subtitulo_pagina' | translate }}</span>
       </h1>
       <p class="hero-subtext">
-        High-availability infrastructure as a service (IaaS), multi-region disaster recovery, and sovereign S3-compatible cloud storage engineered for African and global business growth.
+        High-availability infrastructure as a service (IaaS), multi-region disaster recovery, and sovereign
+        S3-compatible cloud storage engineered for African and global business growth.
       </p>
     </div>
   </div>
@@ -62,22 +63,56 @@
           <div class="banner-gradient"></div>
           <div class="banner-label-pill">
             <span uk-icon="icon: server; ratio: 0.8"></span>
-            <span>Compute, Virtualization &amp; SDN</span>
+            <span>Compute, Storage and Network</span>
           </div>
         </div>
 
         <div class="service-card-body">
-          <div class="uk-grid uk-grid-large uk-child-width-1-2@m" uk-grid>
-            <div>
-              <div class="service-lead-content">
-                <span class="service-kicker">Cloud Infrastructure</span>
-                <h2 class="service-title">Virtualized high-performance compute, storage, and networking resources</h2>
-                
-                <div class="service-description-box">
-                  <p class="service-text-highlight">
-                    Deploy scalable enterprise virtual machines with NVMe SSD high-IOPS storage, redundant networking, and dedicated self-service orchestration through our intuitive B2B management portal.
-                  </p>
+
+
+          <!-- Featured Product: Clouds2Africa (IaaS) -->
+          <div class="featured-product-showcase standalone-featured">
+            <div class="featured-product-card">
+
+              <!-- Top Header: Logo, Badges & Visit Partner -->
+              <div class="featured-product-header">
+                <div class="featured-brand-wrap">
+                  <a href="https://www.clouds2africa.com/" target="_blank" rel="noopener noreferrer"
+                    class="featured-logo-link" title="Visit Clouds2Africa">
+                    <img src="https://marketing.host2africa.com/drive/tcsa/clouds2africa-blue.png" alt="Clouds2Africa"
+                      class="featured-product-logo">
+                  </a>
+                  <div class="featured-badges-group">
+                    <span class="featured-status-pill">Featured Product</span>
+                    <span class="featured-category-pill">Enterprise Cloud (IaaS)</span>
+                  </div>
                 </div>
+                <a href="https://www.clouds2africa.com/" target="_blank" rel="noopener noreferrer"
+                  class="btn-visit-partner">
+                  <span>Visit Clouds2Africa</span>
+                  <span uk-icon="icon: arrow-up-right; ratio: 0.9"></span>
+                </a>
+              </div>
+
+
+              <div>
+                <div class="service-lead-content">
+                  <span class="service-kicker">Cloud Infrastructure</span>
+                  <h2 class="service-title">Virtualized high-performance compute, storage, and networking resources</h2>
+
+
+
+                </div>
+              </div>
+
+              <!-- Service Description & Recommended For -->
+              <div class="featured-desc-container">
+                <h3 class="featured-block-title">Service Description</h3>
+                <p class="featured-desc-text">
+                  Robust and scalable enterprise cloud infrastructure with flexible, secure, and multi-tenant services.
+                  Clouds2Africa is an enterprise cloud solution providing elastic compute, scalable storage, and managed
+                  database capabilities for mission-critical business applications.
+                </p>
 
                 <div class="industry-section">
                   <span class="industry-label">Target Industries</span>
@@ -91,59 +126,75 @@
                   </div>
                 </div>
 
-                <div class="benefits-section">
-                  <span class="benefits-label">Key Capabilities</span>
-                  <ul class="benefits-list">
-                    <li>
-                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
-                      <span>Instant on-demand virtual machine provisioning and automated scaling</span>
-                    </li>
-                    <li>
-                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
-                      <span>Up to 99.95% availability SLA with VMware and OpenStack hypervisors</span>
-                    </li>
-                    <li>
-                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
-                      <span>Carrier-grade network integration with low-latency IP transit</span>
-                    </li>
-                    <li>
-                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
-                      <span>Predictable cost models with zero hidden ingress/egress surcharges</span>
-                    </li>
-                  </ul>
-                </div>
+              </div>
 
-                <div class="service-action-wrap">
-                  <a routerLink="/service-contact" class="btn-talk-expert" aria-label="Talk to an IaaS cloud expert">
-                    <span>Talk to an expert</span>
-                    <span uk-icon="icon: arrow-right; ratio: 0.9" class="btn-arrow"></span>
-                  </a>
+              <!-- Big Numbers / Metrics Grid -->
+              <div class="featured-metrics-grid">
+                <div class="metric-card">
+                  <div class="metric-value">24/7</div>
+                  <div class="metric-label">Technical Support</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-value">+24</div>
+                  <div class="metric-label">Countries Presence</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-value">+500</div>
+                  <div class="metric-label">Cloud Zones</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-value">99.5%</div>
+                  <div class="metric-label">Computing Availability</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-value">99.99%</div>
+                  <div class="metric-label">Storage Availability</div>
                 </div>
               </div>
-            </div>
 
-            <div>
-              <div class="accordion-container">
-                <span class="accordion-header-label">Infrastructure Tiers</span>
-                <ul uk-accordion="collapsible: false; multiple: false">
-                  <li class="uk-open glass-accordion-item">
-                    <a class="uk-accordion-title" href>
-                      <span class="acc-title-text">Virtual Data Center (vDC)</span>
-                      <span uk-icon="icon: chevron-down; ratio: 0.9" class="acc-chevron"></span>
-                    </a>
-                    <div class="uk-accordion-content">
-                      <p>
-                        A completely isolated pool of cloud compute, memory, and virtual storage resources. Enables enterprise IT teams to create custom VPCs, configure virtual firewalls, load balancers, and manage private networks.
-                      </p>
-                      <ul class="feature-bullets">
-                        <li>Dedicated vCPU and RAM allocations without noisy-neighbor contention</li>
-                        <li>High-speed NVMe block storage with automated snapshots</li>
-                        <li>Self-service web console and full REST API integration</li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
+              <!-- Key Features / Principais Características -->
+              <div class="featured-features-section">
+                <h3 class="featured-block-title">Key Features</h3>
+                <div class="featured-features-grid">
+                  <div class="feature-item">
+                    <div class="feature-bullet-icon">✓</div>
+                    <span class="feature-item-text">Storage type: Block and Object (S3 compatible)</span>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-bullet-icon">✓</div>
+                    <span class="feature-item-text">Multi-Tenant Reseller Program</span>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-bullet-icon">✓</div>
+                    <span class="feature-item-text">In-country data residency</span>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-bullet-icon">✓</div>
+                    <span class="feature-item-text">Regulatory compliance</span>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-bullet-icon">✓</div>
+                    <span class="feature-item-text">VMware-Friendly: Use with vSphere or migrate into Zadara</span>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-bullet-icon">✓</div>
+                    <span class="feature-item-text">Pay-as-you-go</span>
+                  </div>
+                </div>
               </div>
+
+              <!-- Bottom Action Buttons -->
+              <div class="featured-footer-actions">
+                <a href="https://www.clouds2africa.com/" target="_blank" rel="noopener noreferrer"
+                  class="btn-primary-gradient">
+                  <span>Go to Clouds2Africa Portal</span>
+                  <span uk-icon="icon: arrow-right; ratio: 0.85"></span>
+                </a>
+                <a routerLink="/service-contact" class="btn-secondary-outline">
+                  <span>Request IaaS Quote</span>
+                </a>
+              </div>
+
             </div>
           </div>
         </div>
@@ -161,17 +212,48 @@
         </div>
 
         <div class="service-card-body">
-          <div class="uk-grid uk-grid-large uk-child-width-1-2@m" uk-grid>
-            <div>
-              <div class="service-lead-content">
-                <span class="service-kicker">Data Protection &amp; BCDR</span>
-                <h2 class="service-title">Centralized management for automated cloud backups and disaster recovery</h2>
-                
-                <div class="service-description-box">
-                  <p class="service-text-highlight">
-                    Powered by Backups2Africa, provide air-gapped, immutable ransomware protection with near-zero Recovery Point Objectives (RPO) and Recovery Time Objectives (RTO) across hybrid enterprise workloads.
-                  </p>
+
+          <!-- Featured Product: Backups2Africa -->
+          <div class="featured-product-showcase standalone-featured">
+            <div class="featured-product-card">
+
+              <!-- Top Header: Logo, Badges & Visit Partner -->
+              <div class="featured-product-header">
+                <div class="featured-brand-wrap">
+                  <a href="https://pages.angolacables.com/backup2africa-2/" target="_blank" rel="noopener noreferrer"
+                    class="featured-logo-link" title="Visit Backups2Africa">
+                    <img src="https://marketing.host2africa.com/drive/productfeaturedimgs/back2africa-LOGOazul.png"
+                      alt="Backups2Africa" class="featured-product-logo">
+                  </a>
+                  <div class="featured-badges-group">
+                    <span class="featured-status-pill">Featured Product</span>
+                    <span class="featured-category-pill">Cloud Backup &amp; DRaaS</span>
+                  </div>
                 </div>
+                <a href="https://pages.angolacables.com/backup2africa-2/" target="_blank" rel="noopener noreferrer"
+                  class="btn-visit-partner">
+                  <span>Visit Backups2Africa</span>
+                  <span uk-icon="icon: arrow-up-right; ratio: 0.9"></span>
+                </a>
+              </div>
+
+              <div>
+                <div class="service-lead-content">
+                  <span class="service-kicker">Data Protection &amp; BCDR</span>
+                  <h2 class="service-title">Centralized management for automated cloud backups and disaster recovery</h2>
+                </div>
+              </div>
+
+              <!-- Service Description & Target Industries -->
+              <div class="featured-desc-container">
+                <h3 class="featured-block-title">Service Description</h3>
+                <p class="featured-desc-text">
+                  Advanced automated cloud backup, processing, and disaster recovery services (BaaS &amp; DRaaS),
+                  guaranteeing maximum security, risk mitigation, and continuous operations for mission-critical
+                  systems.
+                  Backups2Africa provides air-gapped, immutable protection against ransomware, enabling instant,
+                  granular recovery of files, databases, and full virtual machines with near-zero RTO and RPO.
+                </p>
 
                 <div class="industry-section">
                   <span class="industry-label">Target Industries</span>
@@ -181,62 +263,84 @@
                     <span class="industry-tag">Legal &amp; Professional Services</span>
                     <span class="industry-tag">Education &amp; Research</span>
                     <span class="industry-tag">Enterprise IT</span>
+                    <span class="industry-tag">Government &amp; Public Sector</span>
                   </div>
                 </div>
+              </div>
 
-                <div class="benefits-section">
-                  <span class="benefits-label">Key Capabilities</span>
-                  <ul class="benefits-list">
-                    <li>
-                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
-                      <span>Continuous data protection with near-zero RTO for critical databases</span>
-                    </li>
-                    <li>
-                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
-                      <span>Immutable storage preventing ransomware modification or deletion</span>
-                    </li>
-                    <li>
-                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
-                      <span>AES-256 end-to-end encryption in-flight and at-rest</span>
-                    </li>
-                    <li>
-                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
-                      <span>Centralized single-pane-of-glass policy dashboard</span>
-                    </li>
-                  </ul>
+              <!-- Big Numbers / Metrics Grid -->
+              <div class="featured-metrics-grid">
+                <div class="metric-card">
+                  <div class="metric-value">24/7</div>
+                  <div class="metric-label">Technical Support</div>
                 </div>
-
-                <div class="service-action-wrap">
-                  <a routerLink="/service-contact" class="btn-talk-expert" aria-label="Talk to a cloud backup expert">
-                    <span>Talk to an expert</span>
-                    <span uk-icon="icon: arrow-right; ratio: 0.9" class="btn-arrow"></span>
-                  </a>
+                <div class="metric-card">
+                  <div class="metric-value">Near-0</div>
+                  <div class="metric-label">RPO &amp; RTO Target</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-value">100%</div>
+                  <div class="metric-label">Immutable Protection</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-value">AES-256</div>
+                  <div class="metric-label">Encryption In-Flight &amp; At-Rest</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-value">99.9%</div>
+                  <div class="metric-label">Service Availability</div>
                 </div>
               </div>
-            </div>
 
-            <div>
-              <div class="accordion-container">
-                <span class="accordion-header-label">Recovery Architecture</span>
-                <ul uk-accordion="collapsible: false; multiple: false">
-                  <li class="uk-open glass-accordion-item">
-                    <a class="uk-accordion-title" href>
-                      <span class="acc-title-text">Backups2Africa Automated Orchestration</span>
-                      <span uk-icon="icon: chevron-down; ratio: 0.9" class="acc-chevron"></span>
-                    </a>
-                    <div class="uk-accordion-content">
-                      <p>
-                        Comprehensive backup and disaster recovery as a service (DRaaS) designed for physical servers, hypervisors (VMware, Hyper-V, KVM), Microsoft 365, and bare-metal databases.
-                      </p>
-                      <ul class="feature-bullets">
-                        <li>Automated synthetic full backups with global deduplication</li>
-                        <li>Granular file-level and application-consistent item restores</li>
-                        <li>Multi-tenant compliance reporting for audits (ISO 27001, NDPR)</li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
+              <!-- Key Features / Principais Características -->
+              <div class="featured-features-section">
+                <h3 class="featured-block-title">Key Features</h3>
+                <div class="featured-features-grid">
+                  <div class="feature-item">
+                    <div class="feature-bullet-icon">✓</div>
+                    <span class="feature-item-text">Continuous and immutable protection against ransomware and data
+                      corruption</span>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-bullet-icon">✓</div>
+                    <span class="feature-item-text">Granular recovery of files, databases, and full virtual
+                      machines</span>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-bullet-icon">✓</div>
+                    <span class="feature-item-text">Multi-platform support: VMware, Hyper-V, KVM, bare-metal, and
+                      Microsoft 365</span>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-bullet-icon">✓</div>
+                    <span class="feature-item-text">Global deduplication at source and target with WAN bandwidth
+                      optimization</span>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-bullet-icon">✓</div>
+                    <span class="feature-item-text">In-country data residency fully compliant with NDPR and local data
+                      laws</span>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-bullet-icon">✓</div>
+                    <span class="feature-item-text">Flexible pay-as-you-go model with predictable billing in local
+                      currency (Naira)</span>
+                  </div>
+                </div>
               </div>
+
+              <!-- Bottom Action Buttons -->
+              <div class="featured-footer-actions">
+                <a href="https://pages.angolacables.com/backup2africa-2/" target="_blank" rel="noopener noreferrer"
+                  class="btn-primary-gradient">
+                  <span>Go to Backups2Africa Portal</span>
+                  <span uk-icon="icon: arrow-right; ratio: 0.85"></span>
+                </a>
+                <a routerLink="/service-contact" class="btn-secondary-outline">
+                  <span>Request Backup Consultation</span>
+                </a>
+              </div>
+
             </div>
           </div>
         </div>
@@ -254,18 +358,47 @@
         </div>
 
         <div class="service-card-body">
-          <div class="uk-grid uk-grid-large uk-child-width-1-2@m" uk-grid>
-            <div>
-              <div class="service-lead-content">
-                <span class="service-kicker">High-Capacity Object Storage</span>
-                <h2 class="service-title">Flexible, affordable, sovereign object storage for massive enterprise datasets</h2>
-                
-                <div class="service-description-box">
-                  <p class="service-text-highlight">
-                    Scalable, S3-compatible cloud storage enabling enterprises to archive big data, media assets, compliance logs, and analytics with zero ingress or egress penalties.
-                  </p>
-                </div>
+          <!-- Featured Product: Clouds2Africa (Storage-as-a-Service) -->
+          <div class="featured-product-showcase standalone-featured">
+            <div class="featured-product-card">
 
+              <!-- Top Header: Logo, Badges & Visit Partner -->
+              <div class="featured-product-header">
+                <div class="featured-brand-wrap">
+                  <a href="https://www.clouds2africa.com/" target="_blank" rel="noopener noreferrer"
+                    class="featured-logo-link" title="Visit Clouds2Africa">
+                    <img src="https://marketing.host2africa.com/drive/tcsa/clouds2africa-blue.png"
+                      alt="Clouds2Africa Storage" class="featured-product-logo">
+                  </a>
+                  <div class="featured-badges-group">
+                    <span class="featured-status-pill">Featured Product</span>
+                    <span class="featured-category-pill">Storage-as-a-Service (STaaS)</span>
+                  </div>
+                </div>
+                <a href="https://www.clouds2africa.com/" target="_blank" rel="noopener noreferrer"
+                  class="btn-visit-partner">
+                  <span>Visit Clouds2Africa</span>
+                  <span uk-icon="icon: arrow-up-right; ratio: 0.9"></span>
+                </a>
+              </div>
+
+              <div>
+                <div class="service-lead-content">
+                  <span class="service-kicker">High-Capacity Object Storage</span>
+                  <h2 class="service-title">Flexible, affordable, sovereign object storage for massive enterprise datasets</h2>
+                </div>
+              </div>
+
+              <!-- Service Description & Recommended For -->
+              <div class="featured-desc-container">
+                <h3 class="featured-block-title">Service Description</h3>
+                <p class="featured-desc-text">
+                  Sovereign, elastic, and high-durability cloud storage with native Amazon S3 API compatibility (Object
+                  &amp; Block Storage).
+                  Clouds2Africa Storage-as-a-Service is engineered to store, archive, and process vast volumes of
+                  enterprise data with low latency, robust data protection, and zero egress or traffic penalties (zero
+                  egress fees).
+                </p>
                 <div class="industry-section">
                   <span class="industry-label">Target Industries</span>
                   <div class="industry-tags-list">
@@ -274,62 +407,80 @@
                     <span class="industry-tag">Financial Archives</span>
                     <span class="industry-tag">Big Data &amp; AI Analytics</span>
                     <span class="industry-tag">Healthcare Imaging</span>
+                    <span class="industry-tag">E-Commerce</span>
                   </div>
                 </div>
+              </div>
 
-                <div class="benefits-section">
-                  <span class="benefits-label">Key Capabilities</span>
-                  <ul class="benefits-list">
-                    <li>
-                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
-                      <span>Zero ingress, egress, or API IOPS surcharge fees</span>
-                    </li>
-                    <li>
-                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
-                      <span>11 9s (99.999999999%) data durability with geo-distributed parity</span>
-                    </li>
-                    <li>
-                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
-                      <span>Drop-in Amazon S3 API compatibility with existing toolchains</span>
-                    </li>
-                    <li>
-                      <span class="benefit-check" uk-icon="icon: check; ratio: 0.8"></span>
-                      <span>Data sovereignty: hosted in certified local data centers</span>
-                    </li>
-                  </ul>
+              <!-- Big Numbers / Metrics Grid -->
+              <div class="featured-metrics-grid">
+                <div class="metric-card">
+                  <div class="metric-value">99.9%</div>
+                  <div class="metric-label">Data Durability</div>
                 </div>
-
-                <div class="service-action-wrap">
-                  <a routerLink="/service-contact" class="btn-talk-expert" aria-label="Talk to a cloud storage expert">
-                    <span>Talk to an expert</span>
-                    <span uk-icon="icon: arrow-right; ratio: 0.9" class="btn-arrow"></span>
-                  </a>
+                <div class="metric-card">
+                  <div class="metric-value">99.99%</div>
+                  <div class="metric-label">Storage Availability</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-value">0 ₦</div>
+                  <div class="metric-label">Zero Egress &amp; Ingress Fees</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-value">S3 API</div>
+                  <div class="metric-label">100% Native Compatibility</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-value">Local</div>
+                  <div class="metric-label">In-Country Data Residency</div>
                 </div>
               </div>
-            </div>
 
-            <div>
-              <div class="accordion-container">
-                <span class="accordion-header-label">Storage Architecture</span>
-                <ul uk-accordion="collapsible: false; multiple: false">
-                  <li class="uk-open glass-accordion-item">
-                    <a class="uk-accordion-title" href>
-                      <span class="acc-title-text">S3-Compatible Object Store &amp; Hot/Cold Tiers</span>
-                      <span uk-icon="icon: chevron-down; ratio: 0.9" class="acc-chevron"></span>
-                    </a>
-                    <div class="uk-accordion-content">
-                      <p>
-                        High-throughput distributed object storage built to seamlessly interface with modern applications, backup targets, and analytical data lakes without protocol translation.
-                      </p>
-                      <ul class="feature-bullets">
-                        <li>Bucket lifecycle management for automatic archiving</li>
-                        <li>Object lock (WORM) compliance for regulatory data retention</li>
-                        <li>High bandwidth interconnectivity to local metro exchange points</li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
+              <!-- Key Features / Principais Características -->
+              <div class="featured-features-section">
+                <h3 class="featured-block-title">Key Features</h3>
+                <div class="featured-features-grid">
+                  <div class="feature-item">
+                    <div class="feature-bullet-icon">✓</div>
+                    <span class="feature-item-text">Storage type: Block and Object (Amazon S3 compatible)</span>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-bullet-icon">✓</div>
+                    <span class="feature-item-text">Zero ingress, egress, or API transaction surcharge fees</span>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-bullet-icon">✓</div>
+                    <span class="feature-item-text">Object Lock (WORM) for immutable regulatory retention and ransomware
+                      protection</span>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-bullet-icon">✓</div>
+                    <span class="feature-item-text">Automated bucket lifecycle policies and data tiering</span>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-bullet-icon">✓</div>
+                    <span class="feature-item-text">Multi-Tenant Reseller Program with dedicated quota management</span>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-bullet-icon">✓</div>
+                    <span class="feature-item-text">Transparent pay-as-you-go pricing with predictable billing in local
+                      currency (Naira)</span>
+                  </div>
+                </div>
               </div>
+
+              <!-- Bottom Action Buttons -->
+              <div class="featured-footer-actions">
+                <a href="https://www.clouds2africa.com/" target="_blank" rel="noopener noreferrer"
+                  class="btn-primary-gradient">
+                  <span>Go to Clouds2Africa Storage</span>
+                  <span uk-icon="icon: arrow-right; ratio: 0.85"></span>
+                </a>
+                <a routerLink="/service-contact" class="btn-secondary-outline">
+                  <span>Request Storage Quote</span>
+                </a>
+              </div>
+
             </div>
           </div>
         </div>

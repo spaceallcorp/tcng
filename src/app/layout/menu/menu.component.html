@@ -354,41 +354,197 @@
     <!-- Mobile Offcanvas Menu -->
     <div id="offcanvas-nav" uk-offcanvas="overlay: true">
         <div class="uk-offcanvas-bar">
-            <ul class="uk-nav uk-nav-default uk-margin-medium-left">
-                <li>
-                    <a href="#inicio" uk-scroll="offset: 100" class="texto">
-                        <img class="uk-border-rounded" style="height: auto; width: 250px;" src="/img/logo-tcng.png">
+            <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+            <div class="uk-margin-bottom uk-text-center">
+                <a href="#inicio" uk-scroll="offset: 100" class="texto">
+                    <img class="uk-border-rounded mobile-menu-logo" src="/img/logo-tcng.png" alt="TelCables Nigeria">
+                </a>
+            </div>
+
+            <ul class="uk-nav uk-nav-default uk-nav-parent-icon" uk-nav="multiple: true">
+                
+                <!-- Products Accordion -->
+                <li class="uk-parent">
+                    <a href="#" class="mobile-section-header">
+                        <span uk-icon="icon: grid; ratio: 0.9" class="mobile-menu-icon"></span>
+                        <span>Products</span>
                     </a>
-                </li>
+                    <ul class="uk-nav-sub mobile-subnav">
+                        
+                        <!-- CONNECTIVITY -->
+                        <li class="uk-parent">
+                            <a href="#" class="mobile-group-header">
+                                <span uk-icon="icon: world; ratio: 0.85" class="mobile-menu-icon"></span>
+                                <span>Connectivity</span>
+                            </a>
+                            <ul class="uk-nav-sub mobile-inner-subnav">
+                                <li><a routerLink="/connectivity" class="mobile-overview-link">All Connectivity</a></li>
+                                <li><a [routerLink]="['/connectivity']" fragment="internet">Internet Connections</a></li>
+                                <li><a [routerLink]="['/connectivity']" fragment="dia">Dedicated Internet Access</a></li>
+                                <li><a [routerLink]="['/connectivity']" fragment="internet">IP Transit</a></li>
+                                <li><a [routerLink]="['/connectivity']" fragment="private-metro">Private Metro Connections</a></li>
+                                <li><a [routerLink]="['/connectivity']" fragment="ipc">International Private Circuit</a></li>
+                                <li><a [routerLink]="['/connectivity']" fragment="acloudconnect">ACloud Connect</a></li>
+                            </ul>
+                        </li>
 
-                <li><a routerLink="/company">{{ 'menu-conheca' | translate }}</a></li>
-                <li><a routerLink="/news">{{ 'news.media' | translate }}</a></li>
-                <li><a routerLink="/solutions">{{ 'solutions' | translate }}</a></li>
+                        <!-- CLOUD -->
+                        <li class="uk-parent">
+                            <a href="#" class="mobile-group-header">
+                                <span uk-icon="icon: cloud-upload; ratio: 0.85" class="mobile-menu-icon"></span>
+                                <span>Cloud</span>
+                            </a>
+                            <ul class="uk-nav-sub mobile-inner-subnav">
+                                <li><a routerLink="/cloud" class="mobile-overview-link">All Cloud Solutions</a></li>
+                                <li><a [routerLink]="['/cloud']" fragment="iaas">Virtual Infrastructure (IaaS)</a></li>
+                                <li><a [routerLink]="['/cloud']" fragment="backup">Cloud Backup (Backups2Africa)</a></li>
+                                <li><a [routerLink]="['/cloud']" fragment="storage">Storage-as-a-service</a></li>
+                            </ul>
+                        </li>
 
-                <li class="uk-parent uk-margin-top">
-                    <a style="color:#ffffff85 !important; font-weight: normal !important;"> {{ 'servicos' |
-                        translate }} </a>
-                    <ul class="uk-nav-sub">
-                        <li><a routerLink="/connectivity">{{ 'connectivity.mobile' | translate }}</a></li>
-                        <li><a routerLink="/cloud">{{ 'cloud.mobile' | translate }}</a></li>
-                        <li><a routerLink="/security">{{ 'security.mobile' | translate }}</a></li>
-                        <li><a routerLink="/data-center">{{ 'menu-datacenter' | translate }}</a></li>
+                        <!-- DATA CENTER -->
+                        <li class="uk-parent">
+                            <a href="#" class="mobile-group-header">
+                                <span uk-icon="icon: server; ratio: 0.85" class="mobile-menu-icon"></span>
+                                <span>Data Center</span>
+                            </a>
+                            <ul class="uk-nav-sub mobile-inner-subnav">
+                                <li><a routerLink="/data-center" class="mobile-overview-link">All Data Center Services</a></li>
+                                <li><a [routerLink]="['/data-center']" fragment="rack-colocation">Rack Colocation</a></li>
+                                <li><a [routerLink]="['/data-center']" fragment="interconnectivity">Interconnectivity</a></li>
+                                <li><a [routerLink]="['/data-center']" fragment="remote-hands">Remote Hands & Support</a></li>
+                                <li><a routerLink="/datacenter">Facilities &amp; Virtual Visit</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- SECURITY -->
+                        <li class="uk-parent">
+                            <a href="#" class="mobile-group-header">
+                                <span uk-icon="icon: lock; ratio: 0.85" class="mobile-menu-icon"></span>
+                                <span>Security</span>
+                            </a>
+                            <ul class="uk-nav-sub mobile-inner-subnav">
+                                <li><a routerLink="/security" class="mobile-overview-link">All Security Solutions</a></li>
+                                <li><a routerLink="/product/cleanpipe_-_anti-ddos">Clean Pipe - Anti-DDoS</a></li>
+                                <li><a routerLink="/product/origin_protection_-_anti-ddos">Origin Protection</a></li>
+                                <li><a routerLink="/product/application_protection_service">Application Protection</a></li>
+                                <li><a routerLink="/product/dns_protection_service">DNS Protection</a></li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </li>
 
-                <li class="uk-margin-top"><a target="_blank" href="https://partners.angolacables.co.ao/">{{
-                        'menu-parceiros' | translate
-                        }}</a></li>
+                <!-- Solutions Accordion -->
+                <li class="uk-parent">
+                    <a href="#" class="mobile-section-header">
+                        <span uk-icon="icon: thumbnails; ratio: 0.9" class="mobile-menu-icon"></span>
+                        <span>Solutions</span>
+                    </a>
+                    <ul class="uk-nav-sub mobile-subnav">
+                        <li><a routerLink="/solutions" class="mobile-overview-link">All Solutions Overview</a></li>
 
-                <li class="uk-margin-top"><a target="_blank"
-                        href="https://acservices.atlanticconnect.com.br/latencies/round-trip/">{{
-                        'menu-latencias' | translate }}</a></li>
+                        <!-- Service Providers -->
+                        <li class="uk-parent">
+                            <a href="#" class="mobile-group-header">Service Providers</a>
+                            <ul class="uk-nav-sub mobile-inner-subnav">
+                                <li><a routerLink="/solution/W6TKykQybafg9iVfYzrh">Bulk Capacity</a></li>
+                                <li><a routerLink="/solution/R446yVwVh58fu47SWfqz">Cloud Partner</a></li>
+                                <li><a routerLink="/solution/UxSwnLK8v0tTjLXtwW07">Africa Digital Bridge</a></li>
+                            </ul>
+                        </li>
 
+                        <!-- Technology -->
+                        <li class="uk-parent">
+                            <a href="#" class="mobile-group-header">Technology</a>
+                            <ul class="uk-nav-sub mobile-inner-subnav">
+                                <li><a routerLink="/solution/aGazTik0cU33m9Ply2R4">Virtual server room</a></li>
+                                <li><a routerLink="/solution/n5Xftlth6X6Gz8YsGf35">Uptime assurance &amp; Disaster Recovery</a></li>
+                            </ul>
+                        </li>
 
+                        <!-- Energy -->
+                        <li class="uk-parent">
+                            <a href="#" class="mobile-group-header">Energy</a>
+                            <ul class="uk-nav-sub mobile-inner-subnav">
+                                <li><a routerLink="/solution/xmgZtnpcULyfJn4S5CoU">Point-to-Point/Multipoints circuits</a></li>
+                                <li><a routerLink="/solution/IkS1RLuNtKt7syLSDfHc">Private cloud alternative to physical</a></li>
+                            </ul>
+                        </li>
 
-                <li class="uk-margin-top">
-                    <a routerLink="/service-contact">{{ 'contato' | translate }}</a>
+                        <!-- Finance Services & Insurance -->
+                        <li class="uk-parent">
+                            <a href="#" class="mobile-group-header">Finance &amp; Insurance (FSI)</a>
+                            <ul class="uk-nav-sub mobile-inner-subnav">
+                                <li><a routerLink="/solution/r6N5oiZ8kNGtsoBckh1G">Premium connectivity</a></li>
+                                <li><a routerLink="/solution/IkS1RLuNtKt7syLSDfHc">Private cloud for inhouse management</a></li>
+                                <li><a routerLink="/solution/gmxOyIYW80aGNnp95xsM">Secured infrastructure against attack</a></li>
+                                <li><a routerLink="/solution/v9Tr2HSReshEXglN603y">Financial exchange connections</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- e-Government -->
+                        <li class="uk-parent">
+                            <a href="#" class="mobile-group-header">e-Government</a>
+                            <ul class="uk-nav-sub mobile-inner-subnav">
+                                <li><a routerLink="/solution/PJBrln5DGSupIWqjs03Y">Dedicated Government cloud node</a></li>
+                                <li><a routerLink="/solution/RnBSDi3fKPpcvdfjrr8r">Private communications</a></li>
+                                <li><a routerLink="/solution/bUkeL79XHUhhvEBNNugN">Private cloud as physical alternative</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
                 </li>
+
+                <!-- Clouds2Africa -->
+                <li>
+                    <a target="_blank" href="https://www.clouds2africa.com/">
+                        <span uk-icon="icon: cloud; ratio: 0.9" class="mobile-menu-icon"></span>
+                        <span>Clouds2Africa</span>
+                    </a>
+                </li>
+
+                <!-- Partner Program -->
+                <li>
+                    <a target="_blank" href="https://partners.angolacables.co.ao/">
+                        <span uk-icon="icon: users; ratio: 0.9" class="mobile-menu-icon"></span>
+                        <span>Partner Program</span>
+                    </a>
+                </li>
+
+                <!-- Network Latencies -->
+                <li>
+                    <a target="_blank" href="https://acservices.atlanticconnect.com.br/latencies/round-trip/">
+                        <span uk-icon="icon: bolt; ratio: 0.9" class="mobile-menu-icon"></span>
+                        <span>{{ 'menu-latencias' | translate }}</span>
+                    </a>
+                </li>
+
+                <!-- Company -->
+                <li>
+                    <a routerLink="/company">
+                        <span uk-icon="icon: info; ratio: 0.9" class="mobile-menu-icon"></span>
+                        <span>{{ 'menu-conheca' | translate }}</span>
+                    </a>
+                </li>
+
+                <!-- News & Media -->
+                <li>
+                    <a routerLink="/news">
+                        <span uk-icon="icon: news; ratio: 0.9" class="mobile-menu-icon"></span>
+                        <span>{{ 'news.media' | translate }}</span>
+                    </a>
+                </li>
+
+                <!-- Contact CTA Button -->
+                <li class="uk-margin-medium-top uk-margin-bottom">
+                    <a routerLink="/contact" class="mobile-contact-cta">
+                        <span uk-icon="icon: receiver; ratio: 0.9"></span>
+                        <span>Contact Us</span>
+                    </a>
+                </li>
+
             </ul>
         </div>
     </div>

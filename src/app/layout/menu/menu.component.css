@@ -3,7 +3,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    background: linear-gradient(180deg, #004f5b, #002561);
+    background: linear-gradient(135deg, #00565b 0%, #002561  45%, #008751 100%);
     background-color: #002561;
     backdrop-filter: blur(80px);
     -webkit-backdrop-filter: blur(80px);
@@ -241,37 +241,129 @@ select {
 
 /* Glassmorphic look for Offcanvas Bar */
 .uk-offcanvas-bar {
-    background-color: rgba(255, 255, 255, 0.1);
-    /* Semi-transparent white */
-    backdrop-filter: blur(20px);
-    /* Apply blur effect */
-    -webkit-backdrop-filter: blur(20px);
-    /* For Safari compatibility */
+    background: linear-gradient(180deg, #003822 0%, #002561 70%, #00122e 100%);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     border-right: 1px solid rgba(255, 255, 255, 0.2);
-    /* Subtle border for depth */
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    /* Shadow for lift */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
     color: #ffffff;
-    /* Ensure text is white for contrast */
+    width: min(350px, 88vw);
+    padding: 30px 20px;
+    overflow-y: auto;
 }
 
-/* Adjust Offcanvas navigation link colors for better readability on glassmorphic background */
+/* Adjust Offcanvas navigation link colors for better readability */
 #offcanvas-nav .uk-nav-default li a {
-    color: #ffffff !important;
-    /* Make sure links are white */
-    font-weight: bold;
-    /* Keep them bold for prominence */
+    color: rgba(255, 255, 255, 0.85);
     text-transform: none;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
-#offcanvas-nav .uk-nav-default li a:hover {
-    color: #e0e0e0 !important;
-    /* Slightly lighter white on hover */
+#offcanvas-nav .uk-nav-default li a:hover,
+#offcanvas-nav .uk-nav-default li.uk-active > a {
+    color: #1AB8DD !important;
 }
 
 #offcanvas-nav .uk-nav-header {
-    color: #e0e0e0;
-    /* Lighter color for headers */
+    color: #1AB8DD;
+    font-weight: bold;
+}
+
+#offcanvas-nav .mobile-menu-logo {
+    width: 160px;
+    height: auto;
+    max-width: 80%;
+    margin: 0 auto 10px auto;
+    display: inline-block;
+}
+
+#offcanvas-nav .mobile-section-header {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+    letter-spacing: 0.2px;
+}
+
+#offcanvas-nav .mobile-menu-icon {
+    color: #1AB8DD;
+    flex-shrink: 0;
+}
+
+#offcanvas-nav .mobile-subnav {
+    padding-left: 12px;
+    margin-left: 6px;
+    border-left: 2px solid rgba(26, 184, 221, 0.3);
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+
+#offcanvas-nav .mobile-group-header {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1AB8DD !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 0;
+}
+
+#offcanvas-nav .mobile-inner-subnav {
+    padding-left: 10px;
+    margin-left: 4px;
+    border-left: 1px dashed rgba(255, 255, 255, 0.2);
+    margin-top: 2px;
+    margin-bottom: 6px;
+}
+
+#offcanvas-nav .mobile-inner-subnav li a {
+    font-size: 13px;
+    font-weight: 400;
+    color: #cbd5e1 !important;
+    padding: 5px 0;
+    display: block;
+    line-height: 1.35;
+}
+
+#offcanvas-nav .mobile-inner-subnav li a:hover {
+    color: #38bdf8 !important;
+    transform: translateX(3px);
+}
+
+#offcanvas-nav .mobile-overview-link {
+    color: #38bdf8 !important;
+    font-weight: 600 !important;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    padding-bottom: 6px !important;
+    margin-bottom: 4px;
+}
+
+#offcanvas-nav .mobile-contact-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #008751 0%, #006838 50%, #004f5b 100%);
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 135, 81, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#offcanvas-nav .mobile-contact-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 135, 81, 0.5);
+    background: linear-gradient(135deg, #00a865 0%, #008751 100%);
+    color: #ffffff !important;
 }
 
 
@@ -326,16 +418,10 @@ select {
     }
 
     #offcanvas-nav .uk-offcanvas-bar {
-        width: 100%;
-        /* Re-apply glassmorphism for smaller screens */
-        background-color: rgb(4, 5, 51);
-        /* Slightly less transparent */
-        /*backdrop-filter: blur(20px); Slightly less blur for smaller screens
-        -webkit-backdrop-filter: blur(15px); */
-        border-right: 1px solid rgba(255, 255, 255, 0.3);
-        /* Slightly more prominent border */
-        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-        /* Adjusted shadow */
+        width: min(340px, 86vw);
+        background: linear-gradient(180deg, #003822 0%, #002561 70%, #00122e 100%);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.4);
     }
 
     #offcanvas-nav img {
@@ -372,11 +458,12 @@ select {
 /* Extra small screens (phones, 480px and below) */
 @media (max-width: 480px) {
     #offcanvas-nav .uk-offcanvas-bar {
-        width: 250px;
+        width: min(320px, 88vw);
+        padding: 24px 16px;
     }
 
-    #offcanvas-nav img {
-        width: 180px !important;
+    #offcanvas-nav .mobile-menu-logo {
+        width: 140px !important;
     }
 
     .uk-modal-dialog {

@@ -139,8 +139,7 @@
 }
 
 .fundo-contador {
-
-    background: linear-gradient(180deg, #004f5b, #002561);
+    background: linear-gradient(135deg, #008751 0%, #00565b 45%, #002561 100%);
     background-color: #002561;
     backdrop-filter: blur(80px);
     -webkit-backdrop-filter: blur(80px);

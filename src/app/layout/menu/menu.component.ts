@@ -63,12 +63,24 @@ closeDropdowns(): void {
   });
 
     // Close dropdowns on click inside
-  document.addEventListener('click', (event: Event) => {
-    const target = event.target as HTMLElement;
-    if (target.closest('.uk-navbar-dropdown a')) {
-      this.closeDropdowns();
-    }
-  });
+    document.addEventListener('click', (event: Event) => {
+      const target = event.target as HTMLElement;
+      if (target.closest('.uk-navbar-dropdown a')) {
+        this.closeDropdowns();
+      }
+
+      // Close mobile offcanvas drawer on navigation link click (ignoring accordion toggles href="#")
+      const navLink = target.closest('#offcanvas-nav a') as HTMLAnchorElement | null;
+      if (navLink) {
+        const href = navLink.getAttribute('href');
+        const hasRouterLink = navLink.hasAttribute('routerLink') || navLink.hasAttribute('ng-reflect-router-link');
+        if (hasRouterLink || (href && href !== '#' && !href.startsWith('javascript:'))) {
+          if (typeof UIkit !== 'undefined' && UIkit.offcanvas) {
+            UIkit.offcanvas('#offcanvas-nav')?.hide();
+          }
+        }
+      }
+    });
   
     this.auth.isAuthenticated$.subscribe(isAuthenticated => {
       if (isAuthenticated) {
