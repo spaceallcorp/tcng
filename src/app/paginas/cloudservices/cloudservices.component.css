@@ -292,37 +292,12 @@
   margin: 0 0 18px 0 !important;
 }
 
-.service-description-box {
-  background: rgba(0, 79, 91, 0.04);
-  border-left: 3px solid #1AB8DD;
-  padding: 16px 20px;
-  border-radius: 0 12px 12px 0;
-  margin-bottom: 24px;
-}
-
-.service-text-highlight {
-  color: #334155;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin: 0 !important;
-}
-
-.service-text-highlight + .service-text-highlight {
-  margin-top: 10px !important;
-}
-
-.service-text-highlight strong {
-  color: #002561;
-}
-
 /* Industry Tags */
 .industry-section {
   margin-bottom: 24px;
 }
 
-.industry-label,
-.benefits-label,
-.accordion-header-label {
+.industry-label {
   display: block;
   font-size: 0.78rem;
   font-weight: 700;
@@ -357,181 +332,6 @@
   border-color: rgba(26, 184, 221, 0.45);
   color: #002561;
   transform: translateY(-1px);
-}
-
-/* Benefits List */
-.benefits-section {
-  margin-bottom: 28px;
-}
-
-.benefits-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 !important;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.benefits-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  color: #334155;
-  font-size: 0.93rem;
-  line-height: 1.5;
-  margin: 0 !important;
-}
-
-.benefit-check {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: rgba(26, 184, 221, 0.15);
-  color: #007c91;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-
-/* Talk to Expert Button */
-.service-action-wrap {
-  margin-top: 8px;
-}
-
-.btn-talk-expert {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 13px 30px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #008751 0%, #00565b 45%, #002561 100%);
-  color: #ffffff !important;
-  font-size: 0.95rem;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 6px 20px rgba(0, 135, 81, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.btn-talk-expert .btn-arrow {
-  color: #38e49b;
-  transition: transform 0.25s ease;
-}
-
-.btn-talk-expert:hover {
-  background: linear-gradient(135deg, #00a865 0%, #008751 60%, #004f5b 100%);
-  color: #ffffff !important;
-  box-shadow: 0 10px 28px rgba(0, 135, 81, 0.4);
-  transform: translateY(-2px);
-  border-color: #38e49b;
-}
-
-.btn-talk-expert:hover .btn-arrow {
-  color: #ffffff;
-  transform: translateX(4px);
-}
-
-/* =========================================================
-   RIGHT COLUMN: ACCORDION ARCHITECTURE
-========================================================= */
-.accordion-container {
-  padding-left: 10px;
-}
-
-.glass-accordion-item {
-  background: #f8fafc;
-  border: 1px solid rgba(0, 37, 97, 0.08);
-  border-radius: 16px !important;
-  margin-bottom: 14px !important;
-  overflow: hidden;
-  transition: all 0.25s ease;
-}
-
-.glass-accordion-item:hover {
-  border-color: rgba(26, 184, 221, 0.4);
-  box-shadow: 0 6px 20px rgba(0, 37, 97, 0.05);
-}
-
-.glass-accordion-item.uk-open {
-  background: #ffffff;
-  border-color: rgba(26, 184, 221, 0.5);
-  box-shadow: 0 8px 24px rgba(0, 37, 97, 0.08);
-}
-
-.glass-accordion-item .uk-accordion-title {
-  padding: 18px 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-decoration: none;
-  background: transparent;
-  margin: 0 !important;
-}
-
-.acc-title-text {
-  color: #002561;
-  font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: -0.2px;
-  transition: color 0.2s ease;
-}
-
-.glass-accordion-item.uk-open .acc-title-text {
-  color: #004f5b;
-}
-
-.acc-chevron {
-  color: #64748b;
-  transition: transform 0.3s ease, color 0.2s ease;
-}
-
-.glass-accordion-item.uk-open .acc-chevron {
-  transform: rotate(180deg);
-  color: #1AB8DD;
-}
-
-.glass-accordion-item .uk-accordion-content {
-  padding: 0 22px 22px 22px;
-  margin: 0 !important;
-  color: #475569;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.glass-accordion-item .uk-accordion-content p {
-  margin: 0 0 14px 0 !important;
-}
-
-.feature-bullets {
-  list-style: none;
-  padding: 0;
-  margin: 0 !important;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.feature-bullets li {
-  position: relative;
-  padding-left: 18px;
-  color: #334155;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin: 0 !important;
-}
-
-.feature-bullets li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  top: -1px;
-  color: #1AB8DD;
-  font-size: 1.3rem;
-  font-weight: bold;
 }
 
 /* Scroll Offset for Fragments */
@@ -576,11 +376,6 @@
 
   .service-card-body {
     padding: 26px 20px;
-  }
-
-  .accordion-container {
-    padding-left: 0;
-    margin-top: 20px;
   }
 }
 
@@ -756,32 +551,6 @@
   font-size: 0.95rem;
   line-height: 1.65;
   margin: 0 0 16px 0 !important;
-}
-
-.recommended-box {
-  background: #ffffff;
-  border-left: 3px solid #008751;
-  border-radius: 0 12px 12px 0;
-  padding: 14px 18px;
-  border-top: 1px solid rgba(0, 37, 97, 0.06);
-  border-right: 1px solid rgba(0, 37, 97, 0.06);
-  border-bottom: 1px solid rgba(0, 37, 97, 0.06);
-}
-
-.recommended-label {
-  display: block;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  color: #008751;
-  margin-bottom: 4px;
-}
-
-.recommended-text {
-  font-size: 0.88rem;
-  color: #475569;
-  line-height: 1.55;
-  margin: 0 !important;
 }
 
 /* Featured Big Numbers / Metrics Grid */
